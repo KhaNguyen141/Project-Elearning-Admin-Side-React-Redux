@@ -1,0 +1,11 @@
+.form-message {
+    margin-top: $mg-1;
+}
+
+.messageValid {
+    @include text-style($color-green-0, $fs-0, $fw-bold-0)
+}
+
+.messageInvalid {
+    @include text-style($color-red-0, $fs-0, $fw-bold-0)
+}
