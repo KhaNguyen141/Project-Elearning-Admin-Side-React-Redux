@@ -42,6 +42,8 @@ class App extends Component {
       
       this.props.dispatch( reduxAction( ADMIN_LOGIN, JSON.parse(adminLoginStr) )  );
 
+      document.body.style.background = "#c49e00";
+
     }
   }
 }

@@ -1,0 +1,57 @@
+.adminLoginBox {
+    height: 100%;
+    align-content: center;
+    margin-top: 18rem;
+    .card {
+        height: 370px;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 400px;
+        background-color: $color-white-0 !important;
+    }
+    .card-header {
+        color: $color-white-0;
+        h3 {
+            @include text-style($color-black-0, $fs-3 + 7, $fw-bold)
+        }
+
+        p {
+            @include text-style($color-black-0, $fs-2, $fw-bold)
+        }
+    }
+
+    .card-body {
+        .formSearch {
+            .inputContainer {
+                width: 80%;
+                margin: auto;
+
+                .input-group-prepend, span {
+                    width: 40px;
+                    background-color: $color-yellow-1;
+                    padding-left: 3.5%;
+                    
+                    color: $color-black-0;
+                    border:0 !important;
+                }
+                .form-control {
+                    margin: auto;
+                    outline: 0 0 0 0  !important;
+                    box-shadow: 0 0 0 0 !important;
+                }
+            }
+            .login_btn {    
+                margin-top: $mg-2 + 5;
+                margin-right: $mg-3 - 3;
+                color: $color-white-0;
+                background-color: $color-yellow-1;
+                width: 100px;
+                &:hover {
+                    color: $color-white-0;
+                    background-color: $color-yellow-6;
+                }
+            }
+            
+        }
+    }
+}
