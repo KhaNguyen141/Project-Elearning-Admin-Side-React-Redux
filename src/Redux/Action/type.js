@@ -1,0 +1,4 @@
+//User
+export const ADMIN_LOGIN = 'ADMIN_LOGIN';
+export const UPDATE_ADMIN_PROFILE = 'UPDATE_ADMIN_PROFILE';
+

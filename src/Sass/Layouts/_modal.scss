@@ -1,0 +1,31 @@
+.modal-header {
+    .modalClose {
+        @include text-style($color-black-light, $fs-4 + 5, $fw-normal)
+    }
+}
+
+.modal-body {
+    .formSearch {
+        .form-control {
+            @include text-style($color-gray-2, $fs-2, $fw-normal);
+            margin-bottom: $pd-2;
+        }
+        .btn-udi-yellow {
+            width: 100%;
+            @include text-style($color-black-0, $fs-2, $fw-bold-0);
+            &:hover {
+                @include text-style($color-white-0, $fs-2, $fw-bold-0);
+            }
+        }
+        .modalTerm {
+            text-align: center;
+        }
+    }
+    .modal-footer {
+        margin-top: $mg-2;
+    }
+
+    .modalTerm {
+        padding-top: $pd-2
+    }
+}

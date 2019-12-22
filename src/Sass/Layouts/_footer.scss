@@ -1,0 +1,44 @@
+.footer__container { 
+    margin-top: auto;
+    z-index: 1;
+    position: absolute;
+    bottom: -5rem;
+    left: 20%;
+    
+    .footer__bottom {
+        margin: $mg-2 + 5 auto;
+        .footer__left {
+            img {
+            max-width: 110px;
+            height: auto;
+        }
+        span {
+            align-self: center;
+        }
+        }
+        
+        .footer__right {
+            text-align: right;
+            a {
+                @include text-style($color-blue, $fs-1, $fw-normal);
+                &:hover {
+                    @include text-style($color-black-0, $fs-1, $fw-normal);
+                    text-decoration: none;
+                }
+            }
+            
+        }
+    }  
+    
+    // RESPONSIVES
+    @include mediaQuery('medium') {
+        .footer__bottom {
+            .footer__left {
+                @include text-style($color-black-0, $fs-1 - 2, $fw-normal);
+
+            }
+    }
+
+}
+
+}
