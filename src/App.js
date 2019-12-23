@@ -17,7 +17,7 @@ class App extends Component {
     const notFoundPage = () => (
       <div className="container contentNotFound">
         <h1>Content is not found</h1>
-        <Link className="btn btn-success" to="/home">Back to home</Link>
+        <Link className="btn btn-success" to="/admin">Back to home</Link>
       </div>
     )
     

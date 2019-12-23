@@ -29,8 +29,8 @@
                 .input-group-prepend, span {
                     width: 40px;
                     background-color: $color-yellow-1;
-                    padding-left: 3.5%;
-                    
+                    padding-left: 3.5%; 
+
                     color: $color-black-0;
                     border:0 !important;
                 }
@@ -38,6 +38,8 @@
                     margin: auto;
                     outline: 0 0 0 0  !important;
                     box-shadow: 0 0 0 0 !important;
+                    border: 1.5px solid $color-gray-6;
+                    border-left: 0;
                 }
             }
             .login_btn {    

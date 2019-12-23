@@ -1,0 +1,172 @@
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+    .mainMenu {
+        letter-spacing: 0.1em;
+        @include text-style($color-gray-2, $fs-0, $fw-normal);
+        padding-left: $pd-2
+    }
+  }
+  
+  .page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+  }
+  
+  /* for toggle behavior */
+  
+  #sidebar.active {
+    margin-left: -17rem;
+  }
+  
+  #content.active {
+    width: 100%;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    #sidebar {
+      margin-left: -17rem;
+    }
+    #sidebar.active {
+      margin-left: 0;
+    }
+    #content {
+      width: 100%;
+      margin: 0;
+    }
+    #content.active {
+      margin-left: 17rem;
+      width: calc(100% - 17rem);
+    }
+  }
+
+  #sidebarCollapse {
+      margin-left: $mg-2;
+  }
+  
+  .separator {
+    margin: 3rem $mg-2;
+    border-bottom: 1px dashed #fff;
+  }
+
+  .homeContentContainer { 
+      margin: 0 $mg-3;
+      .chartContainer {
+        padding: $pd-6 $pd-2;
+        .chartFramework {
+            margin-left: 20px;
+            width: 100%;
+        
+        }
+        .chartInfoContainer {
+            .TotalInfo {
+              h3 {
+                  @include text-style($color-purple-0,  $fs-3, $fw-normal);
+              }
+      
+              p {
+                  @include text-style($color-purple-0, $fs-0, $fw-normal);
+              }
+    
+              .progressContainerBar {
+                background-color: $color-gray-7;
+                height: 5px;
+                width: 90%;
+                margin-bottom: $mg-1 + 5;
+                .progressBar {
+                      height: 5px;
+                      width: 100%;
+                      background-color: $color-purple-0;
+                  }
+                }
+          
+          }
+      
+          .ReactInfo {
+              h3 {
+                  @include text-style($color-red-0, $fs-3, $fw-normal);
+              }
+      
+              p {
+                  @include text-style($color-red-0, $fs-0, $fw-normal);
+              }
+    
+              .progressContainerBar {
+                background-color: $color-gray-7;
+                height: 5px;
+                width: 90%;
+                margin-bottom: $mg-1 + 5;
+                .progressBar {
+                      height: 5px;
+                      width: 45%;
+                      background-color: $color-red-0;
+                  }
+                }
+          }
+      
+          .AngularInfo {
+              h3 {
+                  @include text-style($color-blue-0, $fs-3, $fw-normal);
+              }
+      
+              p {
+                  @include text-style($color-blue-0, $fs-0, $fw-normal);
+              }
+    
+              .progressContainerBar {
+                background-color: $color-gray-7;
+                height: 5px;
+                width: 90%;
+                margin-bottom: $mg-1 + 5;
+                .progressBar {
+                      height: 5px;
+                      width: 35%;
+                      background-color: $color-blue-0;
+                  }
+                }
+          }
+      
+          .VueInfo {
+              h3 {
+                  @include text-style($color-green-0, $fs-3, $fw-normal);
+              }
+      
+              p {
+                  @include text-style($color-green-0, $fs-0, $fw-normal);
+              }
+    
+              .progressContainerBar {
+                background-color: $color-gray-7;
+                height: 5px;
+                width: 90%;
+                margin-bottom: $mg-1 + 5;
+                .progressBar {
+                      height: 5px;
+                      width: 20%;
+                      background-color: $color-green-0;
+                  }
+                }
+          }
+        }
+      
+      }
+
+      .tableUserContainer {
+        margin-top: $mg-3;
+        .tableListUser {
+            padding: $pd-3 $pd-7;
+          }
+      }
+      
+  }
+
+
+  
