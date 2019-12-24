@@ -47,12 +47,12 @@ export const adminLoginAction = (adminLogin) => {
   };
 };
 
-export const userProfileUpdate = (adminProfileUpdate) => {
+export const adminProfileUpdate = (adminProfileUpdate) => {
   return dispatch => {
       userService
-      .userProfileUpdate(adminProfileUpdate)
+      .adminProfileUpdate(adminProfileUpdate)
       .then(res => {
-        localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
+        localStorage.setItem(settings.adminLogin, JSON.stringify(res.data));
         dispatch(reduxAction(ADMIN_UPDATE_USER, res.data));
         console.log(res.data);
         Swal.fire(

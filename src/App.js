@@ -8,8 +8,11 @@ import { restConnector } from "./Services";
 // import Layout
 import HomeScreen from "./Screens/Home/home";
 import ProfileDetail from "./Screens/Profile/ProfileDetail";
+import NavigationBarComponent from "./Components/navigationBar"
+import managementsComponent from "./Screens/Managements/managements"
 
 import { ADMIN_LOGIN } from "./Redux/Action/type";
+import LoginBox from "./Layouts/LoginBox";
 
 class App extends Component {
   render() {
@@ -21,14 +24,19 @@ class App extends Component {
     )
     
     return (
+      <BrowserRouter> 
       
-      <BrowserRouter>
+        {this.props.credentials &&
+          <NavigationBarComponent />
+        }
         <Switch>
             <Route exact path="/admin" component={HomeScreen} />
             <Route exact path="/admin/detail" component={ProfileDetail} />
+            <Route exact path="/admin/course-manage" component={managementsComponent} />
             <Route component={notFoundPage} />
-            <Route exact path="/" component={HomeScreen} />
+            <Route exact path="/admin" component={LoginBox} />
         </Switch>
+
       </BrowserRouter>
     );
   }
@@ -46,4 +54,9 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+const mapStateToProps = (state) => ({
+  credentials: state.adminReducer.credentials,
+
+})
+
+export default connect(mapStateToProps)(App);

@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux';
-import { userProfileUpdate } from '../../Redux/Action/User/AdminActions';
+import {adminProfileUpdate } from '../../Redux/Action/User/AdminActions';
 
 import {validationSchema} from '../../Layouts/Validation/ValidationForm';
 import { Formik, Field, Form } from 'formik';
@@ -19,36 +19,21 @@ const ProfileDetail = () => {
             matKhau: "",
             hoTen: adminInfo.hoTen,
             soDT: adminInfo.soDT,
-            maLoaiNguoiDung: "HV",
-            maNhom: "GP01",
+            maLoaiNguoiDung: "GV",
+            maNhom: "GP09",
             email: adminInfo.email
         }}
 
         validationSchema={validationSchema}
         onSubmit={values  => {
             
-            dispatch(userProfileUpdate(values))
+            dispatch(adminProfileUpdate(values))
         }}
         >
         {({values, errors, touched, handleChange}) => (
-        <div className="container">
+        <div className="profileContainer">
             <div className="row">
-                <div className="col-3">
-                    <div className="card" style={{ width: '18rem' }}>
-                        <img src="https://blog.techiehunter.org/wp-content/uploads/2018/09/product_16032_product_shot_wide_image.jpg" className="card-img-top" alt="profile picture" />
-                        <div className="card-body">
-                            <h5 className="card-title"></h5>
-                            <div>
-                                <a href="#">Profile</a>
-                            </div>
-                            <div>
-                                <a href="#">Course Registered</a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div className="col-9">
+                <div className="col-12">
                     <div className="card text-center">
                     
                     <Form className="formSearch">
@@ -135,10 +120,9 @@ const ProfileDetail = () => {
     </div> 
     )}
     </Formik>
-
     );
 
 
 };
 
-export default ProfileDetail;
+export default (ProfileDetail);

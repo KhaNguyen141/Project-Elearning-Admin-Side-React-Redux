@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 // import Component
-import NavigationBarComponent from '../../Components/navigationBar';
 import LoginBox from '../../Layouts/LoginBox';
 
 // import SCSS
@@ -13,13 +12,10 @@ import "../../App.scss";
 
  class HomeScreen extends Component {
   render() {
-    const {taiKhoan, matKhau} = this.props.credentials;
-
     return (
       <div>
         {this.props.credentials ? (
           <div>
-            <NavigationBarComponent />
             {/* Page content holder */}
             <div className="page-content p-5" id="content">
               {/* Toggle button */}

@@ -61,9 +61,24 @@
     }
 }
 
-@mixin width70 ($width, $margin) {
+@mixin contentSchema () {
     width: $w-70;
-    margin: $mg-auto;
+    margin-left: 28rem;
+    margin-right: 28rem;
+    margin-top: 10rem;
+}
+
+@mixin contentSchemaTop () {
+  width: $w-50;
+  margin-left: 28rem;
+  margin-right: 28rem;
+  margin-top: 7rem;
+}
+
+@mixin contentSchemaBottom () {
+  width: $w-70;
+  margin: 15rem 28rem;
+  margin-top: 10rem;
 }
 
 @mixin card-format ($spacing, $overflow, $text-overflow) {

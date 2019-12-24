@@ -23,22 +23,22 @@ class NavigationBarComponent extends Component {
             <p className="mainMenu">Main</p>
             <ul className="nav flex-column bg-white mb-0">
               <li className="nav-item">
-                <a href="#" className="nav-link textMenu font-italic">
+                <NavLink to="/admin" className="nav-link textMenu font-italic">
                   <HomeIcon className="menuIcon mr-3" />
                   Home
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link textMenu font-italic">
+                <NavLink to="/admin/detail" className="nav-link textMenu font-italic">
                   <PermContactCalendarIcon className="menuIcon mr-3" />
                   About
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link textMenu font-italic">
+                <NavLink to="/admin/course-manage" className="nav-link textMenu font-italic">
                   <i className="menuIcon fa fa-cubes mr-3" />
                   Courses Management
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
                 <a href="#" className="nav-link textMenu font-italic">
@@ -48,7 +48,6 @@ class NavigationBarComponent extends Component {
               </li>
 
               <li className="nav-item">
-                {this.props.redirect}
                 <a onClick={this.handleLogout} className="nav-link textMenu font-italic">
                   <ExitToAppIcon className="menuIcon SignOutIcon mr-3" />
                   Logout
@@ -61,7 +60,8 @@ class NavigationBarComponent extends Component {
 
     handleLogout = () => {
       localStorage.removeItem("adminLogin");
-      window.location.reload();
+      this.props.history.replace('/admin');
+      window.location.reload('/admin');
     }
 }
 
