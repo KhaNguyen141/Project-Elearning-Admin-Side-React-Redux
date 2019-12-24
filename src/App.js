@@ -7,7 +7,6 @@ import { restConnector } from "./Services";
 
 // import Layout
 import HomeScreen from "./Screens/Home/home";
-import LoginBox from './Layouts/LoginBox'
 import ProfileDetail from "./Screens/Profile/ProfileDetail";
 
 import { ADMIN_LOGIN } from "./Redux/Action/type";
@@ -25,24 +24,23 @@ class App extends Component {
       
       <BrowserRouter>
         <Switch>
-            <Route exact path="/admin/home" component={HomeScreen} />
-            <Route exact path="/admin" component={LoginBox} />
+            <Route exact path="/admin" component={HomeScreen} />
             <Route exact path="/admin/detail" component={ProfileDetail} />
             <Route component={notFoundPage} />
-            <Route exact path="/" component={LoginBox} />
+            <Route exact path="/" component={HomeScreen} />
         </Switch>
       </BrowserRouter>
     );
   }
   componentDidMount() {
+    document.body.style.background = "#c49e00";
+    
     const adminLoginStr = localStorage.getItem("adminLogin");
     const adminAccessToken = localStorage.getItem('accessToken');
     if (adminLoginStr && adminAccessToken) {
       restConnector.defaults.headers['Authorization'] = "Bearer " + adminAccessToken
       
       this.props.dispatch( reduxAction( ADMIN_LOGIN, JSON.parse(adminLoginStr) )  );
-
-      document.body.style.background = "#c49e00";
 
     }
   }

@@ -24,7 +24,7 @@ const LoginBox = () => {
                 <div className="d-flex justify-content-center h-100">
                     <div className="card">
                         <div className="card-header">
-                            <h3 className="text-center">Admin Login</h3>
+                            <h3 className="text-center">Administrator area</h3>
                             <div>
                                 <p className="welcomeLogin text-center">Welcome! Please sign In.</p>
                             </div>

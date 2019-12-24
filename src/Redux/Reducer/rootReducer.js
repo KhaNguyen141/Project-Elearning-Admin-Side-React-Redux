@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
 // Admin
-import AdminReducer from "./User/userReducer";
+import AdminReducer from "./User/adminReducer";
 
 const RootReducer = combineReducers({
   //toàn bộ state

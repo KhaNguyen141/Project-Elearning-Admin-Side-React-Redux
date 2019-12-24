@@ -1,0 +1,41 @@
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+    .mainMenu {
+        letter-spacing: 0.1em;
+        @include text-style($color-gray-2, $fs-0, $fw-normal);
+        padding-left: $pd-2
+    }
+
+    .nav {
+        .nav-item {
+            .textMenu {
+                cursor: pointer;
+                color: $color-black-0;
+                &:hover {
+                    color: $color-white-0;
+                    transition: 0.5s all;
+                    .menuIcon { 
+                        color: $color-white-0;
+                        transition: 0.5s all;
+                    }
+                }
+            }
+
+            .menuIcon {
+                color: $color-yellow-1;
+            }
+            
+            &:hover {
+                background-color: $color-yellow-6;
+                transition: 0.5s all;
+            }
+        }
+    }
+  }

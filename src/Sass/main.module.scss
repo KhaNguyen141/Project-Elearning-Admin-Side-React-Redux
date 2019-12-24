@@ -23,8 +23,9 @@
 @import '../Sass/Components/errorMessage';
 
 // Layout
+@import '../Sass/Layouts/navigationBar.scss';
 @import '../Sass/Layouts/loginBox.scss';
-@import '../Sass/Layouts/testLayout.scss';
+@import '../Sass/Layouts/home.scss';
 
 // Customize
 @import '../Sass/Base/customize';
