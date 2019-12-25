@@ -23,7 +23,7 @@
 }
 
 .btn-cyber-red {
-    width: $w-30;
+    width: $w-25;
     @include button-style($color-red-0, $color-red-0, $pd-1 + 1, $pd-1 + 2,$border-radius);
     @include text-style($color-white-0,$fs-0,$fw-normal);
     &:hover{

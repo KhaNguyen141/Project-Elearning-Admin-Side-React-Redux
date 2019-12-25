@@ -1,4 +1,21 @@
-.tableCoursePending {
-    @include contentSchemaTop();
-    background-color: $color-white-0;
+.inputTableSearch {
+    padding-top: $pd-12;
+    position: absolute;
+    left: 20%;
+    width: 70%;
+    
 }
+.table td, .table th {
+    vertical-align: 0%;
+ 
+}
+
+.tableContainer {
+    display: flex;
+    justify-content: space-between;
+    .tableUserList {
+        @include contentSchemaTop ();
+    }
+    
+}
+

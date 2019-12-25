@@ -1,4 +1,4 @@
-import { ADMIN_LOGIN, ADMIN_UPDATE_USER } from "../type";
+import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -68,9 +68,22 @@ export const adminProfileUpdate = (adminProfileUpdate) => {
           text: 'Vui lòng thử lại!'
         })
       })
-
-
   }
 }
+
+
+export const fetchListUser = () => {
+  return dispatch => {
+      userService
+      .fetchListUser()
+      .then(res => {
+        dispatch(reduxAction(LIST_USERS, res.data));
+        console.log(res.data);
+      }).catch(error => {
+        console.log(error.response.data)
+      })
+  }
+}
+
 
 

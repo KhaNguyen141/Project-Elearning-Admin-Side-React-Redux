@@ -65,20 +65,28 @@
     width: $w-70;
     margin-left: 28rem;
     margin-right: 28rem;
-    margin-top: 10rem;
+    
 }
 
 @mixin contentSchemaTop () {
-  width: $w-50;
-  margin-left: 28rem;
-  margin-right: 28rem;
-  margin-top: 7rem;
+  position: absolute;
+  text-align: center;
+  top: 18%;
+  left: 20%;
+  width: 70%;
+  margin: $mg-3 0;
+  background-color: $color-white-0;
 }
 
 @mixin contentSchemaBottom () {
-  width: $w-70;
-  margin: 15rem 28rem;
-  margin-top: 10rem;
+  position: absolute;
+  text-align: center;
+  top: 18%;
+  left: 60%;
+  width: 35%;
+  margin-top: $mg-2;
+  margin-left: $mg-3;
+  background-color: $color-white-0;
 }
 
 @mixin card-format ($spacing, $overflow, $text-overflow) {

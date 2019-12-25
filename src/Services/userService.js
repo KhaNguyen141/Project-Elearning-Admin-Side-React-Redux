@@ -21,6 +21,13 @@ class UserService {
         });
     }
 
+    fetchListUser() {
+        return restConnector({
+            method: "GET",
+            url: "/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP02",
+        })
+    }
+
     
 }
 
