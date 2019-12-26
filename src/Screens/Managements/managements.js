@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TableCoursePending from '../../Layouts/TableCoursePending'
 
-class managementsComponent extends Component {
+class ManagementsComponent extends Component {
     render() {
         return (
             <div>
@@ -13,4 +13,4 @@ class managementsComponent extends Component {
     }
 }
 
-export default (managementsComponent);
+export default (ManagementsComponent);

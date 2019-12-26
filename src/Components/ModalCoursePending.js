@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchCoursePending } from '../Redux/Action/Course/CourseActions';
+import { adminApproveCourses } from '../Redux/Action/User/AdminActions';
 
-class ModalCourseList extends Component {
+class ModalCoursePending extends Component {
     render() {
-
+        
+        const {taiKhoan} = this.props.user;
+        console.log(this.props.courseListPending)
+        
         return (
             <div>
-                <div className="modal fade" id="modelID" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                <div className="modal fade" id="modalCoursePending" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                     <div className="modal-dialog modal-xl" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -27,19 +30,20 @@ class ModalCourseList extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {this.props.courseListPending.map((item, index) => {
-                                            return (
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>{item.maKhoaHoc}</td>
-                                                    <td>{item.tenKhoaHoc}</td>
-                                                    <td className="text-center">
-                                                        <button className="btn btn-udi-yellow mr-2">Approve</button>
-                                                        <button className="btn btn-cyber-red mr-2">Cancel</button>
-                                                    </td>
-                                                </tr>
+                                            {this.props.courseListPending.map((item, index) => {
+                                                return (
+                                                    <tr key={index}>
+                                                        <td>1</td>
+                                                        <td>{item.maKhoaHoc}</td>
+                                                        <td>{item.tenKhoaHoc}</td>
+                                                        <td className="text-center">
+                                                            <button onClick={() => this.handleApproveCourse(item.maKhoaHoc, taiKhoan)} className="btn btn-udi-yellow mr-2">Approve</button>
+                                                            <button className="btn btn-cyber-red mr-2">Cancel</button>
+                                                        </td>
+                                                    </tr>
                                                 )
                                             })}
+                                          
                                     </tbody>
                                 </table>
                             </div>
@@ -50,12 +54,17 @@ class ModalCourseList extends Component {
 
         )
     }
+    handleApproveCourse(maKhoaHoc, taiKhoan) {
+        this.props.dispatch(adminApproveCourses(maKhoaHoc, taiKhoan));
+       
+    }
     
 }
 
 const mapStateToProps = (state) => ({
+    userList: state.userReducer.userList,
     courseListPending: state.courseReducer.courseListPending,
-    checkAdmin: state.adminReducer.credentials,
+   
 })
 
-export default connect(mapStateToProps)(ModalCourseList);
+export default connect(mapStateToProps)(ModalCoursePending);

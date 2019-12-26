@@ -28,6 +28,19 @@ class UserService {
         })
     }
 
+    adminApproveCourses (maKhoaHoc, taiKhoan) {
+        return restConnector({
+            method: "POST",
+            url: "/api/QuanLyKhoaHoc/GhiDanhKhoaHoc",
+            header: { 
+                'Authorization': "Bearer " + settings.token },
+            data: {
+                maKhoaHoc: maKhoaHoc,
+                taiKhoan: taiKhoan
+            }
+            
+        })
+    }
     
 }
 

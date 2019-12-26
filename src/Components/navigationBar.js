@@ -35,16 +35,16 @@ class NavigationBarComponent extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/admin/course-manage" className="nav-link textMenu font-italic">
+                <NavLink to="/admin/list-manage" className="nav-link textMenu font-italic">
                   <i className="menuIcon fa fa-cubes mr-3" />
-                  Courses Management
+                  List Management
                 </NavLink>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link textMenu font-italic">
+                <NavLink to="/admin/course-manage" className="nav-link textMenu font-italic">
                   <i className="menuIcon fa fa-picture-o mr-3" />
-                  Student Management
-                </a>
+                  Course Management
+                </NavLink>
               </li>
 
               <li className="nav-item">

@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import ModalCourseList from "../Components/ModalCourseList";
+import ModalCoursePending from "../Components/ModalCoursePending";
+import ModalCourseAcceptedComponent from "../Components/ModalCourseAccepted"
 import { fetchListUser } from '../Redux/Action/User/AdminActions';
-import { fetchCoursePending } from '../Redux/Action/Course/CourseActions';
+import { fetchCoursePending, fetchCourseAccepted } from '../Redux/Action/Course/CourseActions';
 
 class TableCoursePending extends Component {
     render() {
         return (
             <div>
                 <div className="inputTableSearch d-flex">
-                    <input className="form-control" name="searchUser" value="tra cứu tên người dùng" />
+                    <input className="form-control" name="searchUser" />
                     <div className="d-flex">
                         <button className="btn btn-success">Search</button>
                     </div>
@@ -37,13 +38,19 @@ class TableCoursePending extends Component {
                                             <td>{user.hoTen}</td>
                                             <td>{user.email}</td>
                                             <td>{user.soDt}</td>
-                                            <td className="text-center">
+                                            <td>
                                                 <button
-                                                    onClick={() => this.handleClick(user.taiKhoan)}
+                                                    onClick={() => this.handleFetchCoursePending(user.taiKhoan)}
                                                     className="btn btn-udi-yellow mr-2"
                                                     data-toggle="modal"
-                                                    data-target="#modelID">Approve</button>
-                                                    <ModalCourseList />
+                                                    data-target="#modalCoursePending">Pending</button>
+                                                    <ModalCoursePending user={user}/>
+                                                <button
+                                                    onClick={() => this.handleFetchCourseAccepted(user.taiKhoan)}
+                                                    className="btn btn-udi-yellow mr-2"
+                                                    data-toggle="modal"
+                                                    data-target="#modalCourseAccepted">Accepted</button>
+                                                    <ModalCourseAcceptedComponent />
                                             </td>
                                         </tr>
                                     )
@@ -59,17 +66,23 @@ class TableCoursePending extends Component {
     }
     componentDidMount () {
         this.props.dispatch(fetchListUser())
+    
     }
 
-    handleClick = (taiKhoan) => {
+    handleFetchCoursePending = (taiKhoan) => {
         this.props.dispatch(fetchCoursePending(taiKhoan))
+    }
+
+    handleFetchCourseAccepted = (taiKhoan) => {
+        this.props.dispatch(fetchCourseAccepted(taiKhoan))
     }
 }
 
 const mapStateToProps = (state) => ({
     userList: state.userReducer.userList,
     courseListPending: state.courseReducer.courseListPending,
-    checkAdmin: state.adminReducer.credentials,
+    courseListAccepted: state.courseReducer.courseListAccepted,
+   
 })
 
 export default connect(mapStateToProps)(TableCoursePending);

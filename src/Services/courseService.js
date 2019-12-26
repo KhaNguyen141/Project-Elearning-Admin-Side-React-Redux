@@ -11,6 +11,18 @@ class CourseService {
                 header: settings.token,
             },
         });
+        
+    }
+
+    fetchCourseAccepted(taiKhoan) {
+        return restConnector({
+            method: "POST",
+            url: "/api/QuanLyNguoiDung/LayDanhSachKhoaHocDaXetDuyet",
+            data: {
+                taiKhoan: taiKhoan,
+                header: settings.token,
+            },
+        });
     }
     
 }

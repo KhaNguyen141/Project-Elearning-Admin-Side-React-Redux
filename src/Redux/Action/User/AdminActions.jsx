@@ -1,4 +1,4 @@
-import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS } from "../type";
+import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -85,5 +85,27 @@ export const fetchListUser = () => {
   }
 }
 
+export const adminApproveCourses = (maKhoaHoc, taiKhoan) => {
+  return dispatch => {
+      userService
+      .adminApproveCourses(maKhoaHoc, taiKhoan)
+      .then(res => {
+        dispatch(reduxAction(ADMIN_APPROVE_COURSE, res.data));
+        console.log(res.data);
+        Swal.fire(
+          'Duyệt khoá học thành công!',
+          '',
+          'success'
+        )
+      }).catch(error => {
+        console.log(error.response.data)
+        Swal.fire({
+          icon: 'error',
+          title: 'Duyệt khoá học thất bại',
+          text: 'Khoá học đã được ghi danh rồi!',
+        })
+      })
+  }
+}
 
 
