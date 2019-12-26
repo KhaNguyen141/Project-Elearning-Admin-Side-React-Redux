@@ -1,4 +1,4 @@
-import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE } from "../type";
+import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -103,6 +103,29 @@ export const adminApproveCourses = (maKhoaHoc, taiKhoan) => {
           icon: 'error',
           title: 'Duyệt khoá học thất bại',
           text: 'Khoá học đã được ghi danh rồi!',
+        })
+      })
+  }
+}
+
+export const adminAddNewCourse = (data) => {
+  return dispatch => {
+      userService
+      .adminAddNewCourse(data)
+      .then(res => {
+        dispatch(reduxAction(ADMIN_ADD_NEW_COURSE, res.data));
+        console.log(res.data);
+        Swal.fire(
+          'Thêm khoá học mới thành công!',
+          '',
+          'success'
+        )
+      }).catch(error => {
+        console.log(error.response.data)
+        Swal.fire({
+          icon: 'error',
+          title: 'Thêm khoá học thất bại',
+          text: 'Vui lòng kiểm tra lại!',
         })
       })
   }

@@ -6,7 +6,6 @@ class ModalCoursePending extends Component {
     render() {
         
         const {taiKhoan} = this.props.user;
-        console.log(this.props.courseListPending)
         
         return (
             <div>
@@ -37,7 +36,7 @@ class ModalCoursePending extends Component {
                                                         <td>{item.maKhoaHoc}</td>
                                                         <td>{item.tenKhoaHoc}</td>
                                                         <td className="text-center">
-                                                            <button onClick={() => this.handleApproveCourse(item.maKhoaHoc, taiKhoan)} className="btn btn-udi-yellow mr-2">Approve</button>
+                                                            <button onClick={() => this.handleApproveCourse(item.maKhoaHoc, taiKhoan[index])} className="btn btn-udi-yellow mr-2">Approve</button>
                                                             <button className="btn btn-cyber-red mr-2">Cancel</button>
                                                         </td>
                                                     </tr>
@@ -62,7 +61,6 @@ class ModalCoursePending extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    userList: state.userReducer.userList,
     courseListPending: state.courseReducer.courseListPending,
    
 })

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
-import { Link, withRouter, NavLink, Redirect } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 

@@ -41,7 +41,18 @@ class UserService {
             
         })
     }
-    
+
+    adminAddNewCourse(data) {
+        return restConnector({
+            method: "POST",
+            url: "/api/QuanLyKhoaHoc/ThemKhoaHoc",
+            header: { 
+                'Authorization': "Bearer " + settings.token },
+            data: data
+            
+        })
+    }
+
 }
 
 export default UserService;

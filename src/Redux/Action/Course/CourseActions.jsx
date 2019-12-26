@@ -1,4 +1,4 @@
-import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED } from "../type";
+import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED, LIST_CATEGORY } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -42,4 +42,19 @@ export const fetchCourseAccepted = (taiKhoan) => {
   }
 }
 
+export const fetchListCategory = (listCategory) => {
+  return dispatch => {
+    courseService
+      .fetchListCategory(listCategory)
+      .then(res => {
+        
+        dispatch(reduxAction(LIST_CATEGORY, res.data));
+        console.log(res.data);
+      }).catch(error => {
+        console.log(error.response.data)
+      })
+
+
+  }
+}
 

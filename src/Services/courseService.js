@@ -24,6 +24,15 @@ class CourseService {
             },
         });
     }
+
+    fetchListCategory (listCategory) {
+        return restConnector({
+            method: "GET",
+            url: "/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc",
+            data: listCategory
+            
+        })
+    }
     
 }
 

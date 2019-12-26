@@ -44,7 +44,7 @@ class TableCoursePending extends Component {
                                                     className="btn btn-udi-yellow mr-2"
                                                     data-toggle="modal"
                                                     data-target="#modalCoursePending">Pending</button>
-                                                    <ModalCoursePending user={user}/>
+                                                    <ModalCoursePending user={user} key={index}/>
                                                 <button
                                                     onClick={() => this.handleFetchCourseAccepted(user.taiKhoan)}
                                                     className="btn btn-udi-yellow mr-2"
