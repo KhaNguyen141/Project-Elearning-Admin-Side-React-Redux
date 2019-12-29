@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { fetchCourseList } from '../Redux/Action/Course/CourseActions';
 import ModalUserPending from "../Components/ModalUserPending";
+import ModalUpdateCourseComponent from '../Components/ModalUpdateCourse';
 import { fetchListUserPending } from '../Redux/Action/User/AdminActions';
 
 class TableCoursePending extends Component {
@@ -53,14 +54,14 @@ class TableCoursePending extends Component {
                                                     
                                                     className="btn btn-udi-yellow mr-2"
                                                     data-toggle="modal"
-                                                    data-target="#modalCourseAccepted">Update</button>
+                                                    data-target="#modalUpdateCourse">Update</button>
                                             </td>
                                         </tr>
 
                                     )
                                 )}
                                     <ModalUserPending course={this.state.course} />
-                                    
+                                    <ModalUpdateCourseComponent />
                             </tbody>
                         </table>
                     </div>
