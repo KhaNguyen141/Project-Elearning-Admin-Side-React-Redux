@@ -37,7 +37,7 @@ class CourseService {
     fetchCourseList (courseList) {
         return restConnector({
             method: "GET",
-            url: "/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP09",
+            url: "/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP01",
             data: courseList
             
         })

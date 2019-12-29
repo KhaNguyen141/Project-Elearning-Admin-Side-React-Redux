@@ -70,6 +70,17 @@ class UserService {
         })
     }
 
+    adminUpdateCourse(data) {
+        return restConnector({
+            method: "PUT",
+            url: "/api/QuanLyKhoaHoc/CapNhatKhoaHoc",
+            header: { 
+                'Authorization': "Bearer " + settings.token },
+            data: data
+            
+        })
+    }
+
     fetchListUserPending(maKhoaHoc) {
         return restConnector({
             method: "POST",

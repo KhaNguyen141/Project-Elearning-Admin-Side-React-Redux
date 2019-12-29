@@ -51,7 +51,7 @@ class TableCoursePending extends Component {
                                                     data-target="#modalUserPending">Pending</button>
                                                     
                                                 <button
-                                                    
+                                                    onClick={() => this.handleFetchInfoCourse(course)}
                                                     className="btn btn-udi-yellow mr-2"
                                                     data-toggle="modal"
                                                     data-target="#modalUpdateCourse">Update</button>
@@ -61,7 +61,7 @@ class TableCoursePending extends Component {
                                     )
                                 )}
                                     <ModalUserPending course={this.state.course} />
-                                    <ModalUpdateCourseComponent />
+                                    <ModalUpdateCourseComponent course={this.state.course}/>
                             </tbody>
                         </table>
                     </div>
@@ -78,15 +78,20 @@ class TableCoursePending extends Component {
     handleFetchUserPending = (course) => {
         this.setState({
             course: course
+            
         }, () => {
-
             this.props.dispatch(fetchListUserPending(course.maKhoaHoc))
 
         });
     }
 
-    handleFetchUserAccepted = (maKhoaHoc) => {
-        
+    handleFetchInfoCourse = (course) => {
+        this.setState({
+            course: course
+        }, () => {
+            console.log(course)
+            localStorage.setItem("courseEventClickedInfo", JSON.stringify(course))
+        })
     }
 }
 

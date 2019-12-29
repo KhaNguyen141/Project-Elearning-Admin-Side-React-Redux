@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import { fetchListCategory } from '../Redux/Action/Course/CourseActions';
+import { adminUpdateCourse } from '../Redux/Action/User/AdminActions';
 
 class ModalUpdateCourseComponent extends Component {
     render() {
@@ -21,11 +22,11 @@ class ModalUpdateCourseComponent extends Component {
                 taiKhoanNguoiTao: "",
               }}
                 onSubmit={values => {
-                // this.props.dispatch(adminAddNewCourse(values))
+                this.props.dispatch(adminUpdateCourse(values))
                 console.log(values);
 
             }} 
-            render = {({ handleChange }) => (
+            render = {({ values, handleChange }) => (
             <div className="modal fade" id="modalUpdateCourse" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div className="modal-dialog modal-lg" role="document">
                     <div className="modal-content">
@@ -44,6 +45,7 @@ class ModalUpdateCourseComponent extends Component {
                                             <Field
                                                 name="maKhoaHoc"
                                                 type="text"
+                                                value={values.maKhoaHoc}
                                                 onChange={handleChange}
                                                 className="form-control" />
                                         </div>
@@ -160,7 +162,7 @@ class ModalUpdateCourseComponent extends Component {
                                 </div>
 
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-primary">Save</button>
+                                <button type="submit" className="btn btn-primary">Save</button>
                             </div>
                         </Form>
                     </div>

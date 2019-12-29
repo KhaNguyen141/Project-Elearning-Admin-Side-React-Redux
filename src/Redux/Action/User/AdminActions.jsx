@@ -1,4 +1,4 @@
-import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE } from "../type";
+import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -150,6 +150,29 @@ export const adminAddNewCourse = (data) => {
         Swal.fire({
           icon: 'error',
           title: 'Thêm khoá học thất bại',
+          text: 'Vui lòng kiểm tra lại!',
+        })
+      })
+  }
+}
+
+export const adminUpdateCourse = (data) => {
+  return dispatch => {
+      userService
+      .adminUpdateCourse(data)
+      .then(res => {
+        dispatch(reduxAction(ADMIN_UPDATE_COURSE, res.data));
+        console.log(res.data);
+        Swal.fire(
+          'Cập nhật khoá học thành công!',
+          '',
+          'success'
+        )
+      }).catch(error => {
+        console.log(error.response.data)
+        Swal.fire({
+          icon: 'error',
+          title: 'Cập nhật khoá học thất bại',
           text: 'Vui lòng kiểm tra lại!',
         })
       })
