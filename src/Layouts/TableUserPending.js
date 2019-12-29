@@ -3,9 +3,14 @@ import { connect } from 'react-redux';
 import ModalCoursePending from "../Components/ModalCoursePending";
 import ModalCourseAcceptedComponent from "../Components/ModalCourseAccepted"
 import { fetchListUser } from '../Redux/Action/User/AdminActions';
-import { fetchCoursePending, fetchCourseAccepted } from '../Redux/Action/Course/CourseActions';
+import { fetchCoursePending, fetchCourseAccepted, fetchCourseList } from '../Redux/Action/Course/CourseActions';
 
-class TableCoursePending extends Component {
+class TableUserPending extends Component {
+
+    state = {
+        user: {}
+    }
+
     render() {
         return (
             <div>
@@ -40,22 +45,26 @@ class TableCoursePending extends Component {
                                             <td>{user.soDt}</td>
                                             <td>
                                                 <button
-                                                    onClick={() => this.handleFetchCoursePending(user.taiKhoan)}
+                                                    onClick={() => this.handleFetchCoursePending(user)}
                                                     className="btn btn-udi-yellow mr-2"
                                                     data-toggle="modal"
-                                                    data-target="#modalCoursePending">Pending</button>
-                                                    <ModalCoursePending user={user} key={index}/>
+                                                    data-target="#modalCoursePending">Pending
+                                                </button>
+                                                    
                                                 <button
-                                                    onClick={() => this.handleFetchCourseAccepted(user.taiKhoan)}
+                                                    onClick={() => this.handleFetchCourseAccepted(user)}
                                                     className="btn btn-udi-yellow mr-2"
                                                     data-toggle="modal"
-                                                    data-target="#modalCourseAccepted">Accepted</button>
-                                                    <ModalCourseAcceptedComponent />
+                                                    data-target="#modalCourseAccepted">Accepted
+                                                </button>
+                                                    
                                             </td>
+                                            
                                         </tr>
                                     )
                                 })}
-                                
+                                    <ModalCoursePending user={this.state.user}/>
+                                    <ModalCourseAcceptedComponent user={this.state.user}/>
                             </tbody>
                         </table>
                     </div>
@@ -69,20 +78,30 @@ class TableCoursePending extends Component {
     
     }
 
-    handleFetchCoursePending = (taiKhoan) => {
-        this.props.dispatch(fetchCoursePending(taiKhoan))
+    handleFetchCoursePending = (user) => {
+        this.setState({
+            user: user
+        }, () => {
+            this.props.dispatch(fetchCoursePending(user.taiKhoan))
+        })   
     }
 
-    handleFetchCourseAccepted = (taiKhoan) => {
-        this.props.dispatch(fetchCourseAccepted(taiKhoan))
+    handleFetchCourseAccepted = (user) => {
+        this.setState({
+            user: user
+        }, () => {
+            this.props.dispatch(fetchCourseAccepted(user.taiKhoan))
+        })
+        
     }
 }
 
 const mapStateToProps = (state) => ({
+    courseList: state.courseReducer.courseList,
     userList: state.userReducer.userList,
     courseListPending: state.courseReducer.courseListPending,
     courseListAccepted: state.courseReducer.courseListAccepted,
    
 })
 
-export default connect(mapStateToProps)(TableCoursePending);
+export default connect(mapStateToProps)(TableUserPending);

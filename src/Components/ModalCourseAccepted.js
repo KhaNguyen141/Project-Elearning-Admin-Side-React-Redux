@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchCourseAccepted } from '../Redux/Action/Course/CourseActions';
+import { adminCancelCourses } from '../Redux/Action/User/AdminActions';
 
 class ModalCourseAcceptedComponent extends Component {
     render() {
 
+        const {taiKhoan} = this.props.user;
         return (
             <div>
                 <div className="modal fade" id="modalCourseAccepted" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -30,11 +31,11 @@ class ModalCourseAcceptedComponent extends Component {
                                         {this.props.courseListAccepted.map((item, index) => { 
                                              return (
                                                 <tr key={index}>
-                                                    <td></td>
+                                                    <td>{index + 1}</td>
                                                     <td>{item.maKhoaHoc}</td>
                                                     <td>{item.tenKhoaHoc}</td>
                                                     <td className="text-center">
-                                                        <button className="btn btn-cyber-red mr-2">Cancel</button>
+                                                        <button onClick={() => this.handleCancelCourse(item.maKhoaHoc, taiKhoan)} className="btn btn-cyber-red mr-2">Cancel</button>
                                                     </td>
                                                 </tr>
                                                  ) 
@@ -47,6 +48,10 @@ class ModalCourseAcceptedComponent extends Component {
                 </div>
             </div>
         )
+    }
+
+    handleCancelCourse = (maKhoaHoc, taiKhoan) => {
+        this.props.dispatch(adminCancelCourses(maKhoaHoc, taiKhoan))
     }
 }
 

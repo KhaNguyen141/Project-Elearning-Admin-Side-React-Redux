@@ -16,6 +16,10 @@
     .tableUserList {
         @include contentSchemaTop ();
     }
+
+    .tableCourseList {
+        @include contentSchemaTop ();
+    }
     
 }
 

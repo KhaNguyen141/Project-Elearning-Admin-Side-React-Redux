@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import TableCoursePending from '../../Layouts/TableCoursePending'
+import TableCoursePending from '../../Layouts/TableCoursesPending'
 
-class ManagementsComponent extends Component {
+class UserManagementsComponent extends Component {
     render() {
         return (
             <div>
                 <div className="row">
                     <TableCoursePending />
+
                 </div>
             </div>
         )
     }
 }
 
-export default (ManagementsComponent);
+export default (UserManagementsComponent);

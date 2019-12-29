@@ -1,4 +1,4 @@
-import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE } from "../type";
+import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -90,10 +90,11 @@ export const adminApproveCourses = (maKhoaHoc, taiKhoan) => {
       userService
       .adminApproveCourses(maKhoaHoc, taiKhoan)
       .then(res => {
+        
         dispatch(reduxAction(ADMIN_APPROVE_COURSE, res.data));
         console.log(res.data);
         Swal.fire(
-          'Duyệt khoá học thành công!',
+          'Duyệt thành công!',
           '',
           'success'
         )
@@ -101,8 +102,32 @@ export const adminApproveCourses = (maKhoaHoc, taiKhoan) => {
         console.log(error.response.data)
         Swal.fire({
           icon: 'error',
-          title: 'Duyệt khoá học thất bại',
-          text: 'Khoá học đã được ghi danh rồi!',
+          title: 'Duyệt thất bại',
+          text: 'Vui lòng kiểm tra lại!',
+        })
+      })
+  }
+}
+
+export const adminCancelCourses = (maKhoaHoc, taiKhoan) => {
+  return dispatch => {
+      userService
+      .adminCancelCourses(maKhoaHoc, taiKhoan)
+      .then(res => {
+        
+        dispatch(reduxAction(ADMIN_CANCEL_COURSE, res.data));
+        console.log(res.data);
+        Swal.fire(
+          'Huỷ ghi danh thành công!',
+          '',
+          'success'
+        )
+      }).catch(error => {
+        console.log(error.response.data)
+        Swal.fire({
+          icon: 'error',
+          title: 'Huỷ thất bại',
+          text: 'Vui lòng kiểm tra lại!',
         })
       })
   }
@@ -125,6 +150,25 @@ export const adminAddNewCourse = (data) => {
         Swal.fire({
           icon: 'error',
           title: 'Thêm khoá học thất bại',
+          text: 'Vui lòng kiểm tra lại!',
+        })
+      })
+  }
+}
+
+export const fetchListUserPending = (maKhoaHoc) => {
+  return dispatch => {
+      userService
+      .fetchListUserPending(maKhoaHoc)
+      .then(res => {
+        
+        dispatch(reduxAction(LIST_USER_PENDING, res.data));
+        console.log(res.data);
+      }).catch(error => {
+        console.log(error.response.data)
+        Swal.fire({
+          icon: 'error',
+          title: '',
           text: 'Vui lòng kiểm tra lại!',
         })
       })

@@ -29,14 +29,31 @@ class UserService {
     }
 
     adminApproveCourses (maKhoaHoc, taiKhoan) {
+        // console.log({
+        //     maKhoaHoc: maKhoaHoc,
+        //     taiKhoan: taiKhoan,
+        //     header: settings.token,
+        // })
         return restConnector({
             method: "POST",
             url: "/api/QuanLyKhoaHoc/GhiDanhKhoaHoc",
-            header: { 
-                'Authorization': "Bearer " + settings.token },
             data: {
                 maKhoaHoc: maKhoaHoc,
-                taiKhoan: taiKhoan
+                taiKhoan: taiKhoan,
+                header: settings.token,
+            }
+            
+        })
+    }
+
+    adminCancelCourses (maKhoaHoc, taiKhoan) {
+        return restConnector({
+            method: "POST",
+            url: "/api/QuanLyKhoaHoc/HuyGhiDanh",
+            data: {
+                maKhoaHoc: maKhoaHoc,
+                taiKhoan: taiKhoan,
+                header: settings.token,
             }
             
         })
@@ -49,6 +66,20 @@ class UserService {
             header: { 
                 'Authorization': "Bearer " + settings.token },
             data: data
+            
+        })
+    }
+
+    fetchListUserPending(maKhoaHoc) {
+        return restConnector({
+            method: "POST",
+            url: "/api/QuanLyNguoiDung/LayDanhSachHocVienChoXetDuyet",
+            header: { 
+                'Authorization': "Bearer " + settings.token },
+            data: {
+                maKhoaHoc: maKhoaHoc,
+                
+            }
             
         })
     }

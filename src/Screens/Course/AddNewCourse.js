@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import CKEditor from 'ckeditor4-react';
 import { fetchListCategory } from '../../Redux/Action/Course/CourseActions';
 import { connect } from 'react-redux';
 
 import { Formik, Field, Form } from 'formik';
 import { adminAddNewCourse } from '../../Redux/Action/User/AdminActions';
 
-class EditCourseComponent extends Component {
+class AddCourseComponent extends Component {
     render() {
         const {taiKhoan} = this.props.checkAdmin;
 
@@ -180,4 +179,4 @@ const mapStateToProps = (state) => ({
     checkAdmin: state.adminReducer.credentials,
 })
 
-export default connect(mapStateToProps)(EditCourseComponent);
+export default connect(mapStateToProps)(AddCourseComponent);

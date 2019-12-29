@@ -9,8 +9,9 @@ import { restConnector } from "./Services";
 import HomeScreen from "./Screens/Home/home";
 import ProfileDetail from "./Screens/Profile/ProfileDetail";
 import NavigationBarComponent from "./Components/NavigationBar"
-import ManagementsComponent from "./Screens/Managements/Managements"
-import EditCourseComponent from "./Screens/Course/EditCourse";
+import UserManagementsComponent from "./Screens/Managements/UserManagements";
+import CourseManagementsComponent from "./Screens/Managements/CourseManagement";
+import AddCourseComponent from "./Screens/Course/AddNewCourse";
 
 import { ADMIN_LOGIN } from "./Redux/Action/type";
 import LoginBox from "./Layouts/LoginBox";
@@ -33,8 +34,9 @@ class App extends Component {
         <Switch>
             <Route exact path="/admin" component={HomeScreen} />
             <Route exact path="/admin/detail" component={ProfileDetail} />
-            <Route exact path="/admin/list-manage" component={ManagementsComponent} />
-            <Route exact path="/admin/course-manage" component={EditCourseComponent} />
+            <Route exact path="/admin/list-user-manage" component={UserManagementsComponent} />
+            <Route exact path="/admin/list-course-manage" component={CourseManagementsComponent} />
+            <Route exact path="/admin/course-manage" component={AddCourseComponent} />
             <Route component={notFoundPage} />
             <Route exact path="/admin" component={LoginBox} />
         </Switch>
