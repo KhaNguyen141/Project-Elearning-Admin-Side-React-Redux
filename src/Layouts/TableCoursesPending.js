@@ -4,14 +4,28 @@ import { fetchCourseList } from '../Redux/Action/Course/CourseActions';
 import ModalUserPending from "../Components/ModalUserPending";
 import ModalUpdateCourseComponent from '../Components/ModalUpdateCourse';
 import { fetchListUserPending } from '../Redux/Action/User/AdminActions';
+import PaginationComponent from "../Layouts/Pagination";
 
 class TableCoursePending extends Component {
 
     state = {
-        course: {}
+        course: [],
+        currentPage: 1,
+        pagePerList: 7,
+
     }
 
     render() {
+        const indexOfLastList = this.state.currentPage * this.state.pagePerList;
+        const indexOfFirstList = indexOfLastList - this.state.pagePerList;
+        const currentList = this.props.courseList.slice(indexOfFirstList, indexOfLastList);
+
+        const paginate = (pageNumber) => {
+            this.setState({
+                currentPage: pageNumber
+            })
+        }
+
         return (
             <div>
                 <div className="inputTableSearch d-flex">
@@ -34,13 +48,12 @@ class TableCoursePending extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.courseList.map((course, index) => (
+                                {currentList.map((course, index) => (
                                         <tr key={index} >
                                             <td>{index + 1}</td>
 
                                             <td>{course.maKhoaHoc}</td>
-
-                                            <td>{course.tenKhoaHoc}</td>
+                                            <td>{course.tenKhoaHoc}</td> 
                                             <td>{course.luotXem}</td>
                                             <td>{course.nguoiTao.hoTen}</td>
                                             <td>
@@ -62,6 +75,7 @@ class TableCoursePending extends Component {
                                 )}
                                     <ModalUserPending course={this.state.course} />
                                     <ModalUpdateCourseComponent course={this.state.course}/>
+                                    <PaginationComponent pagePerList={this.state.pagePerList} totalItems={this.props.courseList.length} paginate={paginate}/>
                             </tbody>
                         </table>
                     </div>
@@ -73,6 +87,7 @@ class TableCoursePending extends Component {
    
     componentDidMount () {
         this.props.dispatch(fetchCourseList())
+        
     }
 
     handleFetchUserPending = (course) => {
@@ -97,6 +112,7 @@ class TableCoursePending extends Component {
 
 const mapStateToProps = (state) => ({
     courseList: state.courseReducer.courseList,
+    courseListPagination: state.courseReducer.courseListPagination,
     courseListPending: state.courseReducer.courseListPending,
     courseListAccepted: state.courseReducer.courseListAccepted,
 })

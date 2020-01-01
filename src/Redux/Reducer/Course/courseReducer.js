@@ -1,10 +1,11 @@
-import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED, LIST_CATEGORY, LIST_COURSES} from "../../Action/type";
+import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED, LIST_CATEGORY, LIST_COURSES, LIST_COURSE_PAGINATION} from "../../Action/type";
 
 let initialState = {
     courseListPending: [],
     courseListAccepted: [],
     courseListCategory: [],
     courseList: [],
+    courseListPagination: [],
 }
 
 const CourseReducer = (state = initialState, action) => {
@@ -26,6 +27,11 @@ const CourseReducer = (state = initialState, action) => {
 
         case LIST_COURSES: {
             state.courseList = action.payload
+            return {...state};
+        }
+
+        case LIST_COURSE_PAGINATION: {
+            state.courseListPagination = [action.payload];
             return {...state};
         }
 

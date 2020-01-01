@@ -1,4 +1,4 @@
-import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE } from "../type";
+import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE, ADMIN_UPLOAD_IMAGE } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -90,7 +90,6 @@ export const adminApproveCourses = (maKhoaHoc, taiKhoan) => {
       userService
       .adminApproveCourses(maKhoaHoc, taiKhoan)
       .then(res => {
-        
         dispatch(reduxAction(ADMIN_APPROVE_COURSE, res.data));
         console.log(res.data);
         Swal.fire(
@@ -133,11 +132,17 @@ export const adminCancelCourses = (maKhoaHoc, taiKhoan) => {
   }
 }
 
-export const adminAddNewCourse = (data) => {
+export const adminAddNewCourse = (data, file, tenKhoaHoc) => {
   return dispatch => {
       userService
       .adminAddNewCourse(data)
       .then(res => {
+        userService.adminUploadImage(file, tenKhoaHoc).then(response => {
+          dispatch(reduxAction(ADMIN_UPLOAD_IMAGE, response.data))
+        }).catch(error => {
+          console.log(error)
+        })
+
         dispatch(reduxAction(ADMIN_ADD_NEW_COURSE, res.data));
         console.log(res.data);
         Swal.fire(
@@ -156,11 +161,17 @@ export const adminAddNewCourse = (data) => {
   }
 }
 
-export const adminUpdateCourse = (data) => {
+export const adminUpdateCourse = (data, file, tenKhoaHoc) => {
   return dispatch => {
       userService
       .adminUpdateCourse(data)
       .then(res => {
+        userService.adminUploadImage(file, tenKhoaHoc).then(response => {
+          dispatch(reduxAction(ADMIN_UPLOAD_IMAGE, response.data))
+        }).catch(error => {
+          console.log(error)
+        })
+
         dispatch(reduxAction(ADMIN_UPDATE_COURSE, res.data));
         console.log(res.data);
         Swal.fire(

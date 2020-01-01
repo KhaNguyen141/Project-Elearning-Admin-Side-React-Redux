@@ -1,4 +1,4 @@
-import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED, LIST_CATEGORY, LIST_COURSES } from "../type";
+import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED, LIST_CATEGORY, LIST_COURSES, LIST_COURSE_PAGINATION } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -64,6 +64,19 @@ export const fetchCourseList = () => {
       .fetchCourseList()
       .then(res => {
         dispatch(reduxAction(LIST_COURSES, res.data));
+        console.log(res.data);
+      }).catch(error => {
+        console.log(error.response.data)
+      })
+  }
+}
+
+export const fetchCourseListPagination = () => {
+  return dispatch => {
+      courseService
+      .fetchCourseListPagination()
+      .then(res => {
+        dispatch(reduxAction(LIST_COURSE_PAGINATION, res.data));
         console.log(res.data);
       }).catch(error => {
         console.log(error.response.data)

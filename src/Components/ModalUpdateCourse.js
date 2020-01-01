@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 import { fetchListCategory } from '../Redux/Action/Course/CourseActions';
-import { adminUpdateCourse } from '../Redux/Action/User/AdminActions';
+import { adminUpdateCourse, adminUploadImage } from '../Redux/Action/User/AdminActions';
+
+import Axios from 'axios';
+import { settings } from '../Config/settings';
 
 class ModalUpdateCourseComponent extends Component {
+
     render() {
         return (
             <Formik
@@ -21,12 +25,14 @@ class ModalUpdateCourseComponent extends Component {
                 maDanhMucKhoaHoc: "",
                 taiKhoanNguoiTao: "",
               }}
-                onSubmit={values => {
-                this.props.dispatch(adminUpdateCourse(values))
+
+                onSubmit={(values) => {
+                
+                this.props.dispatch(adminUpdateCourse(values, values.hinhAnh, values.tenKhoaHoc))
                 console.log(values);
 
             }} 
-            render = {({ values, handleChange }) => (
+            render = {({ values, handleChange, setFieldValue }) => (
             <div className="modal fade" id="modalUpdateCourse" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div className="modal-dialog modal-lg" role="document">
                     <div className="modal-content">
@@ -45,7 +51,6 @@ class ModalUpdateCourseComponent extends Component {
                                             <Field
                                                 name="maKhoaHoc"
                                                 type="text"
-                                                value={values.maKhoaHoc}
                                                 onChange={handleChange}
                                                 className="form-control" />
                                         </div>
@@ -65,7 +70,7 @@ class ModalUpdateCourseComponent extends Component {
 
                                         <div className="col-6">
                                             <h4 className="text-left">Tên khoá học</h4>
-                                            <Field
+                                            <input
                                                 name="tenKhoaHoc"
                                                 type="text"
                                                 onChange={handleChange}
@@ -90,13 +95,15 @@ class ModalUpdateCourseComponent extends Component {
                                                 as="select"
                                                 name="maDanhMucKhoaHoc"
                                                 className="form-control">
+                                                <option>Vui lòng chọn danh mục</option>
+                                                       
                                                 {this.props.listCategory.map((list, index) => {
-                                                    return <option
-                                                        value={list.maDanhMuc}
-                                                        key={index}
-                                                    >{list.tenDanhMuc}</option>
-
-
+                                                    return ( 
+                                                        <option
+                                                            value={list.maDanhMuc}
+                                                            key={index}
+                                                        >{list.tenDanhMuc}</option>
+                                                    )
                                                 })}
                                             </Field>
                                         </div>
@@ -106,7 +113,6 @@ class ModalUpdateCourseComponent extends Component {
                                             <Field
                                                 name="taiKhoanNguoiTao"
                                                 type="text"
-                                                value={this.props.checkAdmin.taiKhoan}
                                                 onChange={handleChange}
                                                 className="form-control" />
                                         </div>
@@ -125,11 +131,14 @@ class ModalUpdateCourseComponent extends Component {
 
                                         <div className="col-6">
                                             <h4 className="text-left">Hình ảnh</h4>
-                                            <Field
-                                                name="hinhAnh"
-                                                type="text"
-                                                onChange={handleChange}
-                                                className="form-control" />
+                                            <input 
+                                            name="hinhAnh" 
+                                            type="file" 
+                                            onChange={(event) => {
+                                                setFieldValue("hinhAnh", event.target.files[0].name)
+                                            }}
+                                             
+                                            className="form-control" />
                                         </div>
                                     </div>
 

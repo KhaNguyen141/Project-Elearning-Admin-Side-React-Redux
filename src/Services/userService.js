@@ -81,6 +81,19 @@ class UserService {
         })
     }
 
+    adminUploadImage(file, tenKhoaHoc) {
+        let formData = new FormData();
+
+        formData.append('file', file)
+        formData.append('tenKhoaHoc', tenKhoaHoc)
+        return restConnector({
+            method: "POST",
+            url: "/api/QuanLyKhoaHoc/UploadHinhAnhKhoaHoc",
+            data: formData,
+            
+        })
+    }
+
     fetchListUserPending(maKhoaHoc) {
         return restConnector({
             method: "POST",

@@ -34,11 +34,18 @@ class CourseService {
         })
     }
 
-    fetchCourseList (courseList) {
+    fetchCourseList () {
         return restConnector({
             method: "GET",
             url: "/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP01",
-            data: courseList
+            
+        })
+    }
+
+    fetchCourseListPagination () {
+        return restConnector({
+            method: "GET",
+            url: `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc_PhanTrang?page=1&pageSize=10&MaNhom=GP01`,
             
         })
     }

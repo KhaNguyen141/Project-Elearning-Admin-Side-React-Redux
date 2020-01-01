@@ -16,7 +16,9 @@ import AddCourseComponent from "./Screens/Course/AddNewCourse";
 import { ADMIN_LOGIN } from "./Redux/Action/type";
 import LoginBox from "./Layouts/LoginBox";
 
+
 class App extends Component {
+  
   render() {
     const notFoundPage = () => (
       <div className="container contentNotFound">
@@ -38,7 +40,7 @@ class App extends Component {
             <Route exact path="/admin/list-course-manage" component={CourseManagementsComponent} />
             <Route exact path="/admin/course-manage" component={AddCourseComponent} />
             <Route component={notFoundPage} />
-            <Route exact path="/admin" component={LoginBox} />
+            <Route exact path="/" component={LoginBox} />
         </Switch>
 
       </BrowserRouter>
@@ -51,7 +53,6 @@ class App extends Component {
     const adminAccessToken = localStorage.getItem('accessToken');
     if (adminLoginStr && adminAccessToken) {
       restConnector.defaults.headers['Authorization'] = "Bearer " + adminAccessToken
-      
       this.props.dispatch( reduxAction( ADMIN_LOGIN, JSON.parse(adminLoginStr) )  );
 
     }

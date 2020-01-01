@@ -7,7 +7,6 @@ import { adminAddNewCourse } from '../../Redux/Action/User/AdminActions';
 
 class AddCourseComponent extends Component {
     render() {
-        const { taiKhoan } = this.props.checkAdmin;
 
         return (
             <Formik
@@ -25,11 +24,11 @@ class AddCourseComponent extends Component {
                     taiKhoanNguoiTao: "",
                 }}
                 onSubmit={values => {
-                    this.props.dispatch(adminAddNewCourse(values))
+                    this.props.dispatch(adminAddNewCourse(values, values.hinhAnh, values.tenKhoaHoc))
                     console.log(values);
 
                 }}
-                render={({ handleChange }) => (
+                render={({ handleChange, setFieldValue }) => (
                     <div className="courseEditCotaniner">
                         <Form className="container formSearch">
                             <h2>Thêm khoá học</h2>
@@ -99,7 +98,6 @@ class AddCourseComponent extends Component {
                                     <Field
                                         name="taiKhoanNguoiTao"
                                         type="text"
-                                        value={this.props.checkAdmin.taiKhoan}
                                         onChange={handleChange}
                                         className="form-control" />
                                 </div>
@@ -118,15 +116,15 @@ class AddCourseComponent extends Component {
 
                                 <div className="col-6">
                                     <h4 className="text-left">Hình ảnh</h4>
-
-                                    <Field
+                                    <input
                                         name="hinhAnh"
-                                        type="text"
-                                        onChange={handleChange}
+                                        type="file"
+                                        onChange={(event) => {
+                                            setFieldValue("hinhAnh", event.currentTarget.files[0].name)
+                                        }}
+
                                         className="form-control" />
-
                                 </div>
-
                             </div>
 
                             <div className="row">
