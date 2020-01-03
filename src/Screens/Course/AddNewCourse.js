@@ -35,7 +35,7 @@ class AddCourseComponent extends Component {
                             <div className="row">
 
                                 <div className="col-6">
-                                    <h4 className="text-left">Mã khoá học</h4>
+                                    <h4 className="text-left">Course ID</h4>
                                     <Field
                                         name="maKhoaHoc"
                                         type="text"
@@ -44,7 +44,7 @@ class AddCourseComponent extends Component {
                                 </div>
 
                                 <div className="col-6">
-                                    <h4 className="text-left">Đánh giá</h4>
+                                    <h4 className="text-left">Evaluation</h4>
                                     <Field
                                         name="danhGia"
                                         type="text"
@@ -57,7 +57,7 @@ class AddCourseComponent extends Component {
                             <div className="row">
 
                                 <div className="col-6">
-                                    <h4 className="text-left">Tên khoá học</h4>
+                                    <h4 className="text-left">Course name</h4>
                                     <Field
                                         name="tenKhoaHoc"
                                         type="text"
@@ -66,7 +66,7 @@ class AddCourseComponent extends Component {
                                 </div>
 
                                 <div className="col-6">
-                                    <h4 className="text-left">Lượt xem</h4>
+                                    <h4 className="text-left">Views of course</h4>
                                     <Field
                                         name="luotXem"
                                         type="text"
@@ -77,11 +77,12 @@ class AddCourseComponent extends Component {
                             </div>
                             <div className="row">
                                 <div className="form-group col-6">
-                                    <h4 className="text-left">Danh mục khoá học</h4>
+                                    <h4 className="text-left">Course categories</h4>
                                     <Field
                                         as="select"
                                         name="maDanhMucKhoaHoc"
                                         className="form-control">
+                                        <option>Please choose course category</option>
                                         {this.props.listCategory.map((list, index) => {
                                             return <option
                                                 value={list.maDanhMuc}
@@ -94,7 +95,7 @@ class AddCourseComponent extends Component {
                                 </div>
 
                                 <div className="form-group col-6">
-                                    <h4 className="text-left">Người tạo</h4>
+                                    <h4 className="text-left">Creator</h4>
                                     <Field
                                         name="taiKhoanNguoiTao"
                                         type="text"
@@ -106,7 +107,7 @@ class AddCourseComponent extends Component {
                             <div className="row">
 
                                 <div className="col-6">
-                                    <h4 className="text-left">Ngày tạo</h4>
+                                    <h4 className="text-left">Date create</h4>
                                     <Field
                                         name="ngayTao"
                                         type="text"
@@ -115,7 +116,7 @@ class AddCourseComponent extends Component {
                                 </div>
 
                                 <div className="col-6">
-                                    <h4 className="text-left">Hình ảnh</h4>
+                                    <h4 className="text-left">Upload image</h4>
                                     <input
                                         name="hinhAnh"
                                         type="file"
@@ -130,7 +131,7 @@ class AddCourseComponent extends Component {
                             <div className="row">
 
                                 <div className="col-6">
-                                    <h4 className="text-left">Mã nhóm</h4>
+                                    <h4 className="text-left">Group ID</h4>
 
                                     <Field
                                         name="maNhom"
@@ -143,7 +144,7 @@ class AddCourseComponent extends Component {
                             <div>
 
                                 <div>
-                                    <h4 className="text-left">Mô tả</h4>
+                                    <h4 className="text-left">Description</h4>
                                     <textarea
                                         name="moTa"
                                         type="text"

@@ -108,6 +108,25 @@ class UserService {
         })
     }
 
+    adminAddUser(data) {
+        return restConnector({
+            method: "POST",
+            url: "/api/QuanLyNguoiDung/ThemNguoiDung",
+            header: { 
+                'Authorization': "Bearer " + settings.token },
+            data: data,
+            
+        })
+    }
+
+    fetchUserType() {
+        return restConnector({
+            method: "GET",
+            url: "/api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung",
+            
+        })
+    }
+
 }
 
 export default UserService;

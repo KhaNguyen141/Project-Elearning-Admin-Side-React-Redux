@@ -12,6 +12,7 @@ import NavigationBarComponent from "./Components/NavigationBar"
 import UserManagementsComponent from "./Screens/Managements/UserManagements";
 import CourseManagementsComponent from "./Screens/Managements/CourseManagement";
 import AddCourseComponent from "./Screens/Course/AddNewCourse";
+import AddUserComponent from "./Screens/UserAction/AddUser";
 
 import { ADMIN_LOGIN } from "./Redux/Action/type";
 import LoginBox from "./Layouts/LoginBox";
@@ -33,12 +34,14 @@ class App extends Component {
         {this.props.credentials &&
           <NavigationBarComponent />
         }
+        
         <Switch>
             <Route exact path="/admin" component={HomeScreen} />
             <Route exact path="/admin/detail" component={ProfileDetail} />
             <Route exact path="/admin/list-user-manage" component={UserManagementsComponent} />
             <Route exact path="/admin/list-course-manage" component={CourseManagementsComponent} />
             <Route exact path="/admin/course-manage" component={AddCourseComponent} />
+            <Route exact path="/admin/user-manage" component={AddUserComponent} />
             <Route component={notFoundPage} />
             <Route exact path="/" component={LoginBox} />
         </Switch>

@@ -1,4 +1,4 @@
-import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE, ADMIN_UPLOAD_IMAGE } from "../type";
+import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE, ADMIN_UPLOAD_IMAGE, ADMIN_ADD_USER, FETCH_USER_TYPE } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -208,5 +208,45 @@ export const fetchListUserPending = (maKhoaHoc) => {
       })
   }
 }
+
+export const adminAddUser = (data) => {
+  return dispatch => {
+      userService
+      .adminAddUser(data)
+      .then(res => {
+        
+        dispatch(reduxAction(ADMIN_ADD_USER, res.data));
+        console.log(res.data);
+        Swal.fire(
+          'Thêm user thành công!',
+          '',
+          'success'
+        )
+      }).catch(error => {
+        console.log(error.response.data)
+        Swal.fire({
+          icon: 'error',
+          title: 'Thêm user thất bại',
+          text: 'Vui lòng kiểm tra lại!',
+        })
+      })
+  }
+}
+
+export const fetchUserType = () => {
+  return dispatch => {
+      userService
+      .fetchUserType()
+      .then(res => {
+        
+        dispatch(reduxAction(FETCH_USER_TYPE, res.data));
+        console.log(res.data);
+      }).catch(error => {
+        console.log(error.response.data)
+      })
+  }
+}
+
+
 
 

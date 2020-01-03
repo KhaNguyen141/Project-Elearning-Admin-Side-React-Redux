@@ -12,13 +12,23 @@ class TableCoursePending extends Component {
         course: [],
         currentPage: 1,
         pagePerList: 7,
+        text: "",
+        searchResult: [],
 
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            text: event.target.value
+        })
     }
 
     render() {
         const indexOfLastList = this.state.currentPage * this.state.pagePerList;
         const indexOfFirstList = indexOfLastList - this.state.pagePerList;
-        const currentList = this.props.courseList.slice(indexOfFirstList, indexOfLastList);
+        const currentList = this.props.courseList.slice(indexOfFirstList, indexOfLastList).filter(nameSearch => {
+            return nameSearch.tenKhoaHoc.toLowerCase().trim().indexOf(this.state.text) !== -1;
+        });
 
         const paginate = (pageNumber) => {
             this.setState({
@@ -29,7 +39,10 @@ class TableCoursePending extends Component {
         return (
             <div>
                 <div className="inputTableSearch d-flex">
-                    <input className="form-control" name="searchUser" />
+                    <input 
+                    className="form-control" 
+                    name="searchUser" 
+                    onChange={this.handleChange} />
                     <div className="d-flex">
                         <button className="btn btn-success">Search</button>
                     </div>

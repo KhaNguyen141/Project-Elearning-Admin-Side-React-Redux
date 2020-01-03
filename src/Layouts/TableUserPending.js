@@ -4,18 +4,44 @@ import ModalCoursePending from "../Components/ModalCoursePending";
 import ModalCourseAcceptedComponent from "../Components/ModalCourseAccepted"
 import { fetchListUser } from '../Redux/Action/User/AdminActions';
 import { fetchCoursePending, fetchCourseAccepted, fetchCourseList } from '../Redux/Action/Course/CourseActions';
+import PaginationComponent from '../Layouts/Pagination'
 
 class TableUserPending extends Component {
 
     state = {
-        user: {}
+        user: [],
+        currentPage: 1,
+        pagePerList: 7,
+        text: "",
+        searchResult: [],
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            text: event.target.value
+        })
     }
 
     render() {
+        const indexOfLastList = this.state.currentPage * this.state.pagePerList;
+        const indexOfFirstList = indexOfLastList - this.state.pagePerList;
+        const currentList = this.props.userList.slice(indexOfFirstList, indexOfLastList).filter(nameSearch => {
+            return nameSearch.hoTen.toLowerCase().trim().indexOf(this.state.text) !== -1;
+        });
+
+        const paginate = (pageNumber) => {
+            this.setState({
+                currentPage: pageNumber
+            })
+        }
+
         return (
             <div>
                 <div className="inputTableSearch d-flex">
-                    <input className="form-control" name="searchUser" />
+                    <input 
+                    className="form-control" 
+                    name="searchUser" 
+                    onChange={this.handleChange}/>
                     <div className="d-flex">
                         <button className="btn btn-success">Search</button>
                     </div>
@@ -34,8 +60,7 @@ class TableUserPending extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.userList.map((user, index) => {
-                                    if (user.maLoaiNguoiDung === "HV")
+                                {currentList.map((user, index) => {
                                     return (
                                         <tr key={index}>
                                             <td>{index + 1 }</td>
@@ -65,6 +90,7 @@ class TableUserPending extends Component {
                                 })}
                                     <ModalCoursePending user={this.state.user}/>
                                     <ModalCourseAcceptedComponent user={this.state.user}/>
+                                    <PaginationComponent pagePerList={this.state.pagePerList} totalItems={this.props.userList.length} paginate={paginate}/>
                             </tbody>
                         </table>
                     </div>

@@ -56,6 +56,13 @@ class NavigationBarComponent extends Component {
               </li>
 
               <li className="nav-item">
+                <NavLink to="/admin/user-manage" className="nav-link textMenu font-italic">
+                  <i className="menuIcon fa fa-picture-o mr-3" />
+                  User Edit
+                </NavLink>
+              </li>
+
+              <li className="nav-item">
                 <a onClick={this.handleLogout} className="nav-link textMenu font-italic">
                   <ExitToAppIcon className="menuIcon SignOutIcon mr-3" />
                   Logout

@@ -16,11 +16,11 @@ import "../../App.scss";
       <div>
         {this.props.credentials ? (
           <div>
-            {/* Page content holder */}
+           
             <div className="page-content p-5" id="content">
-              {/* Toggle button */}
+          
               <button id="sidebarCollapse" type="button" className="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i className="fa fa-bars mr-2" /><small className="text-uppercase font-weight-bold">Toggle</small></button>
-              {/* Demo content */}
+        
              
               <div className="separator" />
               
@@ -68,83 +68,6 @@ import "../../App.scss";
                     </div>
                   </div>
                 </div>
-                
-                <div className="row text-white tableUserContainer">
-                  <div className="col-lg-7 bg-white rounded">
-                      <div className="tableListUser">
-                        <div className="row">
-                          <div className="span5">
-                            <table className="table table-striped table-condensed">
-                              <thead>
-                                <tr>
-                                  <th>ID</th>
-                                  <th>Username</th>
-                                  <th>Name</th>
-                                  <th>Email</th>
-                                  <th>Phone Number</th>
-                                  <th>Status</th>
-                                  <th>Date Registered</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>Donna12345</td>
-                                  <td>Donna R. Folse</td>
-                                  <td>chuoi321@gmail.com</td>
-                                  <td>0902333333</td>
-                                  <td><span className="label label-success">Active</span>
-                                  </td>
-                                  <td>2012/05/06</td>
-                                </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>Donna12345</td>
-                                  <td>Donna R. Folse</td>
-                                  <td>chuoi321@gmail.com</td>
-                                  <td>0902333333</td>
-                                  <td><span className="label label-success">Active</span>
-                                  </td>
-                                  <td>2012/05/06</td>
-                                </tr>
-                                <tr>
-                                  <td>3</td>
-                                  <td>Donna12345</td>
-                                  <td>Donna R. Folse</td>
-                                  <td>chuoi321@gmail.com</td>
-                                  <td>0902333333</td>
-                                  <td><span className="label label-success">Active</span>
-                                  </td>
-                                  <td>2012/05/06</td>
-                                </tr>
-                                <tr>
-                                  <td>4</td>
-                                  <td>Donna12345</td>
-                                  <td>Donna R. Folse</td>
-                                  <td>chuoi321@gmail.com</td>
-                                  <td>0902333333</td>
-                                  <td><span className="label label-success">Active</span>
-                                  </td>
-                                  <td>2012/05/06</td>
-                                </tr>
-                                <tr>
-                                  <td>5</td>
-                                  <td>Donna12345</td>
-                                  <td>Donna R. Folse</td>
-                                  <td>chuoi321@gmail.com</td>
-                                  <td>0902333333</td>
-                                  <td><span className="label label-success">Active</span>
-                                  </td>
-                                  <td>2012/05/06</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-    
-                    </div>
-                  </div>
     
                 </div>
               </div>
