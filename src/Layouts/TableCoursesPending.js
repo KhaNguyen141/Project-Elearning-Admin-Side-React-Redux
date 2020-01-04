@@ -61,12 +61,13 @@ class TableCoursePending extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {currentList.map((course, index) => (
+                                {currentList.length > 0 ? (
+                                    currentList.map((course, index) => (
                                         <tr key={index} >
                                             <td>{index + 1}</td>
 
                                             <td>{course.maKhoaHoc}</td>
-                                            <td>{course.tenKhoaHoc}</td> 
+                                            <td>{course.tenKhoaHoc}</td>
                                             <td>{course.luotXem}</td>
                                             <td>{course.nguoiTao.hoTen}</td>
                                             <td>
@@ -75,7 +76,7 @@ class TableCoursePending extends Component {
                                                     className="btn btn-udi-yellow mr-2"
                                                     data-toggle="modal"
                                                     data-target="#modalUserPending">Pending</button>
-                                                    
+
                                                 <button
                                                     onClick={() => this.handleFetchInfoCourse(course)}
                                                     className="btn btn-udi-yellow mr-2"
@@ -83,8 +84,16 @@ class TableCoursePending extends Component {
                                                     data-target="#modalUpdateCourse">Update</button>
                                             </td>
                                         </tr>
-
                                     )
+                                )) : (
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Course not found</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                 )}
                                     <ModalUserPending course={this.state.course} />
                                     <ModalUpdateCourseComponent course={this.state.course}/>
