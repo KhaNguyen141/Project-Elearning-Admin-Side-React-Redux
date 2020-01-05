@@ -34,8 +34,9 @@ class App extends Component {
         {this.props.credentials &&
           <NavigationBarComponent />
         }
-        
+      
         <Switch>
+        
             <Route exact path="/admin" component={HomeScreen} />
             <Route exact path="/admin/detail" component={ProfileDetail} />
             <Route exact path="/admin/list-user-manage" component={UserManagementsComponent} />
@@ -45,7 +46,7 @@ class App extends Component {
             <Route component={notFoundPage} />
             <Route exact path="/" component={LoginBox} />
         </Switch>
-
+        
       </BrowserRouter>
     );
   }

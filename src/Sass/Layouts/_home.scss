@@ -145,9 +145,17 @@
 
       .tableUserContainer {
         margin-top: $mg-3;
-        .tableListUser {
+        h2 {
+          color: $color-black-0;
+          text-align: center;
+        }
+        .tableUserList {
             padding: $pd-3 $pd-7;
-          }
+        }
+
+        .tableCourseList {
+          padding: $pd-3 $pd-7;
+        }
       }
       
   }
