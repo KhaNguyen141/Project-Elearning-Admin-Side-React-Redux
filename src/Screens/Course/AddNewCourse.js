@@ -31,7 +31,7 @@ class AddCourseComponent extends Component {
                 render={({ handleChange, setFieldValue }) => (
                     <div className="courseEditCotaniner">
                         <Form className="container formSearch">
-                            <h2>Thêm khoá học</h2>
+                            <h2>Course Addition</h2>
                             <div className="row">
 
                                 <div className="col-6">
@@ -153,7 +153,7 @@ class AddCourseComponent extends Component {
                                 </div>
                             </div>
 
-                            <button type="submit" className="buttonAddNewCourse btn btn-udi-yellow my-5">Thêm</button>
+                            <button type="submit" className="buttonAddNewCourse btn btn-udi-yellow my-5">Add</button>
                         </Form>
                     </div>
                 )}

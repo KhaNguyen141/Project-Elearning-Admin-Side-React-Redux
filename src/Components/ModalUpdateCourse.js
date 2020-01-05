@@ -37,7 +37,7 @@ class ModalUpdateCourseComponent extends Component {
                 <div className="modal-dialog modal-lg" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title">Sửa khoá học</h5>
+                            <h5 className="modal-title">Update Course</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
@@ -47,7 +47,7 @@ class ModalUpdateCourseComponent extends Component {
                                     <div className="row">
 
                                         <div className="col-6">
-                                            <h4 className="text-left">Mã khoá học</h4>
+                                            <h4 className="text-left">Course ID</h4>
                                             <Field
                                                 name="maKhoaHoc"
                                                 type="text"
@@ -56,7 +56,7 @@ class ModalUpdateCourseComponent extends Component {
                                         </div>
 
                                         <div className="col-6">
-                                            <h4 className="text-left">Đánh giá</h4>
+                                            <h4 className="text-left">Rating</h4>
                                             <Field
                                                 name="danhGia"
                                                 type="text"
@@ -69,7 +69,7 @@ class ModalUpdateCourseComponent extends Component {
                                     <div className="row">
 
                                         <div className="col-6">
-                                            <h4 className="text-left">Tên khoá học</h4>
+                                            <h4 className="text-left">Course name</h4>
                                             <input
                                                 name="tenKhoaHoc"
                                                 type="text"
@@ -78,7 +78,7 @@ class ModalUpdateCourseComponent extends Component {
                                         </div>
 
                                         <div className="col-6">
-                                            <h4 className="text-left">Lượt xem</h4>
+                                            <h4 className="text-left">Views</h4>
                                             <Field
                                                 name="luotXem"
                                                 type="text"
@@ -90,12 +90,12 @@ class ModalUpdateCourseComponent extends Component {
 
                                     <div className="row">
                                         <div className="form-group col-6">
-                                            <h4 className="text-left">Danh mục khoá học</h4>
+                                            <h4 className="text-left">Course type</h4>
                                             <Field
                                                 as="select"
                                                 name="maDanhMucKhoaHoc"
                                                 className="form-control">
-                                                <option>Vui lòng chọn danh mục</option>
+                                                <option>Please choose course type</option>
                                                        
                                                 {this.props.listCategory.map((list, index) => {
                                                     return ( 
@@ -109,7 +109,7 @@ class ModalUpdateCourseComponent extends Component {
                                         </div>
 
                                         <div className="form-group col-6">
-                                            <h4 className="text-left">Người tạo</h4>
+                                            <h4 className="text-left">Creator</h4>
                                             <Field
                                                 name="taiKhoanNguoiTao"
                                                 type="text"
@@ -121,7 +121,7 @@ class ModalUpdateCourseComponent extends Component {
                                     <div className="row">
 
                                         <div className="col-6">
-                                            <h4 className="text-left">Ngày tạo</h4>
+                                            <h4 className="text-left">Creation date</h4>
                                             <Field
                                                 name="ngayTao"
                                                 type="text"
@@ -130,7 +130,7 @@ class ModalUpdateCourseComponent extends Component {
                                         </div>
 
                                         <div className="col-6">
-                                            <h4 className="text-left">Hình ảnh</h4>
+                                            <h4 className="text-left">Image Upload</h4>
                                             <input 
                                             name="hinhAnh" 
                                             type="file" 
@@ -145,7 +145,7 @@ class ModalUpdateCourseComponent extends Component {
                                     <div className="row">
 
                                         <div className="col-6">
-                                            <h4 className="text-left">Mã nhóm</h4>
+                                            <h4 className="text-left">Group ID</h4>
 
                                             <Field
                                                 name="maNhom"
@@ -159,7 +159,7 @@ class ModalUpdateCourseComponent extends Component {
                                     <div>
 
                                         <div>
-                                            <h4 className="text-left">Mô tả</h4>
+                                            <h4 className="text-left">Description</h4>
                                             <textarea
                                                 name="moTa"
                                                 type="text"
@@ -171,7 +171,7 @@ class ModalUpdateCourseComponent extends Component {
                                 </div>
 
                             <div className="modal-footer">
-                                <button type="submit" className="btn btn-primary">Save</button>
+                                <button type="submit" className="btn btn-udi-yellow">Update</button>
                             </div>
                         </Form>
                     </div>

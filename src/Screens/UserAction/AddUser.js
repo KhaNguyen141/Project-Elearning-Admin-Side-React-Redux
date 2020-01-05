@@ -110,7 +110,7 @@ class AddUserComponent extends Component {
 
                             </div>
 
-                            <button type="submit" className="buttonAddNewCourse btn btn-udi-yellow my-5">Thêm</button>
+                            <button type="submit" className="buttonAddNewCourse btn btn-udi-yellow my-5">Add</button>
                         </Form>
                     </div>
                 )}

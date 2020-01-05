@@ -13,7 +13,7 @@ class ModalCoursePending extends Component {
                     <div className="modal-dialog modal-xl" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title">Khoá học chờ xét duyệt</h5>
+                                <h5 className="modal-title">List courses pending</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
