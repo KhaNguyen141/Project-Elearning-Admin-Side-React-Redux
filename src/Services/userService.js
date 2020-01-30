@@ -29,11 +29,6 @@ class UserService {
     }
 
     adminApproveCourses (maKhoaHoc, taiKhoan) {
-        // console.log({
-        //     maKhoaHoc: maKhoaHoc,
-        //     taiKhoan: taiKhoan,
-        //     header: settings.token,
-        // })
         return restConnector({
             method: "POST",
             url: "/api/QuanLyKhoaHoc/GhiDanhKhoaHoc",

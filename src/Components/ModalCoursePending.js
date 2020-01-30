@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { adminApproveCourses } from '../Redux/Action/User/AdminActions';
+import { adminApproveCourses, adminCancelCourses } from '../Redux/Action/User/AdminActions';
 
 class ModalCoursePending extends Component {
     render() {
@@ -37,7 +37,7 @@ class ModalCoursePending extends Component {
                                                         <td>{item.tenKhoaHoc}</td>
                                                         <td className="text-center">
                                                             <button onClick={() => this.handleApproveCourse(item.maKhoaHoc, taiKhoan)} className="btn btn-udi-yellow mr-2">Approve</button>
-                                                            <button className="btn btn-cyber-red mr-2">Cancel</button>
+                                                            <button onClick={() => this.handleCancelCourse(item.maKhoaHoc, taiKhoan)} className="btn btn-cyber-red mr-2">Cancel</button>
                                                         </td>
                                                     </tr>
                                                 )
@@ -56,6 +56,10 @@ class ModalCoursePending extends Component {
     handleApproveCourse(maKhoaHoc, taiKhoan) {
         this.props.dispatch(adminApproveCourses(maKhoaHoc, taiKhoan));
         
+    }
+
+    handleCancelCourse(maKhoaHoc, taiKhoan) {
+        this.props.dispatch(adminCancelCourses(maKhoaHoc, taiKhoan))
     }
     
 }
