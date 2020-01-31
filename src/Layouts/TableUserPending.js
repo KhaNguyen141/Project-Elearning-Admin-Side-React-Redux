@@ -37,16 +37,15 @@ class TableUserPending extends Component {
 
         return (
             <div>
-                <div className="inputTableSearch d-flex">
+
+                <div className="inputTableSearch">
                     <input 
                     className="form-control" 
                     name="searchUser" 
-                    onChange={this.handleChange}/>
-                    <div className="d-flex">
-                        <button className="btn btn-success">Search</button>
-                    </div>
+                    onChange={this.handleChange}
+                    placeholder="Search"/>
                 </div>
-                <div className="tableContainer container">
+                <div className="tableContainer">
                     <div className="tableUserList">
                         <table className="table table-striped table-condensed">
                             <thead>
@@ -105,10 +104,10 @@ class TableUserPending extends Component {
                             }
                                     <ModalCoursePending user={this.state.user}/>
                                     <ModalCourseAcceptedComponent user={this.state.user}/>
-                                    <PaginationComponent pagePerList={this.state.pagePerList} totalItems={this.props.userList.length} paginate={paginate}/>
                             </tbody>
                         </table>
                     </div>
+                    <PaginationComponent pagePerList={this.state.pagePerList} totalItems={this.props.userList.length} paginate={paginate}/>
                 </div>
                 
             </div>

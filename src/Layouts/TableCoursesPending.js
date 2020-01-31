@@ -42,10 +42,8 @@ class TableCoursePending extends Component {
                     <input 
                     className="form-control" 
                     name="searchUser" 
-                    onChange={this.handleChange} />
-                    <div className="d-flex">
-                        <button className="btn btn-success">Search</button>
-                    </div>
+                    onChange={this.handleChange} 
+                    placeholder="Search"/>
                 </div>
                 <div className="tableContainer container">
                     <div className="tableCourseList">
@@ -97,10 +95,10 @@ class TableCoursePending extends Component {
                                 )}
                                     <ModalUserPending course={this.state.course} />
                                     <ModalUpdateCourseComponent course={this.state.course}/>
-                                    <PaginationComponent pagePerList={this.state.pagePerList} totalItems={this.props.courseList.length} paginate={paginate}/>
                             </tbody>
                         </table>
                     </div>
+                    <PaginationComponent pagePerList={this.state.pagePerList} totalItems={this.props.courseList.length} paginate={paginate}/>
                 </div>
                 
             </div>

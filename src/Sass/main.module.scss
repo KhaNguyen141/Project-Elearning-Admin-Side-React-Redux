@@ -22,10 +22,13 @@
 @import '../Sass/Components/button';
 @import '../Sass/Components/errorMessage';
 
+//Page
+@import '../Screens/Profile/profileAccount';
+
 // Layout
 @import '../Sass/Layouts/navigationBar.scss';
 @import '../Sass/Layouts/loginBox.scss';
-@import '../Sass/Layouts/home.scss';
+@import '../Screens/Home/home';
 @import '../Sass/Layouts/tablePending.scss';
 @import '../Sass/Layouts/pagination.scss';
 

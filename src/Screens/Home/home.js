@@ -76,7 +76,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
                       <div className="tableUserList">
                         <div className="row">
                           <div className="span5">
-                            <h2>User List</h2>
+                            <h2>Latest User List</h2>
                             <table className="table table-striped table-condensed">
                               <thead>
                                 <tr>
@@ -115,7 +115,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
                       <div className="tableCourseList">
                         <div className="row">
                           <div className="span5">
-                            <h2>Course List</h2>
+                            <h2>Latest Course List</h2>
                             <table className="table table-striped table-condensed">
                               <thead>
                                 <tr>
