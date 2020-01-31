@@ -19,12 +19,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
         {this.props.credentials ? (
           <div>
            
-            <div className="page-content p-5" id="content">
-          
-              <button id="sidebarCollapse" type="button" className="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i className="fa fa-bars mr-2" /><small className="text-uppercase font-weight-bold">Toggle</small></button>
-        
-             
-              <div className="separator" />
+            
               
               <div className="homeContentContainer">
                 
@@ -71,11 +66,11 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
                   </div>
                 </div>
 
-                <div className="row text-white tableUserContainer">
+                <div className="row text-white tableLatestContainer">
                   <div className="col-6 bg-white rounded">
                       <div className="tableUserList">
                         <div className="row">
-                          <div className="span5">
+                          
                             <h2>Latest User List</h2>
                             <table className="table table-striped table-condensed">
                               <thead>
@@ -105,7 +100,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
                                 
                               </tbody>
                             </table>
-                          </div>
+                        
                         </div>
                       </div>
     
@@ -114,7 +109,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
                     <div className="col-6 bg-white rounded">
                       <div className="tableCourseList">
                         <div className="row">
-                          <div className="span5">
+                          
                             <h2>Latest Course List</h2>
                             <table className="table table-striped table-condensed">
                               <thead>
@@ -147,7 +142,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
                                 
                               </tbody>
                             </table>
-                          </div>
+                        
                         </div>
                       </div>
     
@@ -156,7 +151,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
     
     
                 </div>
-              </div>
+            
 
             </div>
         ) : (

@@ -1,0 +1,13 @@
+.userEditCotaniner {
+    h4, h2 {
+        margin-top: $mg-2;
+    }
+    @include contentSchemaTableEdit();
+    .inputDescription {
+        height: $height-100p;
+    }
+
+    .buttonAddNewCourse {
+        width: $w-20;
+    }
+}

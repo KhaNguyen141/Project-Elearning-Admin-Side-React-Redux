@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+
+import { withRouter, NavLink } from 'react-router-dom';
+
+// import Material UI
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
-import { withRouter, NavLink } from 'react-router-dom';
-import Swal from 'sweetalert2';
-
 
 class NavigationBarComponent extends Component {
     render() {
@@ -23,26 +24,26 @@ class NavigationBarComponent extends Component {
             <p className="mainMenu">Main</p>
             <ul className="nav flex-column bg-white mb-0">
               <li className="nav-item">
-                <NavLink to="/admin" className="nav-link textMenu font-italic">
+                <NavLink activeStyle={{backgroundColor: "red"}} exact to="/admin" className="nav-link textMenu font-italic">
                   <HomeIcon className="menuIcon mr-3" />
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/admin/detail" className="nav-link textMenu font-italic">
+                <NavLink activeStyle={{color: "red"}} exact to="/admin/detail" className="nav-link textMenu font-italic">
                   <PermContactCalendarIcon className="menuIcon mr-3" />
                   About
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/admin/list-user-manage" className="nav-link textMenu font-italic">
+                <NavLink activeStyle={{ backgroundColor:'red' }} exact to="/admin/list-user-manage" className="nav-link textMenu font-italic">
                   <i className="menuIcon fa fa-cubes mr-3" />
                   List User Management
                 </NavLink>
               </li>
 
               <li className="nav-item">
-                <NavLink to="/admin/list-course-manage" className="nav-link textMenu font-italic">
+                <NavLink activeStyle={{ backgroundColor:'red' }} exact to="/admin/list-course-manage" className="nav-link textMenu font-italic">
                   <i className="menuIcon fa fa-cubes mr-3" />
                   List Course Management
                 </NavLink>

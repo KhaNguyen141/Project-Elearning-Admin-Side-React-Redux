@@ -1,48 +1,9 @@
-  .page-content {
-    width: calc(100% - 17rem);
-    margin-left: 17rem;
-    transition: all 0.4s;
-  }
-  
-  /* for toggle behavior */
-  
-  #sidebar.active {
-    margin-left: -17rem;
-  }
-  
-  #content.active {
-    width: 100%;
-    margin: 0;
-  }
-  
-  @media (max-width: 768px) {
-    #sidebar {
-      margin-left: -17rem;
-    }
-    #sidebar.active {
-      margin-left: 0;
-    }
-    #content {
-      width: 100%;
-      margin: 0;
-    }
-    #content.active {
-      margin-left: 17rem;
-      width: calc(100% - 17rem);
-    }
-  }
-
-  #sidebarCollapse {
-      margin-left: $mg-2;
-  }
-  
-  .separator {
-    margin: 3rem $mg-2;
-    border-bottom: 1px dashed #fff;
-  }
-
-  .homeContentContainer { 
-      margin: 0 $mg-3;
+.homeContentContainer { 
+      margin: 0 $mg-2 - 5;
+      position: absolute;
+      width: 78%;
+      top: 23%;
+      left: 17%;
       .chartContainer {
         padding: $pd-6 $pd-2;
         .chartFramework {
@@ -143,14 +104,18 @@
       
       }
 
-      .tableUserContainer {
+      .tableLatestContainer {
         margin-top: $mg-3;
+        margin-bottom: $mg-3;
+
         h2 {
           color: $color-black-0;
-          text-align: center;
+          padding-bottom: $pd-2;
+          margin: 0 auto;
         }
         .tableUserList {
             padding: $pd-3 $pd-7;
+            margin: 0;
         }
 
         .tableCourseList {

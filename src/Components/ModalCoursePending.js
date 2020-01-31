@@ -8,7 +8,7 @@ class ModalCoursePending extends Component {
         const {taiKhoan} = this.props.user;
         
         return (
-            <div>
+           
                 <div className="modal fade" id="modalCoursePending" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                     <div className="modal-dialog modal-xl" role="document">
                         <div className="modal-content">
@@ -49,7 +49,7 @@ class ModalCoursePending extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+          
 
         )
     }

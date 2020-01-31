@@ -2,7 +2,7 @@
     h4, h2 {
         margin-top: $mg-2;
     }
-    @include contentSchemaEditCourse();
+    @include contentSchemaTableEdit();
     .inputDescription {
         height: $height-100p;
     }

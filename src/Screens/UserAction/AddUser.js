@@ -21,7 +21,7 @@ class AddUserComponent extends Component {
                     this.props.dispatch(adminAddUser(values))
                 }}
                 render={({ handleChange }) => (
-                    <div className="courseEditCotaniner">
+                    <div className="userEditCotaniner">
                         <Form className="container formSearch">
                             <h2>User Addition</h2>
                             <div className="row">

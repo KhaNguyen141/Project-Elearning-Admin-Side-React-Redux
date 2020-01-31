@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
 import { connect } from "react-redux";
 import reduxAction from "./Redux/Action/action";
@@ -8,15 +8,15 @@ import { restConnector } from "./Services";
 // import Layout
 import HomeScreen from "./Screens/Home/home";
 import ProfileDetail from "./Screens/Profile/ProfileDetail";
-import NavigationBarComponent from "./Components/NavigationBar"
+import NavigationBarComponent from "./Components/NavigationBar/NavigationBar"
 import UserManagementsComponent from "./Screens/Managements/UserManagements";
 import CourseManagementsComponent from "./Screens/Managements/CourseManagement";
 import AddCourseComponent from "./Screens/Course/AddNewCourse";
 import AddUserComponent from "./Screens/UserAction/AddUser";
 
 import { ADMIN_LOGIN } from "./Redux/Action/type";
-import LoginBox from "./Layouts/LoginBox";
-
+import SidebarButton from "./Components/SidebarButton/SidebarButton";
+import SeperatorLine from "./Components/SeperatorLine/SeperatorLine";
 
 class App extends Component {
   
@@ -24,7 +24,7 @@ class App extends Component {
     const notFoundPage = () => (
       <div className="container contentNotFound">
         <h1>Content is not found</h1>
-        <Link className="btn btn-success" to="/admin">Back to home</Link>
+        <NavLink className="btn btn-success" to="/admin">Back to home</NavLink>
       </div>
     )
     
@@ -32,7 +32,15 @@ class App extends Component {
       <BrowserRouter> 
       
         {this.props.credentials &&
-          <NavigationBarComponent />
+          <div>
+            <NavigationBarComponent />
+
+            <SidebarButton />
+
+            <SeperatorLine />
+
+          </div>
+      
         }
       
         <Switch>
@@ -44,7 +52,7 @@ class App extends Component {
             <Route exact path="/admin/course-manage" component={AddCourseComponent} />
             <Route exact path="/admin/user-manage" component={AddUserComponent} />
             <Route component={notFoundPage} />
-            <Route exact path="/" component={LoginBox} />
+            <Route path="/" component={HomeScreen} />
         </Switch>
         
       </BrowserRouter>
