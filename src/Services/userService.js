@@ -24,7 +24,14 @@ class UserService {
     fetchListUser() {
         return restConnector({
             method: "GET",
-            url: "/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP02",
+            url: `/api/QuanLyNguoiDung/LayDanhSachNguoiDung_PhanTrang?MaNhom=GP09&page=1&pageSize=10`,
+        })
+    }
+
+    fetchListUserPagination(pageNumber) {
+        return restConnector({
+            method: "GET",
+            url: `/api/QuanLyNguoiDung/LayDanhSachNguoiDung_PhanTrang?MaNhom=GP09&page=${pageNumber}&pageSize=10`,
         })
     }
 

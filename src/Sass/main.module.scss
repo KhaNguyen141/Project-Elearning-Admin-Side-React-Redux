@@ -29,12 +29,13 @@
 @import '../Sass/Layouts/loginBox.scss';
 @import '../Screens/Home/home';
 @import '../Sass/Layouts/tablePending.scss';
-@import '../Sass/Layouts/pagination.scss';
+@import '../Layouts/Pagination/pagination';
 
 // Pages
 @import '../Screens/Profile/profileAccount';
 @import '../Screens/Course/addCourse';
 @import '../Screens/UserAction/addUser';
+@import '../Screens/PageNotFound/pageNotFound';
 
 // Customize
 @import '../Sass/Base/customize';

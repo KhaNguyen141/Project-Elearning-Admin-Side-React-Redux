@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchCourseList } from '../Redux/Action/Course/CourseActions';
+import { fetchCourseList, fetchCourseListPagination } from '../Redux/Action/Course/CourseActions';
 import ModalUserPending from "../Components/ModalUserPending";
 import ModalUpdateCourseComponent from '../Components/ModalUpdateCourse';
-import { fetchListUserPending } from '../Redux/Action/User/AdminActions';
-import PaginationComponent from "../Layouts/Pagination";
+import { fetchListUserPending } from '../Redux/Action/User/AdminActions';   
+
+import PaginationComponent from './Pagination/Pagination';
 
 class TableCoursePending extends Component {
-
-    state = {
-        course: [],
-        currentPage: 1,
-        pagePerList: 7,
-        text: "",
-        searchResult: [],
-
+    constructor() {
+        super();
+        this.state = {
+            course: [],
+            text: "",
+            searchResult: [],
+    
+        };
     }
 
     handleChange = (event) => {
@@ -24,17 +25,9 @@ class TableCoursePending extends Component {
     }
 
     render() {
-        const indexOfLastList = this.state.currentPage * this.state.pagePerList;
-        const indexOfFirstList = indexOfLastList - this.state.pagePerList;
-        const currentList = this.props.courseList.slice(indexOfFirstList, indexOfLastList).filter(nameSearch => {
+        const currentList = this.props.courseList.filter(nameSearch => {
             return nameSearch.tenKhoaHoc.toLowerCase().trim().indexOf(this.state.text) !== -1;
         });
-
-        const paginate = (pageNumber) => {
-            this.setState({
-                currentPage: pageNumber
-            })
-        }
 
         return (
             <div>
@@ -97,10 +90,17 @@ class TableCoursePending extends Component {
                                     <ModalUpdateCourseComponent course={this.state.course}/>
                             </tbody>
                         </table>
+                        <PaginationComponent 
+                            activePage={this.props.page.currentPage}
+                            itemsCountPerPage={10}
+                            totalItemsCount={this.props.page.totalCount}
+                            pageRangeDisplayed={3}
+                            onChange={this.handlePageChange}
+                        />
                     </div>
-                    <PaginationComponent pagePerList={this.state.pagePerList} totalItems={this.props.courseList.length} paginate={paginate}/>
+                                   
                 </div>
-                
+
             </div>
         )
     }
@@ -109,6 +109,11 @@ class TableCoursePending extends Component {
         this.props.dispatch(fetchCourseList())
         
     }
+
+    handlePageChange = pageNumber => {
+        console.log(`active page is ${pageNumber}`);
+        this.props.dispatch(fetchCourseListPagination(pageNumber))
+    };
 
     handleFetchUserPending = (course) => {
         this.setState({
@@ -132,7 +137,7 @@ class TableCoursePending extends Component {
 
 const mapStateToProps = (state) => ({
     courseList: state.courseReducer.courseList,
-    courseListPagination: state.courseReducer.courseListPagination,
+    page: state.courseReducer.currentPage,
     courseListPending: state.courseReducer.courseListPending,
     courseListAccepted: state.courseReducer.courseListAccepted,
 })

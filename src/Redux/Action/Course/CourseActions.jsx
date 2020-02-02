@@ -47,7 +47,6 @@ export const fetchListCategory = (listCategory) => {
     courseService
       .fetchListCategory(listCategory)
       .then(res => {
-        
         dispatch(reduxAction(LIST_CATEGORY, res.data));
         console.log(res.data);
       }).catch(error => {
@@ -63,7 +62,8 @@ export const fetchCourseList = () => {
       courseService
       .fetchCourseList()
       .then(res => {
-        dispatch(reduxAction(LIST_COURSES, res.data));
+        dispatch(reduxAction(LIST_COURSES, res.data.items));
+        dispatch(reduxAction(LIST_COURSE_PAGINATION, res.data));
         console.log(res.data);
       }).catch(error => {
         console.log(error.response.data)
@@ -71,11 +71,12 @@ export const fetchCourseList = () => {
   }
 }
 
-export const fetchCourseListPagination = () => {
+export const fetchCourseListPagination = (pageNumber) => {
   return dispatch => {
       courseService
-      .fetchCourseListPagination()
+      .fetchCourseListPagination(pageNumber)
       .then(res => {
+        dispatch(reduxAction(LIST_COURSES, res.data.items));
         dispatch(reduxAction(LIST_COURSE_PAGINATION, res.data));
         console.log(res.data);
       }).catch(error => {

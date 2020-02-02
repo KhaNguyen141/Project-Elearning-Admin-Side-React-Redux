@@ -2,18 +2,22 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import ModalCoursePending from "../Components/ModalCoursePending";
 import ModalCourseAcceptedComponent from "../Components/ModalCourseAccepted"
-import { fetchListUser } from '../Redux/Action/User/AdminActions';
+import { fetchListUser, fetchListUserPagination } from '../Redux/Action/User/AdminActions';
 import { fetchCoursePending, fetchCourseAccepted, fetchCourseList } from '../Redux/Action/Course/CourseActions';
-import PaginationComponent from '../Layouts/Pagination'
+
+import PaginationComponent from '../Layouts/Pagination/Pagination';
+import axios from 'axios';
+
 
 class TableUserPending extends Component {
 
-    state = {
-        user: [],
-        currentPage: 1,
-        pagePerList: 7,
-        text: "",
-        searchResult: [],
+    constructor() {
+        super();
+        this.state = {
+            user: [],
+            text: "",
+            searchResult: [],
+        }
     }
 
     handleChange = (event) => {
@@ -23,17 +27,10 @@ class TableUserPending extends Component {
     }
 
     render() {
-        const indexOfLastList = this.state.currentPage * this.state.pagePerList;
-        const indexOfFirstList = indexOfLastList - this.state.pagePerList;
-        const currentList = this.props.userList.slice(indexOfFirstList, indexOfLastList).filter(nameSearch => {
+
+        const currentList = this.props.userList.filter(nameSearch => {
             return nameSearch.hoTen.toLowerCase().trim().indexOf(this.state.text) !== -1;
         });
-
-        const paginate = (pageNumber) => {
-            this.setState({
-                currentPage: pageNumber
-            })
-        }
 
         return (
             <div>
@@ -60,37 +57,43 @@ class TableUserPending extends Component {
                             </thead>
                             <tbody>
                                 {currentList.length > 0 ? (
-                                currentList.map((user, index) => {
-                                        return (
-                                            <tr key={index}>
-                                                <td>{index + 1 }</td>
-                                                <td>{user.taiKhoan}</td>
-                                                <td>{user.hoTen}</td>
-                                                <td>{user.email}</td>
-                                                <td>{user.soDt}</td>
-                                                <td>
-                                                    <button
-                                                        onClick={() => this.handleFetchCoursePending(user)}
-                                                        className="btn btn-udi-yellow mr-2"
-                                                        data-toggle="modal"
-                                                        data-target="#modalCoursePending">Pending
-                                                    </button>
-                                                        
-                                                    <button
-                                                        onClick={() => this.handleFetchCourseAccepted(user)}
-                                                        className="btn btn-udi-yellow mr-2"
-                                                        data-toggle="modal"
-                                                        data-target="#modalCourseAccepted">Accepted
-                                                    </button>
-                                                        
-                                                </td>
-                                                
-                                            </tr>
-                                        )
+                                (currentList).map((user, index) => {
+                                   
+                                            return (
+                                                <tr key={index}>
+                                                    <td>{index + 1 }</td>
+                                                    <td>{user.taiKhoan}</td>
+                                                    <td>{user.hoTen}</td>
+                                                    <td>{user.email}</td>
+                                                    <td>{user.soDt}</td>
+                                                    <td>
+                                                        <button
+                                                            onClick={() => this.handleFetchCoursePending(user)}
+                                                            className="btn btn-udi-yellow mr-2"
+                                                            data-toggle="modal"
+                                                            data-target="#modalCoursePending">Pending
+                                                        </button>
+                                                            
+                                                        <button
+                                                            onClick={() => this.handleFetchCourseAccepted(user)}
+                                                            className="btn btn-udi-yellow mr-2"
+                                                            data-toggle="modal"
+                                                            data-target="#modalCourseAccepted">Accepted
+                                                        </button>
+                                                            
+                                                    </td>
+                                                    
+                                                </tr>
+                                            
+                                        
+                                        
+                                    )
+                                            
+                                        
                                         
                                     }
-                                    
-                                )) : (
+                                )
+                                ) : (
                                     <tr>
                                         <td></td>
                                         <td></td>
@@ -106,8 +109,15 @@ class TableUserPending extends Component {
                                     <ModalCourseAcceptedComponent user={this.state.user}/>
                             </tbody>
                         </table>
+                        <PaginationComponent 
+                            activePage={this.props.page.currentPage}
+                            itemsCountPerPage={10}
+                            totalItemsCount={this.props.page.totalCount}
+                            pageRangeDisplayed={3}
+                            onChange={this.handlePageChange}
+                        />
+                        
                     </div>
-                    <PaginationComponent pagePerList={this.state.pagePerList} totalItems={this.props.userList.length} paginate={paginate}/>
                 </div>
                 
             </div>
@@ -115,8 +125,12 @@ class TableUserPending extends Component {
     }
     componentDidMount () {
         this.props.dispatch(fetchListUser())
-    
     }
+
+    handlePageChange = pageNumber => {
+        console.log(`active page is ${pageNumber}`);
+        this.props.dispatch(fetchListUserPagination(pageNumber))
+    };
 
     handleFetchCoursePending = (user) => {
         this.setState({
@@ -139,6 +153,7 @@ class TableUserPending extends Component {
 const mapStateToProps = (state) => ({
     courseList: state.courseReducer.courseList,
     userList: state.userReducer.userList,
+    page: state.userReducer.currentPage,
     courseListPending: state.courseReducer.courseListPending,
     courseListAccepted: state.courseReducer.courseListAccepted,
    

@@ -1,4 +1,4 @@
-import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE, ADMIN_UPLOAD_IMAGE, ADMIN_ADD_USER, FETCH_USER_TYPE } from "../type";
+import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE, ADMIN_UPLOAD_IMAGE, ADMIN_ADD_USER, FETCH_USER_TYPE, LIST_USERS_PAGINATION } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -77,7 +77,23 @@ export const fetchListUser = () => {
       userService
       .fetchListUser()
       .then(res => {
-        dispatch(reduxAction(LIST_USERS, res.data));
+        dispatch(reduxAction(LIST_USERS, res.data.items));
+        dispatch(reduxAction(LIST_USERS_PAGINATION, res.data));
+        console.log(res.data);
+        
+      }).catch(error => {
+        console.log(error.response.data)
+      })
+  }
+}
+
+export const fetchListUserPagination = (pageNumber) => {
+  return dispatch => {
+      userService
+      .fetchListUserPagination(pageNumber)
+      .then(res => {
+        dispatch(reduxAction(LIST_USERS, res.data.items))
+        dispatch(reduxAction(LIST_USERS_PAGINATION, res.data));
         console.log(res.data);
       }).catch(error => {
         console.log(error.response.data)

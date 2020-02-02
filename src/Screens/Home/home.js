@@ -67,7 +67,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
                 </div>
 
                 <div className="row text-white tableLatestContainer">
-                  <div className="col-6 bg-white rounded">
+                  <div className="col-xl-6 bg-white rounded">
                       <div className="tableUserList">
                         <div className="row">
                           
@@ -106,7 +106,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
     
                     </div>
 
-                    <div className="col-6 bg-white rounded">
+                    <div className="col-xl-6 bg-white rounded">
                       <div className="tableCourseList">
                         <div className="row">
                           

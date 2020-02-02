@@ -5,7 +5,7 @@ let initialState = {
     courseListAccepted: [],
     courseListCategory: [],
     courseList: [],
-    courseListPagination: [],
+    currentPage: 1,
 }
 
 const CourseReducer = (state = initialState, action) => {
@@ -31,7 +31,7 @@ const CourseReducer = (state = initialState, action) => {
         }
 
         case LIST_COURSE_PAGINATION: {
-            state.courseListPagination = [action.payload];
+            state.currentPage = action.payload;
             return {...state};
         }
 

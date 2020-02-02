@@ -17,15 +17,13 @@ import AddUserComponent from "./Screens/UserAction/AddUser";
 import { ADMIN_LOGIN } from "./Redux/Action/type";
 import SidebarButton from "./Components/SidebarButton/SidebarButton";
 import SeperatorLine from "./Components/SeperatorLine/SeperatorLine";
+import PageNotFound from "./Screens/PageNotFound/PageNotFound";
 
 class App extends Component {
   
   render() {
     const notFoundPage = () => (
-      <div className="container contentNotFound">
-        <h1>Content is not found</h1>
-        <NavLink className="btn btn-success" to="/admin">Back to home</NavLink>
-      </div>
+      <PageNotFound />
     )
     
     return (

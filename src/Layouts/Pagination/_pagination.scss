@@ -1,0 +1,24 @@
+.pagination {
+    left: 16%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+        font-size: 20px;
+        padding: 13px;
+        margin: 5px;
+        border-radius: 5px;
+        background: $color-yellow-0;
+        color: $color-black-0;
+        &:hover {
+            background-color: $color-yellow-1;
+            text-decoration: none;
+        }
+  
+    }
+}
+
+
+
+
+
