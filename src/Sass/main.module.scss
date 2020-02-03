@@ -30,6 +30,11 @@
 @import '../Screens/Home/home';
 @import '../Sass/Layouts/tablePending.scss';
 @import '../Layouts/Pagination/pagination';
+@import '../Layouts/TableCourse/tableCoursesManagement';
+@import '../Layouts/TableUser/tableUserManagement';
+@import '../Components/ModalCourse/modalCourseAccepted';
+@import '../Components/ModalCourse/modalCoursePending';
+@import '../Components/ModalUser/modalUserPending';
 
 // Pages
 @import '../Screens/Profile/profileAccount';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { adminApproveCourses, adminCancelCourses } from '../Redux/Action/User/AdminActions';
+import { adminApproveCourses, adminCancelCourses } from '../../Redux/Action/User/AdminActions';
 
 class ModalCoursePending extends Component {
     render() {
@@ -19,7 +19,7 @@ class ModalCoursePending extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <table className="table table-striped table-condensed">
+                                <table className="table tableCoursePending">
                                     <thead>
                                         <tr>
                                             <th>#</th>

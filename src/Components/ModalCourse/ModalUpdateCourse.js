@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
-import { fetchListCategory } from '../Redux/Action/Course/CourseActions';
-import { adminUpdateCourse, adminUploadImage } from '../Redux/Action/User/AdminActions';
-
-import Axios from 'axios';
-import { settings } from '../Config/settings';
+import { fetchListCategory } from '../../Redux/Action/Course/CourseActions';
+import { adminUpdateCourse } from '../../Redux/Action/User/AdminActions';
 
 class ModalUpdateCourseComponent extends Component {
 

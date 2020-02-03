@@ -107,6 +107,7 @@
       .tableLatestContainer {
         margin-top: $mg-3;
         margin-bottom: $mg-3;
+        
 
         h2 {
           color: $color-black-0;
@@ -114,12 +115,13 @@
           margin: 0 auto;
         }
         .tableUserList {
-            padding: $pd-3 $pd-7;
-            margin: 0;
+            padding: $pd-3;
+            
         }
 
         .tableCourseList {
-          padding: $pd-3 $pd-7;
+          padding: $pd-3;
+         
         }
       }
       

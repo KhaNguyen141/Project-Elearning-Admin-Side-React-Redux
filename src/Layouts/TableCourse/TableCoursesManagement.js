@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchCourseList, fetchCourseListPagination } from '../Redux/Action/Course/CourseActions';
-import ModalUserPending from "../Components/ModalUserPending";
-import ModalUpdateCourseComponent from '../Components/ModalUpdateCourse';
-import { fetchListUserPending } from '../Redux/Action/User/AdminActions';   
+import { fetchCourseList, fetchCourseListPagination } from '../../Redux/Action/Course/CourseActions';
+import ModalUserPending from "../../Components/ModalUser/ModalUserPending";
+import ModalUpdateCourseComponent from '../../Components/ModalCourse/ModalUpdateCourse';
+import { fetchListUserPending } from '../../Redux/Action/User/AdminActions';   
 
-import PaginationComponent from './Pagination/Pagination';
+import PaginationComponent from '../Pagination/Pagination';
 
 class TableCoursePending extends Component {
     constructor() {
@@ -40,7 +40,7 @@ class TableCoursePending extends Component {
                 </div>
                 <div className="tableContainer container">
                     <div className="tableCourseList">
-                        <table className="table table-striped table-condensed">
+                        <table className="table table-striped table-condensed tableCourseList__tableCourseContent">
                             <thead>
                                 <tr>
                                     <th>#</th>

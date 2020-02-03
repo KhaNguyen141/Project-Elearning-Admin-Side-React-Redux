@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TableUserPending from '../../Layouts/TableUserPending'
+import TableUserPending from '../../Layouts/TableUser/TableUserManagement'
 
 class UserManagementsComponent extends Component {
     render() {
