@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import ModalCoursePending from "../../Components/ModalCourse/ModalCoursePending";
 import ModalCourseAcceptedComponent from "../../Components/ModalCourse/ModalCourseAccepted"
 import { fetchListUser, fetchListUserPagination } from '../../Redux/Action/User/AdminActions';
-import { fetchCoursePending, fetchCourseAccepted, fetchCourseList } from '../../Redux/Action/Course/CourseActions';
+import { fetchCoursePending, fetchCourseAccepted } from '../../Redux/Action/Course/CourseActions';
 
 import PaginationComponent from '../Pagination/Pagination';
-import axios from 'axios';
-
 
 class TableUserPending extends Component {
 
@@ -65,7 +63,7 @@ class TableUserPending extends Component {
                                                     <td>{user.taiKhoan}</td>
                                                     <td>{user.hoTen}</td>
                                                     <td>{user.email}</td>
-                                                    <td>{user.soDt}</td>
+                                                    <td>{user.soDT}</td>
                                                     <td>
                                                         <button
                                                             onClick={() => this.handleFetchCoursePending(user)}

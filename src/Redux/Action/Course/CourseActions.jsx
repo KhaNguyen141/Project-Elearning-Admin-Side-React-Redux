@@ -1,9 +1,6 @@
 import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED, LIST_CATEGORY, LIST_COURSES, LIST_COURSE_PAGINATION } from "../type";
 import reduxAction from "../action";
 
-import { settings } from "../../../Config/settings";
-
-import Swal from 'sweetalert2';
 import CourseService from "../../../Services/courseService";
 
 const courseService = new CourseService();

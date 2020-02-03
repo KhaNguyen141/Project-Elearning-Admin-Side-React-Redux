@@ -29,7 +29,8 @@ class ModalUpdateCourseComponent extends Component {
                 console.log(values);
 
             }} 
-            render = {({ values, handleChange, setFieldValue }) => (
+            >
+            {({ values, handleChange, setFieldValue }) => (
             <div className="modal fade" id="modalUpdateCourse" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div className="modal-dialog modal-lg" role="document">
                     <div className="modal-content">
@@ -175,7 +176,7 @@ class ModalUpdateCourseComponent extends Component {
                 </div>
             </div>
             )}
-            >
+            
             </Formik>
         )
     }

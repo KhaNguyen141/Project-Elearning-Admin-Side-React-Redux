@@ -25,7 +25,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
                 
                 <div className="row bg-white rounded chartContainer">
                   <div className="col-8">
-                    <img className="chartFramework" src="/img/framework chart 2019.png" />
+                    <img className="chartFramework" src="/img/framework chart 2019.png" alt="Front End Framework Chart"/>
                   </div>
     
                   <div className="col-4">

@@ -28,7 +28,8 @@ class AddCourseComponent extends Component {
                     console.log(values);
 
                 }}
-                render={({ handleChange, setFieldValue }) => (
+                >
+                {({ handleChange, setFieldValue }) => (
                     <div className="courseEditCotaniner">
                         <Form className="container formSearch">
                             <h2>Course Addition</h2>
@@ -157,9 +158,7 @@ class AddCourseComponent extends Component {
                         </Form>
                     </div>
                 )}
-
-            >
-
+        
             </Formik>
         )
     }

@@ -28,7 +28,6 @@ class ModalUserPending extends Component {
                                     </thead>
                                     <tbody>
                                         {this.props.userListPending.map((user, index) => {
-                                            
                                             return (
                                                 <tr key={index}>
                                                     <td>{index + 1}</td>

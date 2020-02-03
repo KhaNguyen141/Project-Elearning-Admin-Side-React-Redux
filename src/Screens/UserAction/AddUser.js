@@ -20,7 +20,8 @@ class AddUserComponent extends Component {
                 onSubmit={values => {
                     this.props.dispatch(adminAddUser(values))
                 }}
-                render={({ handleChange }) => (
+                >
+                {({ handleChange }) => (
                     <div className="userEditCotaniner">
                         <Form className="container formSearch">
                             <h2>User Addition</h2>
@@ -114,8 +115,6 @@ class AddUserComponent extends Component {
                         </Form>
                     </div>
                 )}
-
-            >
 
             </Formik>
         )

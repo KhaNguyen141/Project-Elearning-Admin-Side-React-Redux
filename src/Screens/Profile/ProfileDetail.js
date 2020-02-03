@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect } from 'react'
-import { connect, useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import {adminProfileUpdate } from '../../Redux/Action/User/AdminActions';
 
 import {validationSchema} from '../../Layouts/Validation/ValidationForm';
@@ -13,7 +13,7 @@ const ProfileDetail = () => {
     const adminInfo = JSON.parse(localStorage.getItem('adminLogin'));
 
     return (
-        <Formik 
+        <Formik
         initialValues = {{
             taiKhoan: adminInfo.taiKhoan,
             matKhau: "",

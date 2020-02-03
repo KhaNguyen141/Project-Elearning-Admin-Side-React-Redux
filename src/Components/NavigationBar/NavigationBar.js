@@ -64,10 +64,10 @@ class NavigationBarComponent extends Component {
               </li>
 
               <li className="nav-item">
-                <a onClick={this.handleLogout} className="nav-link textMenu font-italic">
+                <div onClick={this.handleLogout} className="nav-link textMenu font-italic">
                   <ExitToAppIcon className="menuIcon SignOutIcon mr-3" />
                   Logout
-                </a>
+                </div>
               </li>
             </ul>
           </div>
