@@ -90,7 +90,7 @@ class TableCoursePending extends Component {
                                     <ModalUpdateCourseComponent course={this.state.course}/>
                             </tbody>
                         </table>
-                        <PaginationComponent 
+                        <PaginationComponent
                             activePage={this.props.page.currentPage}
                             itemsCountPerPage={10}
                             totalItemsCount={this.props.page.totalCount}

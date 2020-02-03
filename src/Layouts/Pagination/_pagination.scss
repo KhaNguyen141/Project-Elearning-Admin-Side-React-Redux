@@ -10,13 +10,20 @@
         border-radius: 5px;
         background: $color-yellow-0;
         color: $color-black-0;
+        text-decoration: none;
         &:hover {
             background-color: $color-yellow-1;
             text-decoration: none;
         }
-  
     }
+
+    .activeClass {
+        background: $color-yellow-1;
+        color: $color-white-0;
+    }
+   
 }
+
 
 
 

@@ -9,6 +9,8 @@ class PaginationComponent extends Component {
 
                 <div className='text-center'>
                     <Pagination
+                        activeLinkClass={"activeClass"}
+                        hideDisabled
                         prevPageText='prev'
                         nextPageText='next'
                         firstPageText='first'
@@ -19,6 +21,7 @@ class PaginationComponent extends Component {
                         pageRangeDisplayed={3}
                         onChange={this.props.onChange}
                     />
+               
                 </div>
             </div>
         )
