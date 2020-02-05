@@ -25,11 +25,11 @@ class CourseService {
         });
     }
 
-    fetchListCategory (listCategory) {
+    fetchListCategory () {
         return restConnector({
             method: "GET",
             url: "/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc",
-            data: listCategory
+            
             
         })
     }

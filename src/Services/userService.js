@@ -28,6 +28,13 @@ class UserService {
         })
     }
 
+    fetchListSearchUser(keyword) {
+        return restConnector({
+            method: "GET",
+            url: `/api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP09&tuKhoa=${keyword}`,
+        })
+    }
+
     fetchListUserPagination(pageNumber) {
         return restConnector({
             method: "GET",

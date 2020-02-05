@@ -1,4 +1,4 @@
-import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED, LIST_CATEGORY, LIST_COURSES, LIST_COURSE_PAGINATION } from "../type";
+import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED, LIST_CATEGORY, LIST_COURSES, LIST_COURSE_PAGINATION, SEARCH_COURSE, FETCH_COURSE_SEARCH } from "../type";
 import reduxAction from "../action";
 
 import CourseService from "../../../Services/courseService";
@@ -39,10 +39,10 @@ export const fetchCourseAccepted = (taiKhoan) => {
   }
 }
 
-export const fetchListCategory = (listCategory) => {
+export const fetchListCategory = () => {
   return dispatch => {
     courseService
-      .fetchListCategory(listCategory)
+      .fetchListCategory()
       .then(res => {
         dispatch(reduxAction(LIST_CATEGORY, res.data));
         console.log(res.data);
@@ -65,6 +65,12 @@ export const fetchCourseList = () => {
       }).catch(error => {
         console.log(error.response.data)
       })
+  }
+}
+
+export const searchCourse = (text) => {
+  return dispatch => {
+    dispatch(reduxAction(SEARCH_COURSE, text))
   }
 }
 
