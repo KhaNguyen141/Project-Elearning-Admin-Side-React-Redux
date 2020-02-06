@@ -13,7 +13,22 @@ class TableUserPending extends Component {
         super();
         this.state = {
             user: [],
+            isCoursePendingModalOpen: false,
+            isCourseAccpetedModalOpen: false,
         }
+    }
+
+    coursePendingModalClose = () => {
+        this.setState({ 
+            isCoursePendingModalOpen: false
+        })
+    }
+
+    courseAcceptedModalClose = () => {
+        this.setState({
+            isCourseAccpetedModalOpen: false
+        })
+        
     }
 
     render() {
@@ -62,15 +77,14 @@ class TableUserPending extends Component {
                                                         <button
                                                             onClick={() => this.handleFetchCoursePending(user)}
                                                             className="btn btn-udi-yellow mr-2"
-                                                            data-toggle="modal"
-                                                            data-target="#modalCoursePending">Pending
+
+                                                            >Pending
                                                         </button>
 
                                                         <button
                                                             onClick={() => this.handleFetchCourseAccepted(user)}
                                                             className="btn btn-udi-yellow mr-2"
-                                                            data-toggle="modal"
-                                                            data-target="#modalCourseAccepted">Accepted
+                                                            >Accepted
                                                         </button>
                                                     </td>
                                                 </tr>
@@ -91,15 +105,13 @@ class TableUserPending extends Component {
                                                                 <button
                                                                     onClick={() => this.handleFetchCoursePending(user)}
                                                                     className="btn btn-udi-yellow mr-2"
-                                                                    data-toggle="modal"
-                                                                    data-target="#modalCoursePending">Pending
+                                                                    >Pending
                                                                 </button>
 
                                                                 <button
                                                                     onClick={() => this.handleFetchCourseAccepted(user)}
                                                                     className="btn btn-udi-yellow mr-2"
-                                                                    data-toggle="modal"
-                                                                    data-target="#modalCourseAccepted">Accepted
+                                                                    >Accepted
                                                                 </button>
 
                                                             </td>
@@ -133,15 +145,13 @@ class TableUserPending extends Component {
                                                             <button
                                                                 onClick={() => this.handleFetchCoursePending(user)}
                                                                 className="btn btn-udi-yellow mr-2"
-                                                                data-toggle="modal"
-                                                                data-target="#modalCoursePending">Pending
+                                                                >Pending
                                                             </button>
 
                                                             <button
                                                                 onClick={() => this.handleFetchCourseAccepted(user)}
                                                                 className="btn btn-udi-yellow mr-2"
-                                                                data-toggle="modal"
-                                                                data-target="#modalCourseAccepted">Accepted
+                                                                >Accepted
                                                             </button>
 
                                                         </td>
@@ -154,8 +164,16 @@ class TableUserPending extends Component {
                                             })
                                     )}
 
-                                <ModalCoursePending user={this.state.user} />
-                                <ModalCourseAcceptedComponent user={this.state.user} />
+                                <ModalCoursePending 
+                                user={this.state.user} 
+                                isCoursePendingModalOpen={this.state.isCoursePendingModalOpen} 
+                                isCloseCoursePending={() => this.coursePendingModalClose()}
+                                />
+                                <ModalCourseAcceptedComponent 
+                                user={this.state.user}
+                                isCourseAccpetedModalOpen={this.state.isCourseAccpetedModalOpen}
+                                isCloseCourseAccepted={() => this.courseAcceptedModalClose()}
+                                />
                             </tbody>
                         </table>
                         <PaginationComponent
@@ -196,7 +214,8 @@ class TableUserPending extends Component {
 
     handleFetchCoursePending = (user) => {
         this.setState({
-            user: user
+            user: user,
+            isCoursePendingModalOpen: true,
         }, () => {
             this.props.dispatch(fetchCoursePending(user.taiKhoan))
         })
@@ -204,7 +223,8 @@ class TableUserPending extends Component {
 
     handleFetchCourseAccepted = (user) => {
         this.setState({
-            user: user
+            user: user,
+            isCourseAccpetedModalOpen: true,
         }, () => {
             this.props.dispatch(fetchCourseAccepted(user.taiKhoan))
         })

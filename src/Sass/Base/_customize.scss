@@ -25,3 +25,33 @@
 .FormCheck {
     display: inline;
 }
+
+.modal-open {
+    padding: 0!important;
+    overflow: scroll;
+    .modal-header {
+        h5 {
+            @include text-style($color-black-0, $fs-30, $fw-normal)
+        }
+        .close {
+            padding-top: $pd-3 - 5;
+            padding-right: $pd-3;
+            @include text-style($color-black-0, $fs-30, $fw-bold);
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    
+}
+
+.modal-dialog {
+    max-width: 1200px;
+    
+}
+
+.form-control:focus {
+    border-color: $color-gray-2;
+    box-shadow: none;
+}

@@ -2,56 +2,52 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { adminApproveCourses, adminCancelCourses } from '../../Redux/Action/User/AdminActions';
 
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+
 class ModalUserPending extends Component {
     render() {
         const {maKhoaHoc} = this.props.course;
         return (
             <div>
-                <div className="modal fade" id="modalUserPending" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                    <div className="modal-dialog modal-xl" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">Users list pending</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <table className="table tableUserPending">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>User ID</th>
-                                            <th>Name</th>
-                                            <th className="text-center">Manipulation</th>
+                <Modal isOpen={this.props.isUserPendingModalOpen} toggle={this.props.isUserPendingModalClose}>
+                    <ModalHeader toggle={this.props.isUserPendingModalClose}>
+                        Users list pending
+                    </ModalHeader>
+                    
+                    <ModalBody>
+                        <table className="table tableUserPending">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>User ID</th>
+                                    <th>Name</th>
+                                    <th className="text-center">Manipulation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.props.userListPending.map((user, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{index + 1}</td>
+                                            <td>{user.taiKhoan}</td>
+                                            <td>{user.hoTen}</td>
+                                            <td className="text-center">
+                                                <button
+                                                    onClick={() => this.handleApprove(maKhoaHoc, user.taiKhoan)}
+                                                    className="btn btn-udi-yellow mr-2">Approve</button>
+                                                <button
+                                                    onClick={() => this.handleCancel(maKhoaHoc, user.taiKhoan)}
+                                                    className="btn btn-cyber-red mr-2">Cancel</button>
+
+                                            </td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                        {this.props.userListPending.map((user, index) => {
-                                            return (
-                                                <tr key={index}>
-                                                    <td>{index + 1}</td>
-                                                    <td>{user.taiKhoan}</td>
-                                                    <td>{user.hoTen}</td>
-                                                    <td className="text-center">
-                                                        <button
-                                                        onClick={() => this.handleApprove(maKhoaHoc, user.taiKhoan)} 
-                                                        className="btn btn-udi-yellow mr-2">Approve</button>
-                                                        <button 
-                                                        onClick={() => this.handleCancel(maKhoaHoc, user.taiKhoan)}
-                                                        className="btn btn-cyber-red mr-2">Cancel</button>
-                                                        
-                                                    </td>
-                                                </tr>
-                                            )
-                                        })}
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    )
+                                })}
+
+                            </tbody>
+                        </table>
+                    </ModalBody>
+                </Modal>
             </div>
 
         )

@@ -13,8 +13,22 @@ class TableCoursePending extends Component {
         this.state = {
             course: [],
             searchResult: [],
-
+            isUserPendingModalOpen: false,
+            isUpdateCourseModalOpen: false,
         };
+    }
+
+    userPendingModalClose = () => {
+        this.setState({ 
+            isUserPendingModalOpen: false
+        })
+    }
+
+    updateCourseModalClose = () => {
+        this.setState({
+            isUpdateCourseModalOpen: false
+        })
+        
     }
 
     render() {
@@ -61,14 +75,13 @@ class TableCoursePending extends Component {
                                                         <button
                                                             onClick={() => this.handleFetchUserPending(course)}
                                                             className="btn btn-udi-yellow mr-2"
-                                                            data-toggle="modal"
-                                                            data-target="#modalUserPending">Pending</button>
+                                                            >Pending</button>
 
                                                         <button
                                                             onClick={() => this.handleFetchInfoCourse(course)}
                                                             className="btn btn-udi-yellow mr-2"
-                                                            data-toggle="modal"
-                                                            data-target="#modalUpdateCourse">Update</button>
+                                                            
+                                                            >Update</button>
                                                     </td>
                                                 </tr>
                                             )
@@ -88,8 +101,16 @@ class TableCoursePending extends Component {
 
                                }
 
-                                <ModalUserPending course={this.state.course} />
-                                <ModalUpdateCourseComponent course={this.state.course} />
+                                <ModalUserPending 
+                                course={this.state.course} 
+                                isUserPendingModalOpen={this.state.isUserPendingModalOpen}
+                                isUserPendingModalClose={() => this.userPendingModalClose()}
+                                />
+                                <ModalUpdateCourseComponent 
+                                course={this.state.course} 
+                                isUpdateCourseModalOpen={this.state.isUpdateCourseModalOpen}
+                                isUpdateCourseModalClose={() => this.updateCourseModalClose()}
+                                />
                             </tbody>
                         </table>
                         <PaginationComponent
@@ -123,8 +144,8 @@ class TableCoursePending extends Component {
 
     handleFetchUserPending = (course) => {
         this.setState({
-            course: course
-
+            course: course,
+            isUserPendingModalOpen: true
         }, () => {
             this.props.dispatch(fetchListUserPending(course.maKhoaHoc))
 
@@ -133,7 +154,8 @@ class TableCoursePending extends Component {
 
     handleFetchInfoCourse = (course) => {
         this.setState({
-            course: course
+            course: course,
+            isUpdateCourseModalOpen: true
         }, () => {
             console.log(course)
             localStorage.setItem("courseEventClickedInfo", JSON.stringify(course))
