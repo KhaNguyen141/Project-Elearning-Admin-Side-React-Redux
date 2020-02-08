@@ -19,8 +19,6 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
         {this.props.credentials ? (
           <div>
            
-            
-              
               <div className="homeContentContainer">
                 
                 <div className="row bg-white rounded chartContainer">

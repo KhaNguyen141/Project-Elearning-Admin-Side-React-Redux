@@ -9,10 +9,17 @@ import HomeIcon from '@material-ui/icons/Home';
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
 
 class NavigationBarComponent extends Component {
+
     render() {
         const {hoTen} = this.props.credentials;
+
+        let drawerClasses = 'vertical-nav';
+        if (this.props.show) {
+            drawerClasses = 'vertical-nav open';
+
+        }
         return (
-            <div className="vertical-nav bg-white" id="sidebar">
+            <nav className={drawerClasses} id="sidebar">
             <div className="py-4 px-3 mb-4 bg-light">
               <div className="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width={65} className="mr-3 rounded-circle img-thumbnail shadow-sm" />
                 <div className="media-body">
@@ -70,7 +77,7 @@ class NavigationBarComponent extends Component {
                 </div>
               </li>
             </ul>
-          </div>
+          </nav>
         )
     }
 

@@ -49,15 +49,6 @@ class CourseService {
             
         })
     }
-
-    fetchListSearch(text) {
-        return restConnector({
-          url:
-            `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP09&tenKhoaHoc=${text}`,
-          method: "GET",
-          
-        });
-      }
     
 }
 

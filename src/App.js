@@ -13,6 +13,8 @@ import UserManagementsComponent from "./Screens/Managements/UserManagements";
 import CourseManagementsComponent from "./Screens/Managements/CourseManagement";
 import AddCourseComponent from "./Screens/Course/AddNewCourse";
 import AddUserComponent from "./Screens/UserAction/AddUser";
+import Backdrop from "./Layouts/Backdrop/Backdrop";
+
 
 import { ADMIN_LOGIN } from "./Redux/Action/type";
 import SidebarButton from "./Components/SidebarButton/SidebarButton";
@@ -20,20 +22,48 @@ import SeperatorLine from "./Components/SeperatorLine/SeperatorLine";
 import PageNotFound from "./Screens/PageNotFound/PageNotFound";
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      sideDrawerOpen: false
+
+    };
+  }
+
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return {sideDrawerOpen: !prevState.sideDrawerOpen};
+    });
+  };
+
+  backdropClickHandler = () => {
+    this.setState({
+      sideDrawerOpen: false,
+  
+    });
+  };
   
   render() {
     const notFoundPage = () => (
       <PageNotFound />
     )
+
+    let backdrop;
+
+    if (this.state.sideDrawerOpen) {
+      backdrop = <Backdrop click={this.backdropClickHandler}/>;
+    }
     
     return (
       <BrowserRouter> 
       
         {this.props.credentials &&
           <div>
-            <NavigationBarComponent />
+            {backdrop}
+            <NavigationBarComponent show={this.state.sideDrawerOpen}/>
 
-            <SidebarButton />
+            <SidebarButton click={this.drawerToggleClickHandler}/>
 
             <SeperatorLine />
 

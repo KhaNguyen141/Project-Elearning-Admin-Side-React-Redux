@@ -48,6 +48,7 @@ class TableUserPending extends Component {
                         onChange={this.handleChange}
                         placeholder="Search" />
                 </div>
+                
                 <div className="tableContainer">
                     <div className="tableUserList">
                         <table className="table table-striped table-condensed tableUserList__tableCourseContent">

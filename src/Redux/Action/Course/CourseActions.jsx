@@ -1,4 +1,4 @@
-import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED, LIST_CATEGORY, LIST_COURSES, LIST_COURSE_PAGINATION, SEARCH_COURSE, FETCH_COURSE_SEARCH } from "../type";
+import {LIST_COURSE_PENDING, LIST_COURSE_ACCEPTED, LIST_CATEGORY, LIST_COURSES, LIST_COURSE_PAGINATION, SEARCH_COURSE } from "../type";
 import reduxAction from "../action";
 
 import CourseService from "../../../Services/courseService";

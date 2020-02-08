@@ -1,12 +1,12 @@
 .vertical-nav {
-    min-width: 17rem;
-    width: 17rem;
-    height: 100vh;
+    height: 100%;
+    background: $color-white-0;
+    box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s;
+    width: 70%;
+    max-width: 250px;
     .mainMenu {
         letter-spacing: 0.1em;
         @include text-style($color-gray-2, $fs-0, $fw-normal);
@@ -39,3 +39,19 @@
         }
     }
   }
+
+  @include mediaQuery('medium') {
+    .vertical-nav {
+        z-index: 300;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-out;
+    }
+
+    .vertical-nav.open {
+        transform: translateX(0);
+    }
+      
+  
+  }
+
+
