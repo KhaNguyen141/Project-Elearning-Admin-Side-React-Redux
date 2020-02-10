@@ -21,12 +21,12 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
            
               <div className="homeContentContainer">
                 
-                <div className="row bg-white rounded chartContainer">
-                  <div className="col-8">
+                <div className="row chartContainer">
+                  <div className="col-lg-12 col-xl-8 bg-white">
                     <img className="chartFramework" src="/img/framework chart 2019.png" alt="Front End Framework Chart"/>
                   </div>
     
-                  <div className="col-4">
+                  <div className="col-lg-12 col-xl-4 bg-white">
                     <div className="chartInfoContainer">
                       <div className="TotalInfo">
                         <h3>Total</h3>
@@ -65,7 +65,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
                 </div>
 
                 <div className="row text-white tableLatestContainer">
-                  <div className="col-xl-7 bg-white rounded">
+                  <div className="col-lg-12 bg-white rounded">
                       <div className="tableUserList">
                         <div className="row">
                           
@@ -89,7 +89,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
                                       <td>{user.taiKhoan}</td>
                                       <td>{user.hoTen}</td>
                                       <td>{user.email}</td>
-                                      <td>{user.soDt}</td>
+                                      <td>{user.soDT}</td>
                                       <td>31/12/2019</td>
                                     </tr>
                                
@@ -104,7 +104,7 @@ import { fetchCourseList } from "../../Redux/Action/Course/CourseActions";
     
                     </div>
 
-                    <div className="col-xl-5 bg-white rounded">
+                    <div className="col-lg-12 bg-white rounded">
                       <div className="tableCourseList">
                         <div className="row">
                           

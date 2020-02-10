@@ -7,6 +7,8 @@ import { withRouter, NavLink } from 'react-router-dom';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import EditIcon from '@material-ui/icons/Edit';
 
 class NavigationBarComponent extends Component {
 
@@ -21,9 +23,10 @@ class NavigationBarComponent extends Component {
         return (
             <nav className={drawerClasses} id="sidebar">
             <div className="py-4 px-3 mb-4 bg-light">
-              <div className="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width={65} className="mr-3 rounded-circle img-thumbnail shadow-sm" />
+              <div className="media d-flex align-items-center"><img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="profile" width={65} className="mr-3 rounded-circle img-thumbnail shadow-sm" />
                 <div className="media-body">
                   <h4 className="m-0">Hello, {hoTen}</h4>
+                  <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="profile" width={35} className="imgResponsive rounded-circle img-thumbnail shadow-sm" />
                   <p className="font-weight-light text-muted mb-0">Web developer</p>
                 </div>
               </div>
@@ -33,47 +36,54 @@ class NavigationBarComponent extends Component {
               <li className="nav-item">
                 <NavLink activeStyle={{backgroundColor: "red"}} exact to="/admin" className="nav-link textMenu font-italic">
                   <HomeIcon className="menuIcon mr-3" />
-                  Home
+                  <span>Home</span>
+                  <HomeIcon className="menuIconResponsive" />
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink activeStyle={{color: "red"}} exact to="/admin/detail" className="nav-link textMenu font-italic">
                   <PermContactCalendarIcon className="menuIcon mr-3" />
-                  About
+                  <span>About</span>
+                  <PermContactCalendarIcon className="menuIconResponsive text-right" />
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink activeStyle={{ backgroundColor:'red' }} exact to="/admin/list-user-manage" className="nav-link textMenu font-italic">
-                  <i className="menuIcon fa fa-cubes mr-3" />
-                  List User Management
+                  <ListAltIcon className="menuIcon mr-3" />
+                  <span>List User Management</span>
+                  <ListAltIcon className="menuIconResponsive" />
                 </NavLink>
               </li>
 
               <li className="nav-item">
                 <NavLink activeStyle={{ backgroundColor:'red' }} exact to="/admin/list-course-manage" className="nav-link textMenu font-italic">
-                  <i className="menuIcon fa fa-cubes mr-3" />
-                  List Course Management
+                  <ListAltIcon className="menuIcon mr-3" />
+                  <span>List Course Management</span>
+                  <ListAltIcon className="menuIconResponsive" />
                 </NavLink>
               </li>
 
               <li className="nav-item">
                 <NavLink to="/admin/course-manage" className="nav-link textMenu font-italic">
-                  <i className="menuIcon fa fa-picture-o mr-3" />
-                  Course Edit
+                  <EditIcon className="menuIcon fa fa-picture-o mr-3" />
+                  <span>Course Edit</span>
+                  <EditIcon className="menuIconResponsive fa fa-picture-o" />
                 </NavLink>
               </li>
 
               <li className="nav-item">
                 <NavLink to="/admin/user-manage" className="nav-link textMenu font-italic">
-                  <i className="menuIcon fa fa-picture-o mr-3" />
-                  User Edit
+                  <EditIcon className="menuIcon fa fa-picture-o mr-3" />
+                  <span>User Edit</span>
+                  <EditIcon className="menuIconResponsive fa fa-picture-o" />
                 </NavLink>
               </li>
 
               <li className="nav-item">
                 <div onClick={this.handleLogout} className="nav-link textMenu font-italic">
                   <ExitToAppIcon className="menuIcon SignOutIcon mr-3" />
-                  Logout
+                  <span>Logout</span>
+                  <ExitToAppIcon className="menuIconResponsive SignOutIcon" />
                 </div>
               </li>
             </ul>

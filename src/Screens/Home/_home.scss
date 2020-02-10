@@ -5,9 +5,7 @@
       top: 23%;
       left: 17%;
       .chartContainer {
-        padding: $pd-6 $pd-2;
         .chartFramework {
-            margin-left: 20px;
             width: 100%;
         
         }
@@ -114,9 +112,16 @@
           padding-bottom: $pd-2;
           margin: 0 auto;
         }
+
+        table {
+          width: 100%;
+          td {
+            word-break: break-all;
+          }
+        }
         .tableUserList {
             padding: $pd-3;
-            
+           
         }
 
         .tableCourseList {
@@ -129,4 +134,37 @@
 
 
   //  Responsive
+
+  @include mediaQuery('extra-large-4') {
+    .homeContentContainer {
+      width: 78%;
+      top: 23%;
+      left: 17%;
+    }
+  }
+
+
+  @include mediaQuery('extra-large-3') {
+    .homeContentContainer {
+      width: 75%;
+      top: 23%;
+      left: 20%;
+    }
+  }
+
+  @include mediaQuery('extra-large-2') {
+    .homeContentContainer {
+      width: 73%;
+      top: 23%;
+      left: 22.5%;
+    }
+  }
+  
+  @include mediaQuery('extra-large') {
+    .homeContentContainer {
+      width: 87%;
+      top: 23%;
+      left: 8%;
+    }
+  }
   

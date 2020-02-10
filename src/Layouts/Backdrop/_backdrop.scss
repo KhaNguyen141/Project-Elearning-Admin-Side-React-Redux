@@ -10,11 +10,9 @@
 // Responsive
 
 
-@include mediaQueryMinWidth('medium') {
+@include mediaQueryMinWidth('large') {
     .backdrop {
         display: none;
     }
-      
-  
   }
 

@@ -15,7 +15,7 @@
 
 //  Responsive
 
-@include mediaQueryMinWidth('medium') {
+@include mediaQueryMinWidth('large') {
   #sidebarCollapse {
     display: none;
   }
@@ -23,10 +23,10 @@
 
 }
 
-@include mediaQuery('medium') {
+@include mediaQuery('large') {
   #sidebarCollapse {
     position: absolute;
-    left: 17%;
+    left: 3%;
   }
     
 
