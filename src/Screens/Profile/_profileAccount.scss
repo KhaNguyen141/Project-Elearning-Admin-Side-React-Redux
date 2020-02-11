@@ -8,3 +8,55 @@
         }
     }
 }
+
+// Responsive
+
+@include mediaQuery('extra-large-4') {
+    .profileContainer {
+        width: 79.5%;
+        margin-left: $mg-2 - 5;
+    }
+}
+
+@include mediaQuery('extra-large-3') {
+    .profileContainer {
+        width: 77%;
+        margin-left: $mg-4;
+    }
+}
+
+@include mediaQuery('extra-large-2') {
+    .profileContainer {
+        width: 74%;
+        margin-left: $mg-7;
+    }
+}
+
+@include mediaQuery('extra-large') {
+    .profileContainer {
+        width: 86.7%;
+        left: 2%;
+    }
+}
+
+@include mediaQuery('large') {
+    .profileContainer {
+        width: 92.5%;
+        left: -7%;
+    }
+}
+
+
+@include mediaQuery('medium') {
+    .profileContainer {
+        width: 90%;
+        left: -9%;
+    }
+}
+
+@include mediaQuery('small') {
+    .profileContainer {
+        width: 90%;
+        left: -12%;
+    }
+}

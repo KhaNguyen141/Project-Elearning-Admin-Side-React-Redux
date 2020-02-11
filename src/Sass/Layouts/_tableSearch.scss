@@ -1,0 +1,61 @@
+.inputTableSearch {
+    .form-control {
+        border-radius: 50px;
+        border: 1px solid $color-white-0;
+    }
+
+    &:focus {
+        box-shadow: none;;
+    }
+    
+}
+
+// Responsive 
+@include mediaQuery('extra-large-4') {
+    .inputTableSearch {
+        left: 17%;
+    }
+      
+}
+
+@include mediaQuery('extra-large-3') {
+    .inputTableSearch {
+        left: 22%;
+    }
+      
+}
+
+@include mediaQuery('extra-large-2') {
+    .inputTableSearch {
+        left: 23.5%;
+    }
+      
+}
+
+@include mediaQuery('extra-large') {
+    .inputTableSearch {
+        left: 9%;
+    }
+      
+}
+
+@include mediaQuery('large') {
+    .inputTableSearch {
+        left: 2.5%;
+    }
+      
+}
+
+@include mediaQuery('medium') {
+    .inputTableSearch {
+        left: 2.5%;
+    }
+      
+}
+
+@include mediaQuery('small') {
+    .inputTableSearch {
+        left: 2.5%;
+    }
+      
+}

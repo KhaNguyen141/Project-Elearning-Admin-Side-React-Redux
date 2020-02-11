@@ -162,9 +162,28 @@
   
   @include mediaQuery('extra-large') {
     .homeContentContainer {
-      width: 87%;
+      width: 86%;
       top: 23%;
       left: 8%;
+      
+    }
+  }
+
+  @include mediaQuery('large') {
+    .homeContentContainer {
+      width: 90%;
+      top: 23%;
+      left: 0;
+      margin-left: 36.5px;
+    }
+  }
+
+  @include mediaQuery('medium') {
+    .homeContentContainer {
+      width: 87%;
+      top: 23%;
+      left: 0;
+      margin-left: 35px;
     }
   }
   

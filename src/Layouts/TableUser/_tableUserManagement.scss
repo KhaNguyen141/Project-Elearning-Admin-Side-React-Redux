@@ -1,6 +1,49 @@
+.inputTableSearch {
+    position: absolute;
+    top: 120px;
+    left: 17%;
+        
+    }
+
 .tableUserList__tableCourseContent {
     width: 100%;
-    td {
-        width: 1%;
+    word-break: break-all;
+}
+
+@include mediaQuery('medium') {
+    td:nth-child(5) {
+        width: 12.5%;
+        
+    }
+
+    td:nth-child(2) {
+        width: 16%;
+        word-break: break-all;
+        
+    }
+}
+
+@include mediaQuery('small') {
+    td:nth-child(5) {
+        width: 14.5%;
+       
+    }
+
+    td:nth-child(3) {
+        width: 27%;
+        word-break: break-all;
+        
+    }
+
+    td:nth-child(2) {
+        width: 18%;
+        word-break: break-all;
+        
+    }
+
+    td:nth-child(1) {
+        width: 10%;
+        word-break: break-all;
+        
     }
 }

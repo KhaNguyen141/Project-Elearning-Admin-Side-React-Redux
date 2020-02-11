@@ -1,6 +1,13 @@
 .tableCourseList__tableCourseContent {
     width: 100%;
-    td {
-        width: 1%;
+    left: 17%;
+    td:nth-child(3) {
+        width: 20%;
+        word-break: break-all;
     }
+
+    td:last-child {
+        width: 30%;
+    }
+    
 }

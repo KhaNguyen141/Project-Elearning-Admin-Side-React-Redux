@@ -28,7 +28,7 @@
 @import '../Components/NavigationBar/navigationBar';
 @import '../Sass/Layouts/loginBox.scss';
 @import '../Screens/Home/home';
-@import '../Sass/Layouts/tablePending.scss';
+@import '../Sass/Layouts/tableList.scss';
 @import '../Layouts/Pagination/pagination';
 @import '../Layouts/TableCourse/tableCoursesManagement';
 @import '../Layouts/TableUser/tableUserManagement';
@@ -36,6 +36,7 @@
 @import '../Components/ModalCourse/modalCoursePending';
 @import '../Components/ModalUser/modalUserPending';
 @import '../Layouts/Backdrop/backdrop';
+@import '../Sass/Layouts/tableSearch';
 
 // Pages
 @import '../Screens/Profile/profileAccount';

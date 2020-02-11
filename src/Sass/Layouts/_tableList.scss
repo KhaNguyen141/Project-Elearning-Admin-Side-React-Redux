@@ -1,0 +1,203 @@
+.table td, .table th {
+    vertical-align: 0%;
+    
+}
+
+.tableContainer {
+    .tableUserList {
+        width: 80%;
+        @include contentSchemaTop ();
+        table {
+            max-width: 100%;
+        }
+    }
+
+    .tableCourseList {
+        width: 80%;
+        @include contentSchemaTop ();
+        table {
+            max-width: 100%;
+        }
+    }
+    
+}
+
+// Responsive
+
+
+@include mediaQuery('extra-large-4') {
+    .tableContainer {
+        .tableUserList {
+            width: 80%;
+            margin-left: $mg-1;
+           
+        }
+    
+        .tableCourseList {
+            width: 80%;
+        
+        }
+    }
+}
+
+@include mediaQuery('extra-large-3') {
+    .tableContainer {
+       
+        .tableUserList {
+            font-size: $fs-1;
+            width: 75%;
+            margin-left: $mg-6;
+            text-align: left;
+           table {
+             word-break: break-all;
+             width: 100%;
+             td:last-child {
+                 text-align: center;
+             }
+           }
+           .btn {
+            font-size: $fs-1;
+            width: 50%;
+            
+           }
+        }
+    
+        .tableCourseList {
+            font-size: $fs-1;
+            width: 76%;
+            margin-left: $mg-5 + 5;
+            text-align: left;
+           table {
+             word-break: break-all;
+             width: 100%;
+             td:last-child {
+                 text-align: center;
+             }
+           }
+           .btn {
+            width: 50%;
+            
+           }
+        
+        }
+    }
+}
+
+@include mediaQuery('extra-large-2') {
+    .tableContainer {
+        .tableUserList {
+            width: 74%;
+            left: 18%;
+            .btn {
+                width: 50%;
+                
+            }
+        }
+    
+        .tableCourseList {
+            width: 74%;
+            left: 18%;
+            .btn {
+                width: 50%;
+                
+            }
+        
+        }
+    }
+}
+
+@include mediaQuery('extra-large') {
+    .tableContainer {
+        .tableUserList {
+            width: 88%;
+            left: 2%;
+            .btn {
+                width: 70%;
+                
+            }
+        }
+    
+        .tableCourseList {
+            width: 88%;
+            left: 2%;
+            .btn {
+                width: 70%;
+                
+            }
+        }
+    }
+}
+
+@include mediaQuery('large') {
+    .tableContainer {
+        .tableUserList {
+            width: 94%;
+            left: -6.5%;
+            .btn {
+                width: 70%;
+                
+            }
+        }
+    
+        .tableCourseList {
+            width: 94%;
+            left: -6.5%;
+            .btn {
+                width: 70%;
+                
+            }
+        }
+    }
+}
+
+@include mediaQuery('medium') {
+    .tableContainer {
+        .tableUserList {
+            font-size: $fs-1 - 2;
+            width: 94%;
+            left: -10%;
+            .btn {
+                font-size: $fs-1 - 2;
+                width: 80%;
+                
+            }
+        }
+    
+        .tableCourseList {
+            font-size: $fs-1 - 2;
+            width: 94%;
+            left: -10%;
+            .btn {
+                font-size: $fs-1 - 2;
+                width: 80%;
+                
+            }
+        }
+    }
+}
+
+@include mediaQuery('small') {
+    .tableContainer {
+        .tableUserList {
+            font-size: $fs-1 - 2;
+            width: 95%;
+            left: -12%;
+            .btn {
+                font-size: $fs-1 - 2;
+                width: 100%;
+            }
+        }
+    
+        .tableCourseList {
+            font-size: $fs-1 - 3;
+            width: 94%;
+            left: -10%;
+            .btn {
+                font-size: $fs-1 - 3;
+                width: 80%;
+                
+            }
+        }
+    }
+}
+
