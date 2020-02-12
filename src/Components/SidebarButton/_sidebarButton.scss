@@ -1,9 +1,5 @@
-#sidebar.active {
-    margin-left: -17rem;
 
-  }
-  
-  #content.active {
+#content.active {
     width: 100%;
     margin: 0;
   }
@@ -26,8 +22,6 @@
 @include mediaQuery('large') {
   #sidebarCollapse {
     position: absolute;
-    left: 3%;
+    left: 3.5%;
   }
-    
-
 }

@@ -1,4 +1,5 @@
 .inputTableSearch {
+    left: 16%;
     .form-control {
         border-radius: 50px;
         border: 1px solid $color-white-0;
@@ -13,49 +14,49 @@
 // Responsive 
 @include mediaQuery('extra-large-4') {
     .inputTableSearch {
-        left: 17%;
+        left: 19.2%;
     }
       
 }
 
 @include mediaQuery('extra-large-3') {
     .inputTableSearch {
-        left: 22%;
+        left: 21.2%;
     }
       
 }
 
 @include mediaQuery('extra-large-2') {
     .inputTableSearch {
-        left: 23.5%;
+        left: 23.7%
     }
       
 }
 
 @include mediaQuery('extra-large') {
     .inputTableSearch {
-        left: 9%;
+        left: 10%;
     }
       
 }
 
 @include mediaQuery('large') {
     .inputTableSearch {
-        left: 2.5%;
+        left: 3.7%;
     }
       
 }
 
 @include mediaQuery('medium') {
     .inputTableSearch {
-        left: 2.5%;
+        left: 3.5%;
     }
       
 }
 
 @include mediaQuery('small') {
     .inputTableSearch {
-        left: 2.5%;
+        left: 4.2%;
     }
       
 }

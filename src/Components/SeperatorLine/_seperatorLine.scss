@@ -1,9 +1,8 @@
 .separator {
-    margin: $mg-2;
     border-bottom: 1px dashed #fff;
-    width: 79.5%;
+    width: 82%;
     position: absolute;
-    top: 7.5%;
+    top: 9.5%;
     left: 16%;
    
 }
@@ -12,10 +11,56 @@
 
 @include mediaQuery('extra-large-4') {
     .separator {
-        width: 80%;
-        position: absolute;
-        top: 7.5%;
-        left: 15.5%;
+        width: 78%;
+        left: 19.2%;
+       
+    }
+}
+
+@include mediaQuery('extra-large-3') {
+    .separator {
+        width: 76%;
+        left: 21.2%
+       
+    }
+}
+
+@include mediaQuery('extra-large-2') {
+    .separator {
+        width: 74%;
+        left: 23.7%
+       
+    }
+}
+
+@include mediaQuery('extra-large') {
+    .separator {
+        width: 87%;
+        left: 10%
+       
+    }
+}
+
+@include mediaQuery('large') {
+    .separator {
+        width: 92.5%;
+        left: 3.7%;
+       
+    }
+}
+
+@include mediaQuery('medium') {
+    .separator {
+        width: 92.5%;
+        left: 3.5%;
+       
+    }
+}
+
+@include mediaQuery('small') {
+    .separator {
+        width: 91%;
+        left: 4.2%
        
     }
 }
