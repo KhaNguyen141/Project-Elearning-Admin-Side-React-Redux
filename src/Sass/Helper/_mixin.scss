@@ -64,9 +64,9 @@
 @mixin contentSchemaTop () {
   position: absolute;
   text-align: center;
-  top: 18%;
-  left: 17%;
-  margin: $mg-3 0;
+  top: 23%;
+  left: 15%;
+  margin: 0 $mg-2 - 5;
   background-color: $color-white-0;
 }
 
@@ -84,10 +84,10 @@
 @mixin contentSchemaTableEdit () {
   position: absolute;
   text-align: center;
-  top: 18%;
-  left: 17%;
-  width: 80%;
-  margin: $mg-3 0;
+  top: 23%;
+  left: 15%;
+  width: 82%;
+  margin: 0 $mg-2 - 5;
   background-color: $color-white-0;
 }
 

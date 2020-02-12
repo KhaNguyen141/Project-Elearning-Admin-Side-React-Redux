@@ -137,34 +137,30 @@
 
   @include mediaQuery('extra-large-4') {
     .homeContentContainer {
-      width: 78%;
-      top: 23%;
-      left: 17%;
+      width: 76%;
+      left: 19%;
     }
   }
 
 
   @include mediaQuery('extra-large-3') {
     .homeContentContainer {
-      width: 75%;
-      top: 23%;
-      left: 20%;
+      width: 74%;
+      left: 21%;
     }
   }
 
   @include mediaQuery('extra-large-2') {
     .homeContentContainer {
-      width: 73%;
-      top: 23%;
-      left: 22.5%;
+      width: 72%;
+      left: 23%;
     }
   }
   
   @include mediaQuery('extra-large') {
     .homeContentContainer {
-      width: 86%;
-      top: 23%;
-      left: 8%;
+      width: 85%;
+      left: 9%
       
     }
   }
@@ -172,7 +168,6 @@
   @include mediaQuery('large') {
     .homeContentContainer {
       width: 90%;
-      top: 23%;
       left: 0;
       margin-left: 36.5px;
     }

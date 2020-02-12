@@ -1,8 +1,9 @@
-.userEditCotaniner {
+.userEditCotaniner {    
+    @include contentSchemaTableEdit();
+
     h4, h2 {
         margin-top: $mg-2;
     }
-    @include contentSchemaTableEdit();
     .inputDescription {
         height: $height-100p;
     }
@@ -15,49 +16,50 @@
 // Responsive 
 @include mediaQuery('extra-large-4') {
     .userEditCotaniner {
-        width: 80%;
-        margin-left: $mg-1 + 5;
+        width: 78%;
+        top: 23%;
+        left: 18%;
     }
 }
 
 @include mediaQuery('extra-large-3') {
     .userEditCotaniner {
-        width: 77.3%;
-        margin-left: $mg-4;
+        width: 76%;
+        left: 20%;
     }
 }
 
 @include mediaQuery('extra-large-2') {
     .userEditCotaniner {
-        width: 74.2%;
-        margin-left: $mg-7;
+        width: 74%;
+        left: 22%
     }
 }
 
 @include mediaQuery('extra-large') {
     .userEditCotaniner { 
-        width: 86.5%;
-        left: 2%;
+        width: 87%;
+        left: 8%
     }
 }
 
 @include mediaQuery('large') {
     .userEditCotaniner {
-        width: 94%;
-        left: -8%;
+        width: 92.5%;
+        left: 1%
     }
 }
 
 @include mediaQuery('medium') {
     .userEditCotaniner {
-        width: 93%;
-        left: -8%;
+        width: 92.5%;
+        left: 0;
     }
 }
 
 @include mediaQuery('small') {
     .userEditCotaniner { 
-        width: 94%;
-        left: -13%;
+        width: 91%;
+        left: 0;
     }
 }

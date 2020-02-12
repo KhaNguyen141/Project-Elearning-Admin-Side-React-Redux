@@ -1,6 +1,6 @@
 .profileContainer {
     @include contentSchemaTop();
-    width: 80%;
+    width: 82%;
 
     .card-header {
         h2, p {
@@ -13,50 +13,50 @@
 
 @include mediaQuery('extra-large-4') {
     .profileContainer {
-        width: 79.5%;
-        margin-left: $mg-2 - 5;
+        width: 78%;
+        left: 18%
     }
 }
 
 @include mediaQuery('extra-large-3') {
     .profileContainer {
-        width: 77%;
-        margin-left: $mg-4;
+        width: 76%;
+        left: 20%
     }
 }
 
 @include mediaQuery('extra-large-2') {
     .profileContainer {
         width: 74%;
-        margin-left: $mg-7;
+        left: 22%
     }
 }
 
 @include mediaQuery('extra-large') {
     .profileContainer {
-        width: 86.7%;
-        left: 2%;
+        width: 87%;
+        left: 8%
     }
 }
 
 @include mediaQuery('large') {
     .profileContainer {
         width: 92.5%;
-        left: -7%;
+        left: 1%
     }
 }
 
 
 @include mediaQuery('medium') {
     .profileContainer {
-        width: 90%;
-        left: -9%;
+        width: 92.5%;
+        left: 0;
     }
 }
 
 @include mediaQuery('small') {
     .profileContainer {
-        width: 90%;
-        left: -12%;
+        width: 91%;
+        left: 0;
     }
 }

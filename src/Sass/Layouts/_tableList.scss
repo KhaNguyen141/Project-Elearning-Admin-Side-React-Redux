@@ -5,7 +5,7 @@
 
 .tableContainer {
     .tableUserList {
-        width: 80%;
+        width: 82%;
         @include contentSchemaTop ();
         table {
             max-width: 100%;
@@ -13,7 +13,7 @@
     }
 
     .tableCourseList {
-        width: 80%;
+        width: 82%;
         @include contentSchemaTop ();
         table {
             max-width: 100%;
@@ -28,13 +28,14 @@
 @include mediaQuery('extra-large-4') {
     .tableContainer {
         .tableUserList {
-            width: 80%;
-            margin-left: $mg-1;
+            width: 78%;
+            left: 18%;
            
         }
     
         .tableCourseList {
-            width: 80%;
+            width: 78%;
+            left: 18%;
         
         }
     }
@@ -45,12 +46,11 @@
        
         .tableUserList {
             font-size: $fs-1;
-            width: 75%;
-            margin-left: $mg-6;
             text-align: left;
+            width: 76%;
+            left: 20%;
            table {
              word-break: break-all;
-             width: 100%;
              td:last-child {
                  text-align: center;
              }
@@ -64,17 +64,17 @@
     
         .tableCourseList {
             font-size: $fs-1;
-            width: 76%;
-            margin-left: $mg-5 + 5;
             text-align: left;
+            width: 76%;
+            left: 20%;
            table {
              word-break: break-all;
-             width: 100%;
              td:last-child {
                  text-align: center;
              }
            }
            .btn {
+            font-size: $fs-1;
             width: 50%;
             
            }
@@ -87,7 +87,7 @@
     .tableContainer {
         .tableUserList {
             width: 74%;
-            left: 18%;
+            left: 22%;
             .btn {
                 width: 50%;
                 
@@ -96,7 +96,7 @@
     
         .tableCourseList {
             width: 74%;
-            left: 18%;
+            left: 22%;
             .btn {
                 width: 50%;
                 
@@ -109,8 +109,8 @@
 @include mediaQuery('extra-large') {
     .tableContainer {
         .tableUserList {
-            width: 88%;
-            left: 2%;
+            width: 87%;
+            left: 8%;
             .btn {
                 width: 70%;
                 
@@ -118,8 +118,8 @@
         }
     
         .tableCourseList {
-            width: 88%;
-            left: 2%;
+            width: 87%;
+            left: 8%;
             .btn {
                 width: 70%;
                 
@@ -131,8 +131,8 @@
 @include mediaQuery('large') {
     .tableContainer {
         .tableUserList {
-            width: 94%;
-            left: -6.5%;
+            width: 92.5%;
+            left: 1%;
             .btn {
                 width: 70%;
                 
@@ -140,8 +140,8 @@
         }
     
         .tableCourseList {
-            width: 94%;
-            left: -6.5%;
+            width: 92.5%;
+            left: 1%;
             .btn {
                 width: 70%;
                 
@@ -154,8 +154,8 @@
     .tableContainer {
         .tableUserList {
             font-size: $fs-1 - 2;
-            width: 94%;
-            left: -10%;
+            width: 92.5%;
+            left: 0;
             .btn {
                 font-size: $fs-1 - 2;
                 width: 80%;
@@ -165,8 +165,8 @@
     
         .tableCourseList {
             font-size: $fs-1 - 2;
-            width: 94%;
-            left: -10%;
+            width: 92.5%;
+            left: 0;
             .btn {
                 font-size: $fs-1 - 2;
                 width: 80%;
@@ -180,8 +180,8 @@
     .tableContainer {
         .tableUserList {
             font-size: $fs-1 - 2;
-            width: 95%;
-            left: -12%;
+            width: 91%;
+            left: 0;
             .btn {
                 font-size: $fs-1 - 2;
                 width: 100%;
@@ -190,8 +190,8 @@
     
         .tableCourseList {
             font-size: $fs-1 - 3;
-            width: 94%;
-            left: -10%;
+            width: 91%;
+            left: 0;
             .btn {
                 font-size: $fs-1 - 3;
                 width: 80%;

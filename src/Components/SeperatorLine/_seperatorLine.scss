@@ -1,9 +1,21 @@
 .separator {
     margin: $mg-2;
     border-bottom: 1px dashed #fff;
-    width: 79%;
+    width: 79.5%;
     position: absolute;
     top: 7.5%;
     left: 16%;
    
+}
+
+// Responsive
+
+@include mediaQuery('extra-large-4') {
+    .separator {
+        width: 80%;
+        position: absolute;
+        top: 7.5%;
+        left: 15.5%;
+       
+    }
 }
