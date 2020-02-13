@@ -1,7 +1,52 @@
 .contentNotFound {
     position: absolute;
-    left: 17%;
+    left: 15%;
     top: 18%;
     color: $color-white-0;
 
+}
+
+// Responsive
+
+@include mediaQuery('extra-large-4') {
+    .contentNotFound {
+        left: 18%
+    }
+}
+
+@include mediaQuery('extra-large-3') {
+    .contentNotFound {
+        left: 20%
+    }
+}
+
+@include mediaQuery('extra-large-2') {
+    .contentNotFound {
+        left: 22%
+    }
+}
+
+@include mediaQuery('extra-large') {
+    .contentNotFound {
+        left: 8%
+    }
+}
+
+@include mediaQuery('large') {
+    .contentNotFound {
+        left: 2%
+    }
+}
+
+
+@include mediaQuery('medium') {
+    .contentNotFound {
+        left: 1%;
+    }
+}
+
+@include mediaQuery('small') {
+    .contentNotFound {
+        left: 1%;
+    }
 }
