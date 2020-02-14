@@ -2,8 +2,8 @@
       margin: 0 $mg-2 - 5;
       position: absolute;
       width: 78%;
-      top: 23%;
-      left: 17%;
+      top: 11%;
+      left: 15.5%;
       .chartContainer {
         .chartFramework {
             width: 100%;
@@ -146,20 +146,21 @@
   @include mediaQuery('extra-large-3') {
     .homeContentContainer {
       width: 74%;
-      left: 21%;
+      left: 20%;
     }
   }
 
   @include mediaQuery('extra-large-2') {
     .homeContentContainer {
-      width: 72%;
-      left: 23%;
+      width: 73.5%;
+      left: 21%
     }
   }
   
   @include mediaQuery('extra-large') {
     .homeContentContainer {
-      width: 85%;
+      width: 84%;
+      top: 12%;
       left: 9%
       
     }
@@ -167,18 +168,41 @@
 
   @include mediaQuery('large') {
     .homeContentContainer {
-      width: 90%;
-      left: 0;
-      margin-left: 36.5px;
+      width: 89%;
+      top: 12%;
+      left: 3%;
     }
   }
 
   @include mediaQuery('medium') {
     .homeContentContainer {
-      width: 87%;
-      top: 23%;
-      left: 0;
-      margin-left: 35px;
+      width: 88.5%;
+      top: 12%;
+      left: 3%;
+    }
+  }
+
+  @include mediaQueryForIpad() {
+    .homeContentContainer {
+        top: 12%;
+    }
+  }
+
+  @include mediaQueryForIpadRotate() {
+    .homeContentContainer {
+          top: 16%;
+    }
+  }
+
+  @include mediaQueryForIpadPro() {
+    .homeContentContainer {
+          top: 9%;
+      }
+  }
+
+  @include mediaQueryForIpadProRotate() {
+    .homeContentContainer {
+          top: 12%;
     }
   }
   

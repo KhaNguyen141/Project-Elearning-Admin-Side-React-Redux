@@ -121,6 +121,38 @@
   }
 }
 
+@mixin mediaQueryForIpad() {
+    @media only screen 
+    and (width: 768px) 
+    and (height: 1024px) {
+      @content;
+  }
+}
+
+@mixin mediaQueryForIpadRotate() {
+  @media only screen 
+  and (width: 1024px) 
+  and (height: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaQueryForIpadPro() {
+  @media only screen 
+  and (width: 1024px) 
+  and (height: 1366px) {
+    @content;
+  } 
+}
+
+@mixin mediaQueryForIpadProRotate() {
+  @media only screen 
+  and (width: 1366px) 
+  and (height: 1024px) {
+    @content;
+  }
+}
+
 @mixin keyframes($animation-name) {
   @keyframes #{$animation-name} {
     @content;

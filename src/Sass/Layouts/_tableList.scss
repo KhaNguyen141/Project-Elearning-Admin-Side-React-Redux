@@ -5,16 +5,20 @@
 
 .tableContainer {
     .tableUserList {
-        width: 82%;
         @include contentSchemaTop ();
+        width: 82%;
+        left: 14.5%;
+        top: 18%;
         table {
             max-width: 100%;
         }
     }
 
     .tableCourseList {
-        width: 82%;
         @include contentSchemaTop ();
+        width: 82%;
+        left: 14.5%;
+        top: 18%;
         table {
             max-width: 100%;
         }
@@ -86,8 +90,8 @@
 @include mediaQuery('extra-large-2') {
     .tableContainer {
         .tableUserList {
-            width: 74%;
-            left: 22%;
+            width: 76%;
+            left: 20%;
             .btn {
                 width: 50%;
                 
@@ -95,8 +99,8 @@
         }
     
         .tableCourseList {
-            width: 74%;
-            left: 22%;
+            width: 76%;
+            left: 20%;
             .btn {
                 width: 50%;
                 
@@ -109,7 +113,7 @@
 @include mediaQuery('extra-large') {
     .tableContainer {
         .tableUserList {
-            width: 87%;
+            width: 86%;
             left: 8%;
             .btn {
                 width: 70%;
@@ -118,7 +122,7 @@
         }
     
         .tableCourseList {
-            width: 87%;
+            width: 86%;
             left: 8%;
             .btn {
                 width: 70%;
@@ -131,7 +135,7 @@
 @include mediaQuery('large') {
     .tableContainer {
         .tableUserList {
-            width: 92.5%;
+            width: 93%;
             left: 1%;
             .btn {
                 width: 70%;
@@ -140,7 +144,7 @@
         }
     
         .tableCourseList {
-            width: 92.5%;
+            width: 93%;
             left: 1%;
             .btn {
                 width: 70%;
@@ -154,8 +158,8 @@
     .tableContainer {
         .tableUserList {
             font-size: $fs-1 - 2;
-            width: 92.5%;
-            left: 0;
+            width: 92%;
+            left: 1%;
             .btn {
                 font-size: $fs-1 - 2;
                 width: 80%;
@@ -165,8 +169,8 @@
     
         .tableCourseList {
             font-size: $fs-1 - 2;
-            width: 92.5%;
-            left: 0;
+            width: 92%;
+            left: 1%;
             .btn {
                 font-size: $fs-1 - 2;
                 width: 80%;
@@ -176,27 +180,62 @@
     }
 }
 
-@include mediaQuery('small') {
+@include mediaQueryForIpad() {
     .tableContainer {
         .tableUserList {
-            font-size: $fs-1 - 2;
-            width: 91%;
-            left: 0;
-            .btn {
-                font-size: $fs-1 - 2;
-                width: 100%;
-            }
+            top: 18%;
         }
     
         .tableCourseList {
-            font-size: $fs-1 - 3;
-            width: 91%;
-            left: 0;
-            .btn {
-                font-size: $fs-1 - 3;
-                width: 80%;
-                
-            }
+            top: 18%;
+        }
+    }
+}
+
+@include mediaQueryForIpad() {
+    .tableContainer {
+        .tableUserList {
+            top: 18%;
+        }
+    
+        .tableCourseList {
+            top: 18%;
+        }
+    }
+}
+
+@include mediaQueryForIpadRotate() {
+    .tableContainer {
+        .tableUserList {
+            top: 24%;
+        }
+    
+        .tableCourseList {
+            top: 24%;
+        }
+    }
+}
+
+@include mediaQueryForIpadPro() {
+    .tableContainer {
+        .tableUserList {
+            top: 14%;
+        }
+    
+        .tableCourseList {
+            top: 14%;
+        }
+    }
+}
+
+@include mediaQueryForIpadProRotate() {
+    .tableContainer {
+        .tableUserList {
+            top: 18%;
+        }
+    
+        .tableCourseList {
+            top: 18%;
         }
     }
 }

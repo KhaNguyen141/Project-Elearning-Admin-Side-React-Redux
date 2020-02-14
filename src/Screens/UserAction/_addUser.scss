@@ -1,6 +1,8 @@
 .userEditCotaniner {    
     @include contentSchemaTableEdit();
-
+    top: 12%;
+    left: 14.5%;
+    margin-bottom: $mg-2;
     h4, h2 {
         margin-top: $mg-2;
     }
@@ -17,7 +19,6 @@
 @include mediaQuery('extra-large-4') {
     .userEditCotaniner {
         width: 78%;
-        top: 23%;
         left: 18%;
     }
 }
@@ -46,6 +47,7 @@
 @include mediaQuery('large') {
     .userEditCotaniner {
         width: 92.5%;
+        top: 12%;
         left: 1%
     }
 }
@@ -53,13 +55,31 @@
 @include mediaQuery('medium') {
     .userEditCotaniner {
         width: 92.5%;
+        top: 12%;
         left: 0;
     }
 }
 
-@include mediaQuery('small') {
+@include mediaQueryForIpad() {
     .userEditCotaniner { 
-        width: 91%;
-        left: 0;
+        top: 12%;
+    }
+}
+
+@include mediaQueryForIpadRotate() {
+    .userEditCotaniner { 
+        top: 16%;
+    }
+}
+
+@include mediaQueryForIpadPro() {
+    .userEditCotaniner {
+        top: 8.5%;
+    }
+}
+
+@include mediaQueryForIpadProRotate() {
+    .userEditCotaniner {
+        top: 12%;
     }
 }

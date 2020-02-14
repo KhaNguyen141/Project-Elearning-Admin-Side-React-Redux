@@ -1,7 +1,8 @@
 .profileContainer {
     @include contentSchemaTop();
     width: 82%;
-
+    left: 14.5%;
+    top: 11%;
     .card-header {
         h2, p {
             margin: $mg-1 0;
@@ -15,6 +16,7 @@
     .profileContainer {
         width: 78%;
         left: 18%
+        
     }
 }
 
@@ -27,21 +29,22 @@
 
 @include mediaQuery('extra-large-2') {
     .profileContainer {
-        width: 74%;
-        left: 22%
+        width: 76%;
+        left: 20%
     }
 }
 
 @include mediaQuery('extra-large') {
     .profileContainer {
-        width: 87%;
+        width: 86%;
         left: 8%
     }
 }
 
 @include mediaQuery('large') {
     .profileContainer {
-        width: 92.5%;
+        width: 93%;
+        top: 12%;
         left: 1%
     }
 }
@@ -49,14 +52,32 @@
 
 @include mediaQuery('medium') {
     .profileContainer {
-        width: 92.5%;
-        left: 0;
+        width: 92%;
+        top: 12%;
+        left: 1%;
     }
 }
 
-@include mediaQuery('small') {
+@include mediaQueryForIpad() {
     .profileContainer {
-        width: 91%;
-        left: 0;
+        top: 12%;
+    }
+}
+
+@include mediaQueryForIpadRotate() {
+    .profileContainer {
+        top: 16%;
+    }
+}
+
+@include mediaQueryForIpadPro() {
+    .profileContainer {
+        top: 8.5%;
+    }
+}
+
+@include mediaQueryForIpadProRotate() {
+    .profileContainer {
+        top: 12%;
     }
 }
