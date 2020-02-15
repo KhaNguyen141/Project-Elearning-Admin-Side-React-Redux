@@ -4,7 +4,7 @@
     left: 14.5%;
     margin-bottom: $mg-2;
     h4, h2 {
-        margin-top: $mg-2;
+        padding: $pd-2 0;
     }
     
     .inputDescription {
@@ -14,7 +14,25 @@
     .buttonAddNewCourse {
         width: $w-20;
     }
+    .imageInput {
+        color: $color-yellow-1;
+        text-align: left;
+        padding-left: $pd-2;
+        line-height: normal;
+        input {
+            display: none;
+        }
+        span {
+            padding-left: $pd-1;
+        }
+    }
+    .inputDescription {
+        padding-left: $pd-4;
+    }
+  
+  
 }
+
 
 // Responsive
 

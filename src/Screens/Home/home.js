@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 // import Component
-import LoginBox from '../../Layouts/LoginBox';
+import LoginBox from '../Home/home';
 
 // import SCSS
 import "../../App.scss";

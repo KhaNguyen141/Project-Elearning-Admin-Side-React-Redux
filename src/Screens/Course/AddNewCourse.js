@@ -4,9 +4,39 @@ import { connect } from 'react-redux';
 
 import { Formik, Field, Form } from 'formik';
 import { adminAddNewCourse } from '../../Redux/Action/User/AdminActions';
+import BackupIcon from '@material-ui/icons/Backup';
 
 class AddCourseComponent extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+           fileName: '',
+        };
+    }
+
+    onChange = (e) => {
+
+        switch (e.target.name) {
+          // Updated this
+          case 'hinhAnh':
+            if(e.target.files.length > 0) {
+                // Accessed .name from file 
+                this.setState({ fileName: e.target.files[0].name });
+            }
+            break;
+
+          default:
+            this.setState({ [e.target.name]: e.target.value });
+         }
+    };
+      
     render() {
+        const { fileName } = this.state;
+        let file = null;
+     
+        file = fileName 
+           ? ( <span>File Selected - {fileName}</span>) 
+           : ( <span>Upload a file...</span> );
 
         return (
             <Formik
@@ -118,14 +148,23 @@ class AddCourseComponent extends Component {
 
                                 <div className="col-6">
                                     <h4 className="text-left">Upload image</h4>
-                                    <input
-                                        name="hinhAnh"
-                                        type="file"
-                                        onChange={(event) => {
-                                            setFieldValue("hinhAnh", event.currentTarget.files[0].name)
-                                        }}
+                                    <label className="form-control imageInput">
+                                        <BackupIcon /> 
+                                        <input
+                                            name="hinhAnh"
+                                            type="file"
 
-                                        className="form-control" />
+                                            onChange={(event) => {
+                                                this.onChange(event);
+                                                setFieldValue("hinhAnh", event.target.files[0].name)
+                                                
+                                            }}
+
+                                            className="upload"
+                                        />
+                                        <span className="fileName">{file}</span>
+                                    </label>
+                                    
                                 </div>
                             </div>
 

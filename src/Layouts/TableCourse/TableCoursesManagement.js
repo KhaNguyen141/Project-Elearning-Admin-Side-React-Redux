@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchCourseList, fetchCourseListPagination, fetchListSearchCourse, searchCourse } from '../../Redux/Action/Course/CourseActions';
+import { fetchCourseList, fetchCourseListPagination, searchCourse } from '../../Redux/Action/Course/CourseActions';
 import ModalUserPending from "../../Components/ModalUser/ModalUserPending";
 import ModalUpdateCourseComponent from '../../Components/ModalCourse/ModalUpdateCourse';
 import { fetchListUserPending } from '../../Redux/Action/User/AdminActions';

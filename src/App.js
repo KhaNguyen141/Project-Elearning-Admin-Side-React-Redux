@@ -53,7 +53,7 @@ class App extends Component {
         <div>
           {isMobileRotate ? (
             <Switch>
-
+              
               <Route exact path="/admin" component={HomeScreen} />
               <Route exact path="/admin/detail" component={ProfileDetail} />
               <Route exact path="/admin/list-user-manage" component={UserManagementsComponent} />
@@ -106,7 +106,7 @@ class App extends Component {
   }
 
   updatePredicate() {
-    this.setState({ isMobileRotate: window.innerWidth > 560 });
+    this.setState({ isMobileRotate: window.innerWidth > 620 });
   }
 
   drawerToggleClickHandler = () => {

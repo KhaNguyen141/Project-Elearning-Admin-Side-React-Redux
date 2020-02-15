@@ -5,10 +5,40 @@ import { fetchListCategory } from '../../Redux/Action/Course/CourseActions';
 import { adminUpdateCourse } from '../../Redux/Action/User/AdminActions';
 
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import BackupIcon from '@material-ui/icons/Backup';
 
 class ModalUpdateCourseComponent extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+           fileName: '',
+        };
+    }
+
+    onChange = (e) => {
+
+        switch (e.target.name) {
+          // Updated this
+          case 'hinhAnh':
+            if(e.target.files.length > 0) {
+                // Accessed .name from file 
+                this.setState({ fileName: e.target.files[0].name });
+            }
+            break;
+
+          default:
+            this.setState({ [e.target.name]: e.target.value });
+         }
+    };
 
     render() {
+        const { fileName } = this.state;
+        let file = null;
+     
+        file = fileName 
+           ? ( <span>File Selected - {fileName}</span>) 
+           : ( <span>Upload a file...</span> );
+
         return (
             <Formik
                 initialValues={{
@@ -38,7 +68,7 @@ class ModalUpdateCourseComponent extends Component {
                             Update Course
                         </ModalHeader>
 
-                        <Form className="container formSearch">
+                        <Form className="container formSearch courseUpdateCotaniner">
                            <ModalBody>
                                 <div className="row">
 
@@ -47,6 +77,8 @@ class ModalUpdateCourseComponent extends Component {
                                         <Field
                                             name="maKhoaHoc"
                                             type="text"
+                                            disabled
+                                            value={this.props.course.maKhoaHoc}
                                             onChange={handleChange}
                                             className="form-control" />
                                     </div>
@@ -126,15 +158,23 @@ class ModalUpdateCourseComponent extends Component {
                                     </div>
 
                                     <div className="col-6">
-                                        <h4 className="text-left">Image Upload</h4>
+                                        <h4 className="text-left courseTitle">Image Upload</h4>
+                                        <label className="form-control imageInput">
+                                        <BackupIcon /> 
                                         <input
                                             name="hinhAnh"
                                             type="file"
+
                                             onChange={(event) => {
-                                                setFieldValue("hinhAnh", event.target.files[0].name)
+                                                this.onChange(event);
+                                                setFieldValue("hinhAnh", event.currentTarget.files[0].name)
+                                                
                                             }}
 
-                                            className="form-control" />
+                                            className="upload"
+                                        />
+                                        <span className="fileName">{file}</span>
+                                    </label>
                                     </div>
                                 </div>
 

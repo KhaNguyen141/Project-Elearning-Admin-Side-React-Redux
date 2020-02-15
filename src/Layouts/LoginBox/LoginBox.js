@@ -1,5 +1,5 @@
 import React from 'react'
-import {adminLoginAction} from '../Redux/Action/User/AdminActions';
+import {adminLoginAction} from '../../Redux/Action/User/AdminActions';
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 

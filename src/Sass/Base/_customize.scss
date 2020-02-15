@@ -26,6 +26,11 @@
     display: inline;
 }
 
+.form-control {
+    border-radius: 50px;
+    border: 1px solid $color-gray-2;
+}
+
 .modal-open {
     padding: 0!important;
     overflow: scroll;

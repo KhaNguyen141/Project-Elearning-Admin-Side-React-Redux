@@ -26,7 +26,7 @@
 @import '../Components/SidebarButton/sidebarButton';
 @import '../Components/SeperatorLine/seperatorLine';
 @import '../Components/NavigationBar/navigationBar';
-@import '../Sass/Layouts/loginBox.scss';
+@import '../Layouts/LoginBox/loginBox';
 @import '../Screens/Home/home';
 @import '../Sass/Layouts/tableList.scss';
 @import '../Layouts/Pagination/pagination';
@@ -35,6 +35,7 @@
 @import '../Components/ModalCourse/modalCourseAccepted';
 @import '../Components/ModalCourse/modalCoursePending';
 @import '../Components/ModalUser/modalUserPending';
+@import '../Components/ModalCourse/modalCourseUpdate';
 @import '../Layouts/Backdrop/backdrop';
 @import '../Sass/Layouts/tableSearch';
 @import '../Layouts/ScreenRotation/screenRotation';

@@ -1,0 +1,27 @@
+.courseUpdateCotaniner {
+    h4 {
+        padding: $pd-2 0;
+    }
+    .inputDescription {
+        height: $height-100p;
+    }
+
+    .buttonAddNewCourse {
+        width: $w-20;
+    }
+    .imageInput {
+        color: $color-yellow-1;
+        text-align: left;
+        padding-left: $pd-2;
+        line-height: normal;
+        input {
+            display: none;
+        }
+        span {
+            padding-left: $pd-1;
+        }
+    }
+    .inputDescription {
+        padding-left: $pd-4;
+    }
+}

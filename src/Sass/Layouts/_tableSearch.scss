@@ -1,5 +1,7 @@
 .inputTableSearch {
-    left: 16%;
+    position: absolute;
+    top: 10%;
+    left: 15.5%;
     .form-control {
         border-radius: 50px;
         border: 1px solid $color-white-0;
@@ -21,14 +23,14 @@
 
 @include mediaQuery('extra-large-3') {
     .inputTableSearch {
-        left: 21.2%;
+        left: 21.5%;
     }
       
 }
 
 @include mediaQuery('extra-large-2') {
     .inputTableSearch {
-        left: 23.7%
+        left: 21.5%;
     }
       
 }
@@ -42,6 +44,7 @@
 
 @include mediaQuery('large') {
     .inputTableSearch {
+        top: 12.2%;
         left: 3.7%;
     }
       
