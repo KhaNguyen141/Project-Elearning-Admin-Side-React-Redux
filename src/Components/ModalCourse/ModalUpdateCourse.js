@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Formik, Field, Form } from 'formik';
+
 import { fetchListCategory } from '../../Redux/Action/Course/CourseActions';
 import { adminUpdateCourse } from '../../Redux/Action/User/AdminActions';
-
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+import { Formik, Field, Form } from 'formik';
+import ErrorMessage from '../../Layouts/ErrorMessage/ErrorMessage';
+import {validationCourseSchema} from '../../Layouts/Validation/ValidationCourseSchema';
+
 import BackupIcon from '@material-ui/icons/Backup';
 
 class ModalUpdateCourseComponent extends Component {
@@ -32,6 +36,8 @@ class ModalUpdateCourseComponent extends Component {
     };
 
     render() {
+        const courseInfo = JSON.parse(localStorage.getItem('courseEventClickedInfo'));
+
         const { fileName } = this.state;
         let file = null;
      
@@ -42,7 +48,7 @@ class ModalUpdateCourseComponent extends Component {
         return (
             <Formik
                 initialValues={{
-                    maKhoaHoc: "",
+                    maKhoaHoc: courseInfo.maKhoaHoc,
                     biDanh: "",
                     tenKhoaHoc: "",
                     moTa: "",
@@ -52,17 +58,17 @@ class ModalUpdateCourseComponent extends Component {
                     maNhom: "",
                     ngayTao: "",
                     maDanhMucKhoaHoc: "",
-                    taiKhoanNguoiTao: "",
+                    taiKhoanNguoiTao: this.props.checkAdmin.taiKhoan,
                 }}
 
+                validationSchema={validationCourseSchema}
                 onSubmit={(values) => {
 
                     this.props.dispatch(adminUpdateCourse(values, values.hinhAnh, values.tenKhoaHoc))
-                    console.log(values);
 
                 }}
             >
-                {({ handleChange, setFieldValue }) => (
+                {({values, handleChange, setFieldValue, errors, touched }) => (
                     <Modal isOpen={this.props.isUpdateCourseModalOpen} toggle={this.props.isUpdateCourseModalClose}>
                         <ModalHeader toggle={this.props.isUpdateCourseModalClose}>
                             Update Course
@@ -77,10 +83,11 @@ class ModalUpdateCourseComponent extends Component {
                                         <Field
                                             name="maKhoaHoc"
                                             type="text"
-                                            disabled
-                                            value={this.props.course.maKhoaHoc}
+                                            disabled={true}
+                                            value={values.maKhoaHoc}
                                             onChange={handleChange}
-                                            className="form-control" />
+                                            className="form-control valid" />
+                                            <ErrorMessage touched={touched.maKhoaHoc} message={errors.maKhoaHoc}/>
                                     </div>
 
                                     <div className="col-6">
@@ -89,7 +96,10 @@ class ModalUpdateCourseComponent extends Component {
                                             name="danhGia"
                                             type="text"
                                             onChange={handleChange}
-                                            className="form-control" />
+                                            className={
+                                                !touched.danhGia ? "form-control" : touched.danhGia && !errors.danhGia ? "form-control valid" : "form-control error"  
+                                            } />
+                                            <ErrorMessage touched={touched.danhGia} message={errors.danhGia}/>
                                     </div>
 
                                 </div>
@@ -98,11 +108,14 @@ class ModalUpdateCourseComponent extends Component {
 
                                     <div className="col-6">
                                         <h4 className="text-left">Course name</h4>
-                                        <input
+                                        <Field
                                             name="tenKhoaHoc"
                                             type="text"
                                             onChange={handleChange}
-                                            className="form-control" />
+                                            className={
+                                                !touched.tenKhoaHoc ? "form-control" : touched.tenKhoaHoc && !errors.tenKhoaHoc ? "form-control valid" : "form-control error"  
+                                            } />
+                                            <ErrorMessage touched={touched.tenKhoaHoc} message={errors.tenKhoaHoc}/>
                                     </div>
 
                                     <div className="col-6">
@@ -111,7 +124,10 @@ class ModalUpdateCourseComponent extends Component {
                                             name="luotXem"
                                             type="text"
                                             onChange={handleChange}
-                                            className="form-control" />
+                                            className={
+                                                !touched.luotXem ? "form-control" : touched.luotXem && !errors.luotXem ? "form-control valid" : "form-control error"  
+                                            } />
+                                            <ErrorMessage touched={touched.luotXem} message={errors.luotXem}/>
                                     </div>
 
                                 </div>
@@ -120,9 +136,12 @@ class ModalUpdateCourseComponent extends Component {
                                     <div className="form-group col-6">
                                         <h4 className="text-left">Course type</h4>
                                         <Field
-                                            as="select"
+                                            component="select"
                                             name="maDanhMucKhoaHoc"
-                                            className="form-control">
+                                            className={
+                                                !touched.maDanhMucKhoaHoc ? "form-control" : touched.maDanhMucKhoaHoc && !errors.maDanhMucKhoaHoc ? "form-control valid" : "form-control error"  
+                                            }
+                                            >
                                             <option>Please choose course type</option>
 
                                             {this.props.listCategory.map((list, index) => {
@@ -134,6 +153,7 @@ class ModalUpdateCourseComponent extends Component {
                                                 )
                                             })}
                                         </Field>
+                                        <ErrorMessage touched={touched.maDanhMucKhoaHoc} message={errors.maDanhMucKhoaHoc}/>
                                     </div>
 
                                     <div className="form-group col-6">
@@ -141,8 +161,11 @@ class ModalUpdateCourseComponent extends Component {
                                         <Field
                                             name="taiKhoanNguoiTao"
                                             type="text"
+                                            value={this.props.checkAdmin.taiKhoan}
+                                            disabled
                                             onChange={handleChange}
-                                            className="form-control" />
+                                            className="form-control valid" />
+                                            <ErrorMessage touched={touched.taiKhoanNguoiTao} message={errors.taiKhoanNguoiTao}/>
                                     </div>
                                 </div>
 
@@ -154,12 +177,17 @@ class ModalUpdateCourseComponent extends Component {
                                             name="ngayTao"
                                             type="text"
                                             onChange={handleChange}
-                                            className="form-control" />
+                                            className={
+                                                !touched.ngayTao ? "form-control" : touched.ngayTao && !errors.ngayTao ? "form-control valid" : "form-control error"  
+                                            } />
+                                            <ErrorMessage touched={touched.ngayTao} message={errors.ngayTao}/>
                                     </div>
 
                                     <div className="col-6">
                                         <h4 className="text-left courseTitle">Image Upload</h4>
-                                        <label className="form-control imageInput">
+                                        <label className={
+                                                !touched.hinhAnh ? "form-control imageInput" : touched.hinhAnh && !errors.hinhAnh ? "form-control imageInput valid" : "form-control imageInput error"  
+                                        } >
                                         <BackupIcon /> 
                                         <input
                                             name="hinhAnh"
@@ -170,11 +198,11 @@ class ModalUpdateCourseComponent extends Component {
                                                 setFieldValue("hinhAnh", event.currentTarget.files[0].name)
                                                 
                                             }}
-
-                                            className="upload"
+                                            
                                         />
                                         <span className="fileName">{file}</span>
                                     </label>
+                                    <ErrorMessage touched={touched.hinhAnh} message={errors.hinhAnh}/>
                                     </div>
                                 </div>
 
@@ -187,7 +215,10 @@ class ModalUpdateCourseComponent extends Component {
                                             name="maNhom"
                                             type="text"
                                             onChange={handleChange}
-                                            className="form-control" />
+                                            className={
+                                                !touched.maNhom ? "form-control" : touched.maNhom && !errors.maNhom ? "form-control valid" : "form-control error"  
+                                            } />
+                                            <ErrorMessage touched={touched.maNhom} message={errors.maNhom}/>
                                     </div>
 
                                 </div>
@@ -200,7 +231,10 @@ class ModalUpdateCourseComponent extends Component {
                                             name="moTa"
                                             type="text"
                                             onChange={handleChange}
-                                            className="inputDescription form-control" />
+                                            className={
+                                                !touched.moTa ? "form-control" : touched.moTa && !errors.moTa ? "inputDescription form-control valid" : "inputDescription form-control error"  
+                                            } />
+                                            <ErrorMessage touched={touched.moTa} message={errors.moTa}/>
                                     </div>
                                 </div>
 

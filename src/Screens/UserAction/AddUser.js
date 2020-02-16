@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { Formik, Field, Form } from 'formik';
+import ErrorMessage from '../../Layouts/ErrorMessage/ErrorMessage';
+import {validationUserSchema} from '../../Layouts/Validation/ValidationUserSchema';
+
 import { fetchUserType, adminAddUser } from '../../Redux/Action/User/AdminActions';
 
 class AddUserComponent extends Component {
@@ -17,14 +20,16 @@ class AddUserComponent extends Component {
                     maNhom: "",
                     email: "",
                 }}
+
+                validationSchema={validationUserSchema}
                 onSubmit={values => {
                     this.props.dispatch(adminAddUser(values))
                 }}
                 >
-                {({ handleChange }) => (
+                {({ handleChange, errors, touched }) => (
                     <div className="userEditCotaniner">
                         <Form className="container formSearch">
-                            <h2>User Addition</h2>
+                            <h2>Add User</h2>
                             <div className="row">
 
                                 <div className="col-6">
@@ -33,7 +38,10 @@ class AddUserComponent extends Component {
                                         name="taiKhoan"
                                         type="text"
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.taiKhoan ? "form-control" : touched.taiKhoan && !errors.taiKhoan ? "form-control valid" : "form-control error"
+                                        }  />
+                                        <ErrorMessage touched={touched.taiKhoan} message={errors.taiKhoan}/>
                                 </div>
 
                                 <div className="col-6">
@@ -42,7 +50,10 @@ class AddUserComponent extends Component {
                                         name="email"
                                         type="text"
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.email ? "form-control" : touched.email && !errors.email ? "form-control valid" : "form-control error"
+                                        }  />
+                                        <ErrorMessage touched={touched.email} message={errors.email}/>
                                 </div>
 
                             </div>
@@ -55,7 +66,10 @@ class AddUserComponent extends Component {
                                         name="matKhau"
                                         type="text"
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.matKhau ? "form-control" : touched.matKhau && !errors.matKhau ? "form-control valid" : "form-control error"
+                                        }  />
+                                        <ErrorMessage touched={touched.matKhau} message={errors.matKhau}/>
                                 </div>
 
                                 <div className="col-6">
@@ -64,7 +78,10 @@ class AddUserComponent extends Component {
                                         name="soDT"
                                         type="text"
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.soDT ? "form-control" : touched.soDT && !errors.soDT ? "form-control valid" : "form-control error"
+                                        }  />
+                                        <ErrorMessage touched={touched.soDT} message={errors.soDT}/>
                                 </div>
 
                             </div>
@@ -75,7 +92,10 @@ class AddUserComponent extends Component {
                                         name="hoTen"
                                         type="text"
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.hoTen ? "form-control" : touched.hoTen && !errors.hoTen ? "form-control valid" : "form-control error"
+                                        }  />
+                                        <ErrorMessage touched={touched.hoTen} message={errors.hoTen}/>
                                 </div>
 
                                 <div className="form-group col-6">
@@ -83,7 +103,9 @@ class AddUserComponent extends Component {
                                     <Field
                                         as="select"
                                         name="maLoaiNguoiDung"
-                                        className="form-control">
+                                        className={
+                                            !touched.maLoaiNguoiDung ? "form-control" : touched.maLoaiNguoiDung && !errors.maLoaiNguoiDung ? "form-control valid" : "form-control error"
+                                        } >
                                         <option>Please choose user type</option>
                                         {this.props.userType.map((type, index) => {
                                             return <option
@@ -93,6 +115,7 @@ class AddUserComponent extends Component {
 
 
                                         })}
+                                        <ErrorMessage touched={touched.maLoaiNguoiDung} message={errors.maLoaiNguoiDung}/>
                                     </Field>
                                 </div>
 
@@ -106,7 +129,10 @@ class AddUserComponent extends Component {
                                         name="maNhom"
                                         type="text"
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.maNhom ? "form-control" : touched.maNhom && !errors.maNhom ? "form-control valid" : "form-control error"
+                                        }  />
+                                        <ErrorMessage touched={touched.maNhom} message={errors.maNhom}/>
                                 </div>
 
                             </div>

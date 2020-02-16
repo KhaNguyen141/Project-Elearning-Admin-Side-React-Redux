@@ -44,7 +44,7 @@
 @include mediaQuery('large') {
     .separator {
         width: 92.5%;
-        top: 10%;
+        top: 9%;
         left: 3.7%
        
     }
@@ -53,16 +53,8 @@
 @include mediaQuery('medium') {
     .separator {
         width: 92.5%;
+        top: 9%;
         left: 3.5%;
-       
-    }
-}
-
-@include mediaQuery('small') {
-    .separator {
-        display: none;
-        width: 91%;
-        left: 4.7%
        
     }
 }

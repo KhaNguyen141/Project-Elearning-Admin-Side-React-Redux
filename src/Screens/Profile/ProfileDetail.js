@@ -2,9 +2,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import {adminProfileUpdate } from '../../Redux/Action/User/AdminActions';
 
-import {validationSchema} from '../../Layouts/Validation/ValidationForm';
+import {validationUserSchema} from '../../Layouts/Validation/ValidationUserSchema';
 import { Formik, Field, Form } from 'formik';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import ErrorMessage from '../../Layouts/ErrorMessage/ErrorMessage';
 
 const ProfileDetail = () => {
 
@@ -24,7 +24,7 @@ const ProfileDetail = () => {
             email: adminInfo.email
         }}
 
-        validationSchema={validationSchema}
+        validationSchema={validationUserSchema}
         onSubmit={values  => {
             
             dispatch(adminProfileUpdate(values))
@@ -53,7 +53,7 @@ const ProfileDetail = () => {
                                             type="text" 
                                             value={values.taiKhoan} 
                                             onChange={handleChange}
-                                            className="form-control" 
+                                            className="form-control valid"
                                             placeholder="Tài khoản"
                                             disabled={true}
                                             />
@@ -67,7 +67,9 @@ const ProfileDetail = () => {
                                             type="password" 
                                             value={values.matKhau} 
                                             onChange={handleChange}
-                                            className="form-control" 
+                                            className={
+                                                !touched.matKhau ? "form-control" : touched.matKhau && !errors.matKhau ? "form-control valid" : "form-control error"
+                                            } 
                                             placeholder="Mật khẩu" />
                                             <ErrorMessage touched={touched.matKhau} message={errors.matKhau}/>
                                            
@@ -78,7 +80,10 @@ const ProfileDetail = () => {
                                             name="hoTen" type="text" 
                                             value={values.hoTen} 
                                             onChange={handleChange}
-                                            className="form-control" placeholder="Họ tên" />
+                                            className={
+                                                !touched.hoTen ? "form-control" : touched.hoTen && !errors.hoTen ? "form-control valid" : "form-control error"
+                                            }  
+                                            placeholder="Họ tên" />
                                             <ErrorMessage touched={touched.hoTen} message={errors.hoTen}/>
                                           
                                         </div>
@@ -90,7 +95,9 @@ const ProfileDetail = () => {
                                             type="text" 
                                             value={values.soDT}
                                             onChange={handleChange}
-                                            className="form-control" 
+                                            className={
+                                                !touched.soDT ? "form-control" : touched.soDT && !errors.soDT ? "form-control valid" : "form-control error"
+                                            }  
                                             placeholder="Số điện thoại" />
                                             <ErrorMessage touched={touched.soDT} message={errors.soDT}/>
                                             
@@ -102,7 +109,9 @@ const ProfileDetail = () => {
                                             type="email" 
                                             value={values.email} 
                                             onChange={handleChange}
-                                            className="form-control" 
+                                            className={
+                                                !touched.email ? "form-control" : touched.email && !errors.email ? "form-control valid" : "form-control error"
+                                            }  
                                             placeholder="Email" />
                                             <ErrorMessage touched={touched.email} message={errors.email}/>
                                             

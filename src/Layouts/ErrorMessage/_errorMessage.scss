@@ -1,0 +1,27 @@
+.messageInvalid {
+    @include text-style($color-red-0, $fs-0, $fw-bold-0);
+    text-align: left;
+}
+
+.messageValid {
+    @include text-style($color-green-0, $fs-0, $fw-bold-0);
+    text-align: left;
+}
+
+.form-control.valid {
+    border: 2px solid $color-green-0;
+    &:focus {
+        border: 2px solid $color-green-0;
+    }
+}
+
+.form-control.error {
+    border: 2px solid $color-red-0;
+    &:focus {
+        border: 2px solid $color-red-0;
+    }
+}
+
+.form-message {
+    margin-top: $mg-1;
+}

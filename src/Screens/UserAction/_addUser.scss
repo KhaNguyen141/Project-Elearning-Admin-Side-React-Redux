@@ -6,12 +6,13 @@
     h4, h2 {
         padding: $pd-2 0;
     }
+
     .inputDescription {
         height: $height-100p;
     }
 
     .buttonAddNewCourse {
-        width: $w-20;
+        width: $w-20 - 5;
     }
 }
 

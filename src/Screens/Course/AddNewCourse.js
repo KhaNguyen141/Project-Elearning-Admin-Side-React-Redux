@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { fetchListCategory } from '../../Redux/Action/Course/CourseActions';
 import { connect } from 'react-redux';
 
-import { Formik, Field, Form } from 'formik';
 import { adminAddNewCourse } from '../../Redux/Action/User/AdminActions';
 import BackupIcon from '@material-ui/icons/Backup';
+
+import { Formik, Field, Form } from 'formik';
+import {validationCourseSchema} from '../../Layouts/Validation/ValidationCourseSchema';
+import ErrorMessage from '../../Layouts/ErrorMessage/ErrorMessage';
 
 class AddCourseComponent extends Component {
     constructor(props) {
@@ -51,18 +54,18 @@ class AddCourseComponent extends Component {
                     maNhom: "",
                     ngayTao: "",
                     maDanhMucKhoaHoc: "",
-                    taiKhoanNguoiTao: "",
+                    taiKhoanNguoiTao: this.props.checkAdmin.taiKhoan,
                 }}
+
+                validationSchema={validationCourseSchema}
                 onSubmit={values => {
                     this.props.dispatch(adminAddNewCourse(values, values.hinhAnh, values.tenKhoaHoc))
-                    console.log(values);
-
                 }}
                 >
-                {({ handleChange, setFieldValue }) => (
+                {({values, handleChange, setFieldValue, errors, touched }) => (
                     <div className="courseEditCotaniner">
                         <Form className="container formSearch">
-                            <h2>Course Addition</h2>
+                            <h2>Add Course</h2>
                             <div className="row">
 
                                 <div className="col-6">
@@ -70,8 +73,14 @@ class AddCourseComponent extends Component {
                                     <Field
                                         name="maKhoaHoc"
                                         type="text"
+                                        value={values.maKhoaHoc}
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.maKhoaHoc ? "form-control" : touched.maKhoaHoc && !errors.maKhoaHoc ? "form-control valid" : "form-control error"
+                                            
+                                        }
+                                        />
+                                        <ErrorMessage touched={touched.maKhoaHoc} message={errors.maKhoaHoc}/>
                                 </div>
 
                                 <div className="col-6">
@@ -79,8 +88,12 @@ class AddCourseComponent extends Component {
                                     <Field
                                         name="danhGia"
                                         type="text"
+                                        value={values.danhGia}
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.danhGia ? "form-control" : touched.danhGia && !errors.danhGia ? "form-control valid" : "form-control error"  
+                                        } />
+                                        <ErrorMessage touched={touched.danhGia} message={errors.danhGia}/>
                                 </div>
 
                             </div>
@@ -92,8 +105,12 @@ class AddCourseComponent extends Component {
                                     <Field
                                         name="tenKhoaHoc"
                                         type="text"
+                                        value={values.tenKhoaHoc}
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.tenKhoaHoc ? "form-control" : touched.tenKhoaHoc && !errors.tenKhoaHoc ? "form-control valid" : "form-control error"  
+                                        } />
+                                        <ErrorMessage touched={touched.tenKhoaHoc} message={errors.tenKhoaHoc}/>
                                 </div>
 
                                 <div className="col-6">
@@ -101,8 +118,12 @@ class AddCourseComponent extends Component {
                                     <Field
                                         name="luotXem"
                                         type="text"
+                                        value={values.luotXem}
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.luotXem ? "form-control" : touched.luotXem && !errors.luotXem ? "form-control valid" : "form-control error"  
+                                        } />
+                                        <ErrorMessage touched={touched.luotXem} message={errors.luotXem}/>
                                 </div>
 
                             </div>
@@ -110,19 +131,21 @@ class AddCourseComponent extends Component {
                                 <div className="form-group col-6">
                                     <h4 className="text-left">Course categories</h4>
                                     <Field
-                                        as="select"
+                                        component="select"
                                         name="maDanhMucKhoaHoc"
-                                        className="form-control">
+                                        value={values.maDanhMucKhoaHoc}
+                                        className={
+                                            !touched.maDanhMucKhoaHoc ? "form-control" : touched.maDanhMucKhoaHoc && !errors.maDanhMucKhoaHoc ? "form-control valid" : "form-control error"  
+                                        } >
                                         <option>Please choose course category</option>
                                         {this.props.listCategory.map((list, index) => {
                                             return <option
                                                 value={list.maDanhMuc}
                                                 key={index}
                                             >{list.tenDanhMuc}</option>
-
-
                                         })}
                                     </Field>
+                                    <ErrorMessage touched={touched.maDanhMucKhoaHoc} message={errors.maDanhMucKhoaHoc}/>
                                 </div>
 
                                 <div className="form-group col-6">
@@ -130,8 +153,11 @@ class AddCourseComponent extends Component {
                                     <Field
                                         name="taiKhoanNguoiTao"
                                         type="text"
+                                        value={this.props.checkAdmin.taiKhoan}
+                                        disabled={true}
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className="form-control valid" />
+                                        <ErrorMessage touched={touched.taiKhoanNguoiTao} message={errors.taiKhoanNguoiTao}/>
                                 </div>
                             </div>
 
@@ -142,29 +168,35 @@ class AddCourseComponent extends Component {
                                     <Field
                                         name="ngayTao"
                                         type="text"
+                                        value={values.ngayTao}
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.ngayTao ? "form-control" : touched.ngayTao && !errors.ngayTao ? "form-control valid" : "form-control error"  
+                                        } />
+                                        <ErrorMessage touched={touched.ngayTao} message={errors.ngayTao}/>
                                 </div>
 
                                 <div className="col-6">
                                     <h4 className="text-left">Upload image</h4>
-                                    <label className="form-control imageInput">
+                                    <label
+                                      className={
+                                        !touched.hinhAnh ? "form-control imageInput" : touched.hinhAnh && !errors.hinhAnh ? "form-control imageInput valid" : "form-control imageInput error"  
+                                    }
+                                    >
                                         <BackupIcon /> 
                                         <input
                                             name="hinhAnh"
                                             type="file"
-
                                             onChange={(event) => {
                                                 this.onChange(event);
                                                 setFieldValue("hinhAnh", event.target.files[0].name)
                                                 
                                             }}
-
-                                            className="upload"
                                         />
                                         <span className="fileName">{file}</span>
+                                        
                                     </label>
-                                    
+                                    <ErrorMessage touched={touched.hinhAnh} message={errors.hinhAnh}/>
                                 </div>
                             </div>
 
@@ -176,8 +208,12 @@ class AddCourseComponent extends Component {
                                     <Field
                                         name="maNhom"
                                         type="text"
+                                        value={values.maNhom}
                                         onChange={handleChange}
-                                        className="form-control" />
+                                        className={
+                                            !touched.maNhom ? "form-control" : touched.maNhom && !errors.maNhom ? "form-control valid" : "form-control error"  
+                                        } />
+                                        <ErrorMessage touched={touched.maNhom} message={errors.maNhom}/>
                                 </div>
                             </div>
 
@@ -188,12 +224,17 @@ class AddCourseComponent extends Component {
                                     <textarea
                                         name="moTa"
                                         type="text"
+                                        value={values.moTa}
                                         onChange={handleChange}
-                                        className="inputDescription form-control" />
+                                        className={
+                                            !touched.moTa ? "form-control" : touched.moTa && !errors.moTa ? "inputDescription form-control valid" : "inputDescription form-control error"  
+                                        }
+                                        />
+                                        <ErrorMessage touched={touched.moTa} message={errors.moTa}/>
                                 </div>
                             </div>
 
-                            <button type="submit" className="buttonAddNewCourse btn btn-udi-yellow my-5">Add</button>
+                            <button onClick={this.onSubmit} type="submit" className="buttonAddNewCourse btn btn-udi-yellow my-5">Add</button>
                         </Form>
                     </div>
                 )}

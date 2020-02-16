@@ -28,7 +28,7 @@ export const adminLoginAction = (adminLogin) => {
         restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken
 
         Swal.fire (
-          'Đăng nhập thành công!',
+          'Login Successfully!',
           '',
           'success'
         ).then(() => {
@@ -40,8 +40,8 @@ export const adminLoginAction = (adminLogin) => {
           console.log(error.response.data);
           Swal.fire({
             icon: 'error',
-            title: 'Đăng nhập thất bại',
-            text: 'Vui lòng thử lại'
+            title: 'Login Failed!',
+            text: 'Please check your ID and Password and try again'
         })
       });
   };
@@ -56,7 +56,7 @@ export const adminProfileUpdate = (adminProfileUpdate) => {
         dispatch(reduxAction(ADMIN_UPDATE_USER, res.data));
         console.log(res.data);
         Swal.fire(
-          'Cập nhật thành công!',
+          'Update Account Successfully!',
           '',
           'success'
         )
@@ -64,8 +64,8 @@ export const adminProfileUpdate = (adminProfileUpdate) => {
         console.log(error.response.data)
         Swal.fire({
           icon: 'error',
-          title: 'Cập nhật thất bại',
-          text: 'Vui lòng thử lại!'
+          title: 'Account update failed!',
+          text: 'Please check the value and try again'
         })
       })
   }
@@ -128,7 +128,7 @@ export const adminApproveCourses = (maKhoaHoc, taiKhoan) => {
         dispatch(reduxAction(ADMIN_APPROVE_COURSE, res.data));
         console.log(res.data);
         Swal.fire(
-          'Duyệt thành công!',
+          'You Have Successfully Enrolled!',
           '',
           'success'
         )
@@ -136,8 +136,8 @@ export const adminApproveCourses = (maKhoaHoc, taiKhoan) => {
         console.log(error.response.data)
         Swal.fire({
           icon: 'error',
-          title: 'Duyệt thất bại',
-          text: 'Vui lòng kiểm tra lại!',
+          title: 'Action Failed!',
+          text: 'Please check and try again!',
         })
       })
   }
@@ -152,7 +152,7 @@ export const adminCancelCourses = (maKhoaHoc, taiKhoan) => {
         dispatch(reduxAction(ADMIN_CANCEL_COURSE, res.data));
         console.log(res.data);
         Swal.fire(
-          'Huỷ ghi danh thành công!',
+          'Course Successfully Canceled!',
           '',
           'success'
         )
@@ -160,8 +160,8 @@ export const adminCancelCourses = (maKhoaHoc, taiKhoan) => {
         console.log(error.response.data)
         Swal.fire({
           icon: 'error',
-          title: 'Huỷ thất bại',
-          text: 'Vui lòng kiểm tra lại!',
+          title: 'Action Failed!',
+          text: 'Please check and try again!',
         })
       })
   }
@@ -181,7 +181,7 @@ export const adminAddNewCourse = (data, file, tenKhoaHoc) => {
         dispatch(reduxAction(ADMIN_ADD_NEW_COURSE, res.data));
         console.log(res.data);
         Swal.fire(
-          'Thêm khoá học mới thành công!',
+          'Course Successfully Added!',
           '',
           'success'
         )
@@ -189,8 +189,8 @@ export const adminAddNewCourse = (data, file, tenKhoaHoc) => {
         console.log(error.response.data)
         Swal.fire({
           icon: 'error',
-          title: 'Thêm khoá học thất bại',
-          text: 'Vui lòng kiểm tra lại!',
+          title: 'Course Added Failed',
+          text: 'Please check and try again!',
         })
       })
   }
@@ -210,7 +210,7 @@ export const adminUpdateCourse = (data, file, tenKhoaHoc) => {
         dispatch(reduxAction(ADMIN_UPDATE_COURSE, res.data));
         console.log(res.data);
         Swal.fire(
-          'Cập nhật khoá học thành công!',
+          'Update Course Successfully!',
           '',
           'success'
         )
@@ -218,8 +218,8 @@ export const adminUpdateCourse = (data, file, tenKhoaHoc) => {
         console.log(error.response.data)
         Swal.fire({
           icon: 'error',
-          title: 'Cập nhật khoá học thất bại',
-          text: 'Vui lòng kiểm tra lại!',
+          title: 'Update Course Failed',
+          text: 'Please check and try again!',
         })
       })
   }
@@ -238,7 +238,7 @@ export const fetchListUserPending = (maKhoaHoc) => {
         Swal.fire({
           icon: 'error',
           title: '',
-          text: 'Vui lòng kiểm tra lại!',
+          text: 'Please check and try again!',
         })
       })
   }
@@ -253,7 +253,7 @@ export const adminAddUser = (data) => {
         dispatch(reduxAction(ADMIN_ADD_USER, res.data));
         console.log(res.data);
         Swal.fire(
-          'Thêm user thành công!',
+          'New User Successfully Added!',
           '',
           'success'
         )
@@ -261,8 +261,8 @@ export const adminAddUser = (data) => {
         console.log(error.response.data)
         Swal.fire({
           icon: 'error',
-          title: 'Thêm user thất bại',
-          text: 'Vui lòng kiểm tra lại!',
+          title: 'User Added Failed',
+          text: 'Please check the value and try again!',
         })
       })
   }

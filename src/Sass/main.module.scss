@@ -20,7 +20,6 @@
 
 // Component
 @import '../Sass/Components/button';
-@import '../Sass/Components/errorMessage';
 
 // Layout
 @import '../Components/SidebarButton/sidebarButton';
@@ -39,6 +38,7 @@
 @import '../Layouts/Backdrop/backdrop';
 @import '../Sass/Layouts/tableSearch';
 @import '../Layouts/ScreenRotation/screenRotation';
+@import '../Layouts/ErrorMessage/errorMessage';
 
 // Pages
 @import '../Screens/Profile/profileAccount';
