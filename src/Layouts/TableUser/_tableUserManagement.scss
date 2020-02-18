@@ -1,11 +1,31 @@
 .tableUserList__tableCourseContent {
     width: 100%;
     word-break: break-all;
+    .tableUserList__cellNotFound {
+        transform: translateX(75%);
+    }
 }
 
-@include mediaQuery('medium') {
+// Responsive
+
+@include mediaQuery('extra-large-3') {
+    .tableUserList__tableCourseContent {
+        .tableUserList__cellNotFound {
+            transform: translateX(100%);
+        }
+    }
+}
+
+
+@include mediaQuery('extra-large') {
+    .tableUserList__tableCourseContent {
+        .tableUserList__cellNotFound {
+            transform: translateX(95%);
+        }
+    }
+
     td:nth-child(5) {
-        width: 12.5%;
+        width: 18.5%;
         
     }
 
@@ -16,26 +36,37 @@
     }
 }
 
-@include mediaQuery('small') {
-    td:nth-child(5) {
-        width: 14.5%;
-       
+@include mediaQuery('large') {
+    .tableUserList__tableCourseContent {
+        .tableUserList__cellNotFound {
+            transform: translateX(85%);
+        }
     }
 
-    td:nth-child(3) {
-        width: 20%;
-        word-break: break-all;
+    td:nth-child(5) {
+        width: 18.5%;
         
     }
 
     td:nth-child(2) {
-        width: 15%;
+        width: 16%;
         word-break: break-all;
         
     }
+}
 
-    td:nth-child(1) {
-        width: 10%;
+@include mediaQuery('medium') {
+    .tableUserList__cellNotFound {
+        transform: translateX(80%);
+    }
+
+    td:nth-child(5) {
+        width: 18.5%;
+        
+    }
+
+    td:nth-child(2) {
+        width: 16%;
         word-break: break-all;
         
     }

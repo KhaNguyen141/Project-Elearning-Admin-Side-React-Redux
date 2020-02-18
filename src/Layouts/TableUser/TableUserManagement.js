@@ -124,7 +124,7 @@ class TableUserPending extends Component {
                                                     <tr>
                                                         <td></td>
                                                         <td></td>
-                                                        <td>User not found</td>
+                                                        <td className="tableUserList__cellNotFound">User not found</td>
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>

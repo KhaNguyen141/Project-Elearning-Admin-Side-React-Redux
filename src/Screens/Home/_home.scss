@@ -7,9 +7,11 @@
       .chartContainer {
         .chartFramework {
             width: 100%;
+            padding: $pd-2;
         
         }
         .chartInfoContainer {
+            padding: $pd-2;
             .TotalInfo {
               h3 {
                   @include text-style($color-purple-0,  $fs-3, $fw-normal);

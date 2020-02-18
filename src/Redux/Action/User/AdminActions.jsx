@@ -37,7 +37,6 @@ export const adminLoginAction = (adminLogin) => {
 
       })
       .catch(error => {
-          console.log(error.response.data);
           Swal.fire({
             icon: 'error',
             title: 'Login Failed!',
@@ -54,7 +53,6 @@ export const adminProfileUpdate = (adminProfileUpdate) => {
       .then(res => {
         localStorage.setItem(settings.adminLogin, JSON.stringify(res.data));
         dispatch(reduxAction(ADMIN_UPDATE_USER, res.data));
-        console.log(res.data);
         Swal.fire(
           'Update Account Successfully!',
           '',
@@ -78,7 +76,6 @@ export const fetchListUser = () => {
       .then(res => {
         dispatch(reduxAction(LIST_USERS, res.data.items));
         dispatch(reduxAction(LIST_USERS_PAGINATION, res.data));
-        console.log(res.data);
         
       }).catch(error => {
         console.log(error.response.data)
@@ -98,7 +95,6 @@ export const fetchListSearchUser = (keyword) => {
       .fetchListSearchUser(keyword)
       .then(res => {
         dispatch(reduxAction(FETCH_USER_SEARCH, res.data));
-        console.log(res.data);
         
       }).catch(error => {
         console.log(error.response.data)
@@ -113,7 +109,6 @@ export const fetchListUserPagination = (pageNumber) => {
       .then(res => {
         dispatch(reduxAction(LIST_USERS, res.data.items))
         dispatch(reduxAction(LIST_USERS_PAGINATION, res.data));
-        console.log(res.data);
       }).catch(error => {
         console.log(error.response.data)
       })
@@ -126,7 +121,6 @@ export const adminApproveCourses = (maKhoaHoc, taiKhoan) => {
       .adminApproveCourses(maKhoaHoc, taiKhoan)
       .then(res => {
         dispatch(reduxAction(ADMIN_APPROVE_COURSE, res.data));
-        console.log(res.data);
         Swal.fire(
           'You Have Successfully Enrolled!',
           '',
@@ -150,7 +144,6 @@ export const adminCancelCourses = (maKhoaHoc, taiKhoan) => {
       .then(res => {
         
         dispatch(reduxAction(ADMIN_CANCEL_COURSE, res.data));
-        console.log(res.data);
         Swal.fire(
           'Course Successfully Canceled!',
           '',

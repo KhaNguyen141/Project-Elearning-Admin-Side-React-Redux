@@ -1,7 +1,32 @@
 .tableCoursePending {
     width: 100%;
-    td {
-        width: 1%;
-       
+    td:nth-child(3) {
+        width: 40%;
+        word-break: break-all;
+    }
+}
+
+// Responsive
+
+@include mediaQuery('large') {
+    .tableCoursePending {
+        font-size: $fs-1;
+        .btn {
+            font-size: $fs-1;
+        }
+    }
+}
+
+@include mediaQuery('medium') {
+    .tableCoursePending {
+        font-size: $fs-1;
+        td:nth-child(3) {
+            width: 25%;
+
+        }
+
+        .btn {
+            font-size: $fs-1;
+        }
     }
 }

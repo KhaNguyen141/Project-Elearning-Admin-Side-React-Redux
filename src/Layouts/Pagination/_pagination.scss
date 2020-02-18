@@ -4,12 +4,11 @@
     justify-content: center;
     align-items: center;
     a {
-        font-size: 20px;
+        @include text-style($color-black-0, $fs-1 + 3, $fw-normal);
         padding: 13px;
         margin: 5px;
         border-radius: 5px;
         background: $color-yellow-0;
-        color: $color-black-0;
         text-decoration: none;
         &:hover {
             background-color: $color-yellow-1;
@@ -22,6 +21,28 @@
         color: $color-white-0;
     }
    
+}
+
+// Responsive
+
+@include mediaQuery('large') {
+    .pagination {
+        a {
+            font-size: $fs-2 - 5;
+        }
+     
+    }
+    
+}
+
+@include mediaQuery('medium') {
+    .pagination {
+        a {
+            font-size: $fs-2 - 5;
+        }
+     
+    }
+    
 }
 
 

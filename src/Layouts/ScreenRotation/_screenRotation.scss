@@ -2,7 +2,7 @@
     .MuiSvgIcon-root {
         position: absolute;
         top: 30%;
-        left: 35%;
+        left: 25%;
         color: white;
         font-size: 200px;
         @include animation('rotate-screen' 3s infinite);
@@ -20,7 +20,7 @@
         text-align: center;
         position: absolute;
         top: 70%;
-        left: 30%;
+        left: 25%;
         @include text-style($color-white-0, $fs-2, $fw-bold);
     }
 }

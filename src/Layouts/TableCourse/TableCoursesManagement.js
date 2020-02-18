@@ -87,11 +87,10 @@ class TableCoursePending extends Component {
                                             )
                                         })
                                     ) : (
-                                       
                                         <tr>
                                         <td></td>
                                         <td></td>
-                                        <td>Course not found</td>
+                                        <td className="tableCourseList__cellNotFound">Course not found</td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -138,7 +137,6 @@ class TableCoursePending extends Component {
     }
 
     handlePageChange = pageNumber => {
-        console.log(`active page is ${pageNumber}`);
         this.props.dispatch(fetchCourseListPagination(pageNumber))
     };
 

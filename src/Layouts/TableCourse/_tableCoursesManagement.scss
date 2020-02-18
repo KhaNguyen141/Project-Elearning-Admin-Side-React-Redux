@@ -1,6 +1,10 @@
 .tableCourseList__tableCourseContent {
     width: 100%;
     left: 17%;
+    .tableCourseList__cellNotFound {
+        transform: translateX(80%);
+    }
+
     td:nth-child(3) {
         width: 20%;
         word-break: break-all;
@@ -10,4 +14,41 @@
         width: 30%;
     }
     
+}
+
+// Responsive
+
+@include mediaQuery('extra-large-4') {
+    .tableCourseList__tableCourseContent {
+        .tableCourseList__cellNotFound {
+            transform: translateX(95%);
+        }
+    }
+   
+}
+
+@include mediaQuery('extra-large') {
+    .tableCourseList__tableCourseContent {
+        .tableCourseList__cellNotFound {
+            transform: translateX(100%);
+        }
+    }
+   
+}
+
+@include mediaQuery('large') {
+    .tableCourseList__tableCourseContent {
+        .tableCourseList__cellNotFound {
+            transform: translateX(100%);
+        }
+    }
+}
+
+
+@include mediaQuery('medium') {
+    .tableCourseList__tableCourseContent {
+        .tableCourseList__cellNotFound {
+            transform: translateX(100%);
+        }
+    }
 }

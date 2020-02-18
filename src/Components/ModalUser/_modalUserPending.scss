@@ -1,7 +1,38 @@
 .tableUserPending {
     width: 100%;
-    td {
-        width: 1%;
-       
+
+    td:nth-child(4) {
+        width: 35%;
+
+    }
+}
+
+// Responsive
+
+@include mediaQuery('large') {
+    .tableUserPending {
+        font-size: $fs-1;
+        td:nth-child(4) {
+            width: 40%;
+
+        }
+
+        .btn {
+            font-size: $fs-1;
+        }
+    }
+}
+
+@include mediaQuery('medium') {
+    .tableUserPending {
+        font-size: $fs-1;
+        td:nth-child(4) {
+            width: 50%;
+
+        }
+
+        .btn {
+            font-size: $fs-1;
+        }
     }
 }
