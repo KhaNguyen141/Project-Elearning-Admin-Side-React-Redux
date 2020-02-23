@@ -19,7 +19,7 @@ class TableUserPending extends Component {
     }
 
     coursePendingModalClose = () => {
-        this.setState({ 
+        this.setState({
             isCoursePendingModalOpen: false
         })
     }
@@ -28,7 +28,7 @@ class TableUserPending extends Component {
         this.setState({
             isCourseAccpetedModalOpen: false
         })
-        
+
     }
 
     render() {
@@ -48,7 +48,7 @@ class TableUserPending extends Component {
                         onChange={this.handleChange}
                         placeholder="Search" />
                 </div>
-                
+
                 <div className="tableContainer">
                     <div className="tableUserList">
                         <table className="table table-striped table-condensed tableUserList__tableCourseContent">
@@ -79,20 +79,20 @@ class TableUserPending extends Component {
                                                             onClick={() => this.handleFetchCoursePending(user)}
                                                             className="btn btn-udi-yellow mr-2"
 
-                                                            >Pending
+                                                        >Pending
                                                         </button>
 
                                                         <button
                                                             onClick={() => this.handleFetchCourseAccepted(user)}
                                                             className="btn btn-udi-yellow mr-2"
-                                                            >Accepted
+                                                        >Accepted
                                                         </button>
                                                     </td>
                                                 </tr>
                                             )
 
                                         })
-                                            ) : (
+                                    ) : (
                                             searchUserList.length > 0 ? (
                                                 (searchUserList).map((user, index) => {
                                                     return (
@@ -106,13 +106,13 @@ class TableUserPending extends Component {
                                                                 <button
                                                                     onClick={() => this.handleFetchCoursePending(user)}
                                                                     className="btn btn-udi-yellow mr-2"
-                                                                    >Pending
+                                                                >Pending
                                                                 </button>
 
                                                                 <button
                                                                     onClick={() => this.handleFetchCourseAccepted(user)}
                                                                     className="btn btn-udi-yellow mr-2"
-                                                                    >Accepted
+                                                                >Accepted
                                                                 </button>
 
                                                             </td>
@@ -132,48 +132,48 @@ class TableUserPending extends Component {
 
                                                 )
                                         )
-                                    ) : (
-                                            (currentList).map((user, index) => {
+                                ) : (
+                                        (currentList).map((user, index) => {
 
-                                                return (
-                                                    <tr key={index}>
-                                                        <td>{index + 1}</td>
-                                                        <td>{user.taiKhoan}</td>
-                                                        <td>{user.hoTen}</td>
-                                                        <td>{user.email}</td>
-                                                        <td>{user.soDT}</td>
-                                                        <td>
-                                                            <button
-                                                                onClick={() => this.handleFetchCoursePending(user)}
-                                                                className="btn btn-udi-yellow mr-2"
-                                                                >Pending
+                                            return (
+                                                <tr key={index}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{user.taiKhoan}</td>
+                                                    <td>{user.hoTen}</td>
+                                                    <td>{user.email}</td>
+                                                    <td>{user.soDT}</td>
+                                                    <td>
+                                                        <button
+                                                            onClick={() => this.handleFetchCoursePending(user)}
+                                                            className="btn btn-udi-yellow mr-2"
+                                                        >Pending
                                                             </button>
 
-                                                            <button
-                                                                onClick={() => this.handleFetchCourseAccepted(user)}
-                                                                className="btn btn-udi-yellow mr-2"
-                                                                >Accepted
+                                                        <button
+                                                            onClick={() => this.handleFetchCourseAccepted(user)}
+                                                            className="btn btn-udi-yellow mr-2"
+                                                        >Accepted
                                                             </button>
 
-                                                        </td>
+                                                    </td>
 
-                                                    </tr>
+                                                </tr>
 
 
 
-                                                )
-                                            })
+                                            )
+                                        })
                                     )}
 
-                                <ModalCoursePending 
-                                user={this.state.user} 
-                                isCoursePendingModalOpen={this.state.isCoursePendingModalOpen} 
-                                isCloseCoursePending={() => this.coursePendingModalClose()}
+                                <ModalCoursePending
+                                    user={this.state.user}
+                                    isCoursePendingModalOpen={this.state.isCoursePendingModalOpen}
+                                    isCloseCoursePending={() => this.coursePendingModalClose()}
                                 />
-                                <ModalCourseAcceptedComponent 
-                                user={this.state.user}
-                                isCourseAccpetedModalOpen={this.state.isCourseAccpetedModalOpen}
-                                isCloseCourseAccepted={() => this.courseAcceptedModalClose()}
+                                <ModalCourseAcceptedComponent
+                                    user={this.state.user}
+                                    isCourseAccpetedModalOpen={this.state.isCourseAccpetedModalOpen}
+                                    isCloseCourseAccepted={() => this.courseAcceptedModalClose()}
                                 />
                             </tbody>
                         </table>
@@ -193,19 +193,19 @@ class TableUserPending extends Component {
     }
     componentDidMount() {
         this.props.dispatch(fetchListUser())
-       
+
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.text !== prevProps.text) {
             this.props.dispatch(fetchListSearchUser(this.props.text))
         }
-        
+
     }
 
     handleChange = (event) => {
         this.props.dispatch(searchUser(event.target.value))
-        
+
     }
 
     handlePageChange = pageNumber => {

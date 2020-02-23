@@ -58,8 +58,9 @@ class AddCourseComponent extends Component {
                 }}
 
                 validationSchema={validationCourseSchema}
-                onSubmit={values => {
-                    this.props.dispatch(adminAddNewCourse(values, values.hinhAnh, values.tenKhoaHoc))
+                onSubmit={(values, { resetForm }) => {
+                    this.props.dispatch(adminAddNewCourse(values, values.hinhAnh, values.tenKhoaHoc));
+                    resetForm();
                 }}
                 >
                 {({values, handleChange, setFieldValue, errors, touched }) => (

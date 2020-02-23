@@ -22,8 +22,9 @@ class AddUserComponent extends Component {
                 }}
 
                 validationSchema={validationUserSchema}
-                onSubmit={values => {
-                    this.props.dispatch(adminAddUser(values))
+                onSubmit={(values, { resetForm }) => {
+                    this.props.dispatch(adminAddUser(values));
+                    resetForm();
                 }}
                 >
                 {({ handleChange, errors, touched }) => (
@@ -101,7 +102,7 @@ class AddUserComponent extends Component {
                                 <div className="form-group col-6">
                                     <h4 className="text-left">User type</h4>
                                     <Field
-                                        as="select"
+                                        component="select"
                                         name="maLoaiNguoiDung"
                                         className={
                                             !touched.maLoaiNguoiDung ? "form-control" : touched.maLoaiNguoiDung && !errors.maLoaiNguoiDung ? "form-control valid" : "form-control error"
@@ -109,14 +110,13 @@ class AddUserComponent extends Component {
                                         <option>Please choose user type</option>
                                         {this.props.userType.map((type, index) => {
                                             return <option
-                                                value={type.maLoaiNguoiDung}
-                                                key={index}
-                                            >{type.tenLoaiNguoiDung}</option>
-
-
+                                                    value={type.maLoaiNguoiDung}
+                                                    key={index}
+                                                >{type.tenLoaiNguoiDung}
+                                                </option>
                                         })}
-                                        <ErrorMessage touched={touched.maLoaiNguoiDung} message={errors.maLoaiNguoiDung}/>
                                     </Field>
+                                    <ErrorMessage touched={touched.maLoaiNguoiDung} message={errors.maLoaiNguoiDung}/>
                                 </div>
 
                             </div>

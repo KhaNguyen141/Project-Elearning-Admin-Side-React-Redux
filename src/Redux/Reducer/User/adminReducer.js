@@ -1,4 +1,4 @@
-import { ADMIN_LOGIN, ADMIN_UPDATE_USER, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE, ADMIN_UPLOAD_IMAGE, ADMIN_ADD_USER, FETCH_USER_TYPE} from "../../Action/type";
+import { ADMIN_LOGIN, ADMIN_UPDATE_USER, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE, ADMIN_UPLOAD_IMAGE, ADMIN_ADD_USER, FETCH_USER_TYPE, ADMIN_DELETE_COURSE} from "../../Action/type";
 
 let initialState = {
   credentials: "",
@@ -10,7 +10,7 @@ let initialState = {
   image: [],
   userType: [],
   user: [],
-
+  courseDelete: []
 };
 
 const AdminReducer = (state = initialState, action) => {
@@ -37,8 +37,13 @@ const AdminReducer = (state = initialState, action) => {
     
     }
 
+    case ADMIN_DELETE_COURSE: {
+      state.courseDelete = action.payload;
+      return {...state};
+    
+    }
+
     case ADMIN_UPDATE_COURSE: {
-      
       state.courseUpdate = action.payload;
       return {...state};
     

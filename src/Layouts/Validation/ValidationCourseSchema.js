@@ -30,7 +30,7 @@ export const validationCourseSchema = Yup.object().shape({
 
     moTa: Yup.string()
     .min(5, "Description must have at least 5 characters")
-    .max(50, "Description only contains 50 characters")
+    .max(255, "Description only contains 255 characters")
     .required("Description is required"),
 
 })

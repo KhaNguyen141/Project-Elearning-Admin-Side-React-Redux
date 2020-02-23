@@ -1,4 +1,4 @@
-import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE, ADMIN_UPLOAD_IMAGE, ADMIN_ADD_USER, FETCH_USER_TYPE, LIST_USERS_PAGINATION, SEARCH_USER, FETCH_USER_SEARCH } from "../type";
+import { ADMIN_LOGIN, ADMIN_UPDATE_USER, LIST_USERS, ADMIN_APPROVE_COURSE, ADMIN_ADD_NEW_COURSE, LIST_USER_PENDING, ADMIN_CANCEL_COURSE, ADMIN_UPDATE_COURSE, ADMIN_UPLOAD_IMAGE, ADMIN_ADD_USER, FETCH_USER_TYPE, LIST_USERS_PAGINATION, SEARCH_USER, FETCH_USER_SEARCH, ADMIN_DELETE_COURSE } from "../type";
 import reduxAction from "../action";
 
 import { settings } from "../../../Config/settings";
@@ -212,6 +212,28 @@ export const adminUpdateCourse = (data, file, tenKhoaHoc) => {
         Swal.fire({
           icon: 'error',
           title: 'Update Course Failed',
+          text: 'Please check and try again!',
+        })
+      })
+  }
+}
+
+export const adminDeleteCourse = (maKhoaHoc) => {
+  return dispatch => {
+      userService
+      .adminDeleteCourse(maKhoaHoc)
+      .then(res => {
+        dispatch(reduxAction(ADMIN_DELETE_COURSE, res.data));
+        Swal.fire(
+          'Course Successfully Deleted!',
+          '',
+          'success'
+        )
+      }).catch(error => {
+        console.log(error.response.data)
+        Swal.fire({
+          icon: 'error',
+          title: 'Action Failed!',
           text: 'Please check and try again!',
         })
       })

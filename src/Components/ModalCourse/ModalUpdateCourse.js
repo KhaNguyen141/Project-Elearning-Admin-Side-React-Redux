@@ -15,7 +15,18 @@ class ModalUpdateCourseComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-           fileName: '',
+            fileName: "",
+            maKhoaHoc: "",
+            biDanh: "",
+            tenKhoaHoc: "",
+            moTa: "",
+            luotXem: 0,
+            danhGia: 0,
+            hinhAnh: "",
+            maNhom: "",
+            ngayTao: "",
+            maDanhMucKhoaHoc: "",
+            taiKhoanNguoiTao: this.props.checkAdmin.taiKhoan,
         };
     }
 
@@ -35,9 +46,13 @@ class ModalUpdateCourseComponent extends Component {
          }
     };
 
-    render() {
-        const courseInfo = JSON.parse(localStorage.getItem('courseEventClickedInfo'));
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
+    render() {
         const { fileName } = this.state;
         let file = null;
      
@@ -47,28 +62,19 @@ class ModalUpdateCourseComponent extends Component {
 
         return (
             <Formik
-                initialValues={{
-                    maKhoaHoc: courseInfo.maKhoaHoc,
-                    biDanh: "",
-                    tenKhoaHoc: "",
-                    moTa: "",
-                    luotXem: 0,
-                    danhGia: 0,
-                    hinhAnh: "",
-                    maNhom: "",
-                    ngayTao: "",
-                    maDanhMucKhoaHoc: "",
-                    taiKhoanNguoiTao: this.props.checkAdmin.taiKhoan,
-                }}
+                initialValues={
+                    this.state
+                }
 
                 validationSchema={validationCourseSchema}
-                onSubmit={(values) => {
+                onSubmit={(values, {resetForm}) => {
 
-                    this.props.dispatch(adminUpdateCourse(values, values.hinhAnh, values.tenKhoaHoc))
+                    this.props.dispatch(adminUpdateCourse(values, values.hinhAnh, values.tenKhoaHoc));
+                    resetForm();
 
                 }}
             >
-                {({values, handleChange, setFieldValue, errors, touched }) => (
+                {({handleChange, setFieldValue, errors, touched }) => (
                     <Modal isOpen={this.props.isUpdateCourseModalOpen} toggle={this.props.isUpdateCourseModalClose}>
                         <ModalHeader toggle={this.props.isUpdateCourseModalClose}>
                             Update Course
@@ -80,14 +86,18 @@ class ModalUpdateCourseComponent extends Component {
 
                                     <div className="col-6">
                                         <h4 className="text-left">Course ID</h4>
-                                        <Field
+                                        <input
                                             name="maKhoaHoc"
                                             type="text"
-                                            disabled={true}
-                                            value={values.maKhoaHoc}
-                                            onChange={handleChange}
+                                            // disabled={true}
+                                            value={this.state.maKhoaHoc}
+                                            onChange={(event) => {
+                                                this.handleChange(event);
+                                                setFieldValue("maKhoaHoc", event.target.value)
+                                                
+                                            }}
                                             className="form-control valid" />
-                                            <ErrorMessage touched={touched.maKhoaHoc} message={errors.maKhoaHoc}/>
+                                        <ErrorMessage touched={touched.maKhoaHoc} message={errors.maKhoaHoc}/>
                                     </div>
 
                                     <div className="col-6">
@@ -95,7 +105,11 @@ class ModalUpdateCourseComponent extends Component {
                                         <Field
                                             name="danhGia"
                                             type="text"
-                                            onChange={handleChange}
+                                            onChange={(event) => {
+                                                this.handleChange(event);
+                                                setFieldValue("danhGia", event.target.value)
+                                                
+                                            }}
                                             className={
                                                 !touched.danhGia ? "form-control" : touched.danhGia && !errors.danhGia ? "form-control valid" : "form-control error"  
                                             } />
@@ -111,7 +125,12 @@ class ModalUpdateCourseComponent extends Component {
                                         <Field
                                             name="tenKhoaHoc"
                                             type="text"
-                                            onChange={handleChange}
+                                            onChange={(event) => {
+                                                this.handleChange(event);
+                                                setFieldValue("tenKhoaHoc", event.target.value)
+                                                
+                                            }}
+                                            value={this.state.tenKhoaHoc}
                                             className={
                                                 !touched.tenKhoaHoc ? "form-control" : touched.tenKhoaHoc && !errors.tenKhoaHoc ? "form-control valid" : "form-control error"  
                                             } />
@@ -123,7 +142,12 @@ class ModalUpdateCourseComponent extends Component {
                                         <Field
                                             name="luotXem"
                                             type="text"
-                                            onChange={handleChange}
+                                            onChange={(event) => {
+                                                this.handleChange(event);
+                                                setFieldValue("luotXem", event.target.value)
+                                                
+                                            }}
+                                            value={this.state.luotXem}
                                             className={
                                                 !touched.luotXem ? "form-control" : touched.luotXem && !errors.luotXem ? "form-control valid" : "form-control error"  
                                             } />
@@ -176,7 +200,12 @@ class ModalUpdateCourseComponent extends Component {
                                         <Field
                                             name="ngayTao"
                                             type="text"
-                                            onChange={handleChange}
+                                            onChange={(event) => {
+                                                this.handleChange(event);
+                                                setFieldValue("ngayTao", event.target.value)
+                                                
+                                            }}
+                                            value={this.state.ngayTao}
                                             className={
                                                 !touched.ngayTao ? "form-control" : touched.ngayTao && !errors.ngayTao ? "form-control valid" : "form-control error"  
                                             } />
@@ -192,7 +221,6 @@ class ModalUpdateCourseComponent extends Component {
                                         <input
                                             name="hinhAnh"
                                             type="file"
-
                                             onChange={(event) => {
                                                 this.onChange(event);
                                                 setFieldValue("hinhAnh", event.currentTarget.files[0].name)
@@ -214,7 +242,12 @@ class ModalUpdateCourseComponent extends Component {
                                         <Field
                                             name="maNhom"
                                             type="text"
-                                            onChange={handleChange}
+                                            onChange={(event) => {
+                                                this.handleChange(event);
+                                                setFieldValue("maNhom", event.target.value)
+                                                
+                                            }}
+                                            value={this.state.maNhom}
                                             className={
                                                 !touched.maNhom ? "form-control" : touched.maNhom && !errors.maNhom ? "form-control valid" : "form-control error"  
                                             } />
@@ -230,7 +263,12 @@ class ModalUpdateCourseComponent extends Component {
                                         <textarea
                                             name="moTa"
                                             type="text"
-                                            onChange={handleChange}
+                                            onChange={(event) => {
+                                                this.handleChange(event);
+                                                setFieldValue("moTa", event.target.value)
+                                                
+                                            }}
+                                            value={this.state.moTa}
                                             className={
                                                 !touched.moTa ? "form-control" : touched.moTa && !errors.moTa ? "inputDescription form-control valid" : "inputDescription form-control error"  
                                             } />
@@ -254,6 +292,22 @@ class ModalUpdateCourseComponent extends Component {
     componentDidMount() {
         this.props.dispatch(fetchListCategory())
     }
+
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
+        this.setState({
+            maKhoaHoc: nextProps.course.maKhoaHoc,
+            tenKhoaHoc: nextProps.course.tenKhoaHoc,
+            moTa: nextProps.course.moTa,
+            luotXem: nextProps.course.luotXem,
+            danhGia: nextProps.course.danhGia,
+            hinhAnh: nextProps.course.hinhAnh,
+            maNhom: nextProps.course.maNhom,
+            ngayTao: nextProps.course.ngayTao,
+            maDanhMucKhoaHoc: nextProps.course.maDanhMucKhoaHoc,
+            taiKhoanNguoiTao: nextProps.checkAdmin.taiKhoan,
+        })
+    }   
 }
 
 const mapStateToProps = (state) => ({

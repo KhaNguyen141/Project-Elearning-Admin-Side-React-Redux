@@ -8,7 +8,6 @@ class ModalUserPending extends Component {
     render() {
         const {maKhoaHoc} = this.props.course;
         return (
-            <div>
                 <Modal isOpen={this.props.isUserPendingModalOpen} toggle={this.props.isUserPendingModalClose}>
                     <ModalHeader toggle={this.props.isUserPendingModalClose}>
                         Users list pending
@@ -48,8 +47,6 @@ class ModalUserPending extends Component {
                         </table>
                     </ModalBody>
                 </Modal>
-            </div>
-
         )
     }
     

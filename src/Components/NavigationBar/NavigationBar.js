@@ -34,21 +34,21 @@ class NavigationBarComponent extends Component {
             <p className="mainMenu">Main</p>
             <ul className="nav flex-column bg-white mb-0">
               <li className="nav-item">
-                <NavLink activeStyle={{backgroundColor: "red"}} exact to="/admin" className="nav-link textMenu font-italic">
+                <NavLink activeStyle={{ backgroundColor:'#ffc312', color: "white" }} exact to="/admin" className="nav-link textMenu font-italic">
                   <HomeIcon className="menuIcon mr-3" />
                   <span>Home</span>
                   <HomeIcon className="menuIconResponsive" />
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink activeStyle={{color: "red"}} exact to="/admin/detail" className="nav-link textMenu font-italic">
+                <NavLink activeStyle={{ backgroundColor:'#ffc312', color: "white" }} exact to="/admin/detail" className="nav-link textMenu font-italic">
                   <PermContactCalendarIcon className="menuIcon mr-3" />
                   <span>About</span>
                   <PermContactCalendarIcon className="menuIconResponsive text-right" />
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink activeStyle={{ backgroundColor:'red' }} exact to="/admin/list-user-manage" className="nav-link textMenu font-italic">
+                <NavLink activeStyle={{ backgroundColor:'#ffc312', color: "white" }} exact to="/admin/list-user-manage" className="nav-link textMenu font-italic">
                   <ListAltIcon className="menuIcon mr-3" />
                   <span>List User Management</span>
                   <ListAltIcon className="menuIconResponsive" />
@@ -56,7 +56,7 @@ class NavigationBarComponent extends Component {
               </li>
 
               <li className="nav-item">
-                <NavLink activeStyle={{ backgroundColor:'red' }} exact to="/admin/list-course-manage" className="nav-link textMenu font-italic">
+                <NavLink activeStyle={{ backgroundColor:'#ffc312', color: "white" }} exact to="/admin/list-course-manage" className="nav-link textMenu font-italic">
                   <ListAltIcon className="menuIcon mr-3" />
                   <span>List Course Management</span>
                   <ListAltIcon className="menuIconResponsive" />
@@ -64,7 +64,7 @@ class NavigationBarComponent extends Component {
               </li>
 
               <li className="nav-item">
-                <NavLink to="/admin/course-manage" className="nav-link textMenu font-italic">
+                <NavLink activeStyle={{ backgroundColor:'#ffc312', color: "white" }} to="/admin/course-manage" className="nav-link textMenu font-italic">
                   <EditIcon className="menuIcon fa fa-picture-o mr-3" />
                   <span>Course Edit</span>
                   <EditIcon className="menuIconResponsive fa fa-picture-o" />
@@ -72,7 +72,7 @@ class NavigationBarComponent extends Component {
               </li>
 
               <li className="nav-item">
-                <NavLink to="/admin/user-manage" className="nav-link textMenu font-italic">
+                <NavLink activeStyle={{ backgroundColor:'#ffc312', color: "white" }}   to="/admin/user-manage" className="nav-link textMenu font-italic">
                   <EditIcon className="menuIcon fa fa-picture-o mr-3" />
                   <span>User Edit</span>
                   <EditIcon className="menuIconResponsive fa fa-picture-o" />

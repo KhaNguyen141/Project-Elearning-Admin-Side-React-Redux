@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchCourseList, fetchCourseListPagination, searchCourse } from '../../Redux/Action/Course/CourseActions';
 import ModalUserPending from "../../Components/ModalUser/ModalUserPending";
 import ModalUpdateCourseComponent from '../../Components/ModalCourse/ModalUpdateCourse';
-import { fetchListUserPending } from '../../Redux/Action/User/AdminActions';
+import { fetchListUserPending, adminDeleteCourse } from '../../Redux/Action/User/AdminActions';
 
 import PaginationComponent from '../Pagination/Pagination';
 
@@ -82,6 +82,12 @@ class TableCoursePending extends Component {
                                                             className="btn btn-udi-yellow mr-2"
                                                             
                                                             >Update</button>
+
+                                                        <button
+                                                            onClick={() => this.handleDelete(course.maKhoaHoc)}
+                                                            className="btn btn-cyber-red mr-2"
+                                                            
+                                                            >Delete</button>
                                                     </td>
                                                 </tr>
                                             )
@@ -150,12 +156,15 @@ class TableCoursePending extends Component {
         });
     }
 
+    handleDelete = (maKhoaHoc) => {
+        this.props.dispatch(adminDeleteCourse(maKhoaHoc))
+    };
+    
     handleFetchInfoCourse = (course) => {
         this.setState({
             course: course,
             isUpdateCourseModalOpen: true
         }, () => {
-            console.log(course)
             localStorage.setItem("courseEventClickedInfo", JSON.stringify(course))
         })
     }

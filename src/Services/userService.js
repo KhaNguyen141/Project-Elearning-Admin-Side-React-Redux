@@ -103,6 +103,16 @@ class UserService {
         })
     }
 
+    adminDeleteCourse(maKhoaHoc) {
+        return restConnector({
+            method: "DELETE",
+            url: `/api/QuanLyKhoaHoc/XoaKhoaHoc?maKhoaHoc=${maKhoaHoc}`,
+            header: { 
+                'Authorization': "Bearer " + settings.token },
+            data: maKhoaHoc
+        })
+    }
+
     fetchListUserPending(maKhoaHoc) {
         return restConnector({
             method: "POST",
