@@ -36,6 +36,15 @@
                 background-color: $color-yellow-6;
                 transition: 0.5s all;
             }
+
+            .active {
+                color: $color-white-0;
+                background-color: $color-yellow-1;
+                .menuIcon {
+                    color: $color-white-0;
+                }
+            }
+
         }
     }
   }
