@@ -62,10 +62,10 @@ class ModalUpdateCourseComponent extends Component {
 
         return (
             <Formik
+                enableReinitialize={true}
                 initialValues={
                     this.state
                 }
-
                 validationSchema={validationCourseSchema}
                 onSubmit={(values, {resetForm}) => {
 
@@ -86,10 +86,10 @@ class ModalUpdateCourseComponent extends Component {
 
                                     <div className="col-6">
                                         <h4 className="text-left">Course ID</h4>
-                                        <input
+                                        <Field
                                             name="maKhoaHoc"
                                             type="text"
-                                            // disabled={true}
+                                            disabled={true}
                                             value={this.state.maKhoaHoc}
                                             onChange={(event) => {
                                                 this.handleChange(event);

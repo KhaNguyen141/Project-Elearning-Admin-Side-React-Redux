@@ -1,7 +1,6 @@
 import * as Yup from 'yup';
 
 export const validationCourseSchema = Yup.object().shape({
-
     //Course 
     maKhoaHoc: Yup.string()
     .min(2, "Course ID must have at least 2 characters")
