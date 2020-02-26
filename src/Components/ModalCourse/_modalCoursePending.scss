@@ -1,5 +1,6 @@
 .tableCoursePending {
     width: 100%;
+    @include text-style($color-black-0, $fs-2, $fw-normal);
 
     td:nth-child(1) {
         width: 5%;

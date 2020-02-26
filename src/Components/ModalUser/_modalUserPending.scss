@@ -1,23 +1,91 @@
 .tableUserPending {
     width: 100%;
+    @include text-style($color-black-0, $fs-2, $fw-normal);
+
+    td:nth-child(1) {
+        width: 5%;
+        word-break: break-all;
+    }
+
+    td:nth-child(3) {
+        width: 40%;
+        word-break: break-all;
+    }
 
     td:nth-child(4) {
-        width: 35%;
+        width: 20%;
+        word-break: break-all;
+    }
 
+    .btn {
+        width: 45%;
+    }
+
+    .tableUserPending__emptyList {
+        @include text-style($color-black-0, $fs-2, $fw-normal);
+        padding-bottom: 0;
     }
 }
 
 // Responsive
 
-@include mediaQuery('large') {
+@include mediaQuery('extra-large-2') {
     .tableUserPending {
-        font-size: $fs-1;
-        td:nth-child(4) {
-            width: 40%;
+        td:nth-child(1) {
+            width: 5%;
+        }
 
+        td:nth-child(3) {
+            width: 40%;
+        }
+
+        td:nth-child(4) {
+            width: 20%;
         }
 
         .btn {
+            width: 45%;
+        }
+    }
+}
+
+@include mediaQuery('extra-large') {
+    .tableUserPending {
+        td:nth-child(1) {
+            width: 5%;
+        }
+
+        td:nth-child(3) {
+            width: 15%;
+        }
+
+        td:nth-child(4) {
+            width: 10%;
+        }
+
+        .btn {
+            width: 45%;
+        }
+    }
+}
+
+@include mediaQuery('large') {
+    .tableUserPending {
+        font-size: $fs-1;
+        td:nth-child(1) {
+            width: 5%;
+        }
+
+        td:nth-child(3) {
+            width: 20%;
+        }
+
+        td:nth-child(4) {
+            width: 5%;
+        }
+
+        .btn {
+            width: 70%;
             font-size: $fs-1;
         }
     }
@@ -26,12 +94,21 @@
 @include mediaQuery('medium') {
     .tableUserPending {
         font-size: $fs-1;
-        td:nth-child(4) {
-            width: 50%;
 
+        td:nth-child(1) {
+            width: 5%;
+        }
+
+        td:nth-child(3) {
+            width: 20%;
+        }
+
+        td:nth-child(4) {
+            width: 5%;
         }
 
         .btn {
+            width: 80%;
             font-size: $fs-1;
         }
     }

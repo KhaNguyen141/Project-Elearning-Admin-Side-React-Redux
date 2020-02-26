@@ -24,7 +24,8 @@ class ModalUserPending extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.props.userListPending.map((user, index) => {
+                                {this.props.userListPending.length ? (
+                                this.props.userListPending.map((user, index) => {
                                     return (
                                         <tr key={index}>
                                             <td>{index + 1}</td>
@@ -41,7 +42,16 @@ class ModalUserPending extends Component {
                                             </td>
                                         </tr>
                                     )
-                                })}
+                                })
+                                ) : (
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td className="tableUserPending__emptyList">Empty List</td>
+                                        <td></td>
+                                    </tr>
+                                )
+                               }
 
                             </tbody>
                         </table>
