@@ -10,11 +10,20 @@
     }
 
     td:nth-child(3) {
-        width: 30%;
+        width: 35%;
     }
 
     td:nth-child(4) {
-        width: 30%;
+        width: 20%;
+    }
+
+    .btn {
+        width: 50%;
+    }
+
+    .tableCourseApproved__emptyList {
+        @include text-style($color-black-0, $fs-2, $fw-normal);
+        padding-bottom: 0;
     }
 }
 
@@ -22,8 +31,31 @@
 
 @include mediaQuery('extra-large-2') {
     .tableCourseApproved {
-        font-size: $fs-1;
 
+        td:nth-child(1) {
+            width: 10%;
+        }
+
+        td:nth-child(1) {
+            width: 10%;
+        }
+
+        td:nth-child(3) {
+            width: 40%;
+        }
+
+        td:nth-child(4) {
+            width: 15%;
+        }
+
+        .btn {
+            width: 50%;
+        }
+    }
+}
+
+@include mediaQuery('extra-large') {
+    .tableCourseApproved {
         td:nth-child(1) {
             width: 10%;
         }
@@ -37,11 +69,11 @@
         }
 
         td:nth-child(4) {
-            width: 30%;
+            width: 10%;
         }
 
         .btn {
-            font-size: $fs-1;
+            width: 60%;
         }
     }
 }
@@ -59,14 +91,15 @@
         }
 
         td:nth-child(3) {
-            width: 20%;
+            width: 25%;
         }
 
         td:nth-child(4) {
-            width: 30%;
+            width: 5%;
         }
 
         .btn {
+            width: 90%;
             font-size: $fs-1;
         }
     }
@@ -85,14 +118,15 @@
         }
 
         td:nth-child(3) {
-            width: 20%;
+            width: 25%;
         }
 
         td:nth-child(4) {
-            width: 45%;
+            width: 5%;
         }
 
         .btn {
+            width: 90%;
             font-size: $fs-1;
         }
     }

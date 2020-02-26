@@ -25,18 +25,30 @@ class ModalCourseAcceptedComponent extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.courseListAccepted.map((item, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{index + 1}</td>
-                                        <td>{item.maKhoaHoc}</td>
-                                        <td>{item.tenKhoaHoc}</td>
-                                        <td className="text-center">
-                                            <button onClick={() => this.handleCancelCourse(item.maKhoaHoc, taiKhoan)} className="btn btn-cyber-red mr-2">Cancel</button>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
+                            {this.props.courseListAccepted.length ? (
+                                    this.props.courseListAccepted.map((item, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{index + 1}</td>
+                                                <td>{item.maKhoaHoc}</td>
+                                                <td>{item.tenKhoaHoc}</td>
+                                                <td className="text-center">
+                                                    <button onClick={() => this.handleCancelCourse(item.maKhoaHoc, taiKhoan)} className="btn btn-cyber-red mr-2">Cancel</button>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                            ) : (
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td className="tableCourseApproved__emptyList">
+                                        Empty List
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            )
+                        }
                         </tbody>
                     </table>
                 </ModalBody>

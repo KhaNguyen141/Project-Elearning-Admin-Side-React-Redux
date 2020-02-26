@@ -1,31 +1,109 @@
 .tableCoursePending {
     width: 100%;
-    td:nth-child(3) {
-        width: 40%;
+    td:nth-child(1) {
+        width: 5%;
         word-break: break-all;
+    }
+
+    td:nth-child(2) {
+        width: 25%;
+        word-break: break-all;
+    }
+
+    td:nth-child(3) {
+        width: 25%;
+        word-break: break-all;
+    }
+
+    td:nth-child(4) {
+        width: 20%;
+        word-break: break-all;
+    }
+
+    .btn {
+        width: 30%;
+    }
+
+    .tableCoursePending__emptyList {
+        @include text-style($color-black-0, $fs-2, $fw-normal);
+        padding-bottom: 0;
     }
 }
 
 // Responsive
 
+@include mediaQuery('extra-large-2') {
+    .tableCoursePending {
+        td:nth-child(3) {
+            width: 25%;
+        }
+
+        td:nth-child(4) {
+            width: 20%;
+        }
+
+        .btn {
+            width: 30%;
+            font-size: $fs-1;
+        }
+
+    }
+
+}
+
+@include mediaQuery('extra-large') {
+    .tableCoursePending {
+        td:nth-child(3) {
+            width: 25%;
+        }
+
+        td:nth-child(4) {
+            width: 20%;
+        }
+
+        .btn {
+            width: 40%;
+            font-size: $fs-1;
+        }
+
+    }
+
+}
+
 @include mediaQuery('large') {
     .tableCoursePending {
+    
+        td:nth-child(3) {
+            width: 30%;
+        }
+
+        td:nth-child(4) {
+            width: 10%;
+        }
+
         font-size: $fs-1;
         .btn {
+            width: 80%;
             font-size: $fs-1;
         }
     }
+
 }
 
 @include mediaQuery('medium') {
     .tableCoursePending {
         font-size: $fs-1;
         td:nth-child(3) {
-            width: 25%;
+            width: 20%;
 
         }
 
+        td:nth-child(4) {
+            width: 20%;
+        }
+
         .btn {
+            width: 60%;
             font-size: $fs-1;
         }
     }
