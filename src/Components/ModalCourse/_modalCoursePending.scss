@@ -1,17 +1,13 @@
 .tableCoursePending {
     width: 100%;
+
     td:nth-child(1) {
         width: 5%;
         word-break: break-all;
     }
 
-    td:nth-child(2) {
-        width: 25%;
-        word-break: break-all;
-    }
-
     td:nth-child(3) {
-        width: 25%;
+        width: 40%;
         word-break: break-all;
     }
 
@@ -21,7 +17,7 @@
     }
 
     .btn {
-        width: 30%;
+        width: 45%;
     }
 
     .tableCoursePending__emptyList {
@@ -34,8 +30,12 @@
 
 @include mediaQuery('extra-large-2') {
     .tableCoursePending {
+        td:nth-child(1) {
+            width: 5%;
+        }
+
         td:nth-child(3) {
-            width: 25%;
+            width: 40%;
         }
 
         td:nth-child(4) {
@@ -43,67 +43,71 @@
         }
 
         .btn {
-            width: 30%;
-            font-size: $fs-1;
+            width: 45%;
         }
-
     }
-
 }
 
 @include mediaQuery('extra-large') {
     .tableCoursePending {
+        td:nth-child(1) {
+            width: 5%;
+        }
+
         td:nth-child(3) {
-            width: 25%;
-        }
-
-        td:nth-child(4) {
-            width: 20%;
-        }
-
-        .btn {
-            width: 40%;
-            font-size: $fs-1;
-        }
-
-    }
-
-}
-
-@include mediaQuery('large') {
-    .tableCoursePending {
-    
-        td:nth-child(3) {
-            width: 30%;
+            width: 15%;
         }
 
         td:nth-child(4) {
             width: 10%;
         }
 
-        font-size: $fs-1;
         .btn {
-            width: 80%;
+            width: 45%;
+        }
+    }
+}
+
+@include mediaQuery('large') {
+    .tableCoursePending {
+        font-size: $fs-1;
+        td:nth-child(1) {
+            width: 5%;
+        }
+
+        td:nth-child(3) {
+            width: 20%;
+        }
+
+        td:nth-child(4) {
+            width: 5%;
+        }
+
+        .btn {
+            width: 70%;
             font-size: $fs-1;
         }
     }
-
 }
 
 @include mediaQuery('medium') {
     .tableCoursePending {
         font-size: $fs-1;
+
+        td:nth-child(1) {
+            width: 5%;
+        }
+
         td:nth-child(3) {
             width: 20%;
-
         }
 
         td:nth-child(4) {
-            width: 20%;
+            width: 5%;
         }
 
         .btn {
-            width: 60%;
+            width: 80%;
             font-size: $fs-1;
         }
     }
